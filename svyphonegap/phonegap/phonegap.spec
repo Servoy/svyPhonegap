@@ -6,7 +6,7 @@
 	"libraries": [{
 		"name": "bridge.js",
 		"version": "1.0.0",
-		"url": "svyphonegap/lib/bridge.js",
+		"url": "svyphonegap/phonegap/bridge.js",
 		"mimetype": "text/javascript"
 	}],
 	"model": {

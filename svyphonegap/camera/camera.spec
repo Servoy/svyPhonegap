@@ -3,15 +3,7 @@
 	"displayName": "camera",
 	"version": 1,
 	"definition": "svyphonegap/camera/camera.js",
-	"libraries": 
-	[
-		{
-			"name": "bridge.js",
-			"version": "1.0.0",
-			"url": "svyphonegap/lib/bridge.js",
-			"mimetype": "text/javascript"
-		}
-	],
+	"libraries": [],
 
 	"model": 
 	{
