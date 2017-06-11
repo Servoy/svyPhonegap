@@ -29,7 +29,7 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 				window.onpopstate = function(event) {
 					if (!event.state) {
 						history.forward();
-						window.executeInlineScript(newValue.formname, newValue.script);
+						$window.executeInlineScript(newValue.formname, newValue.script);
 					}
 				}
 

@@ -14,12 +14,12 @@ angular.module('svyphonegapLocation', ['servoy']).factory("svyphonegapLocation",
 			 * @param {{maximumAge: Number, timeout: Number, enableHighAccuracy: Boolean}} [options]
 			 *
 			 */
-			getCurrentPosition: function(successCallback, errorCallback, options) {
+			getCurrentPosition: function(successCallback, errorCallback, options) {				
 				Bridge.executeMethod(getCurrentPosition, null, [successCallback, errorCallback, options]);
 
 				function getCurrentPosition(onSuccess, onError, options) {
 					try {
-						navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+						return navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 					} catch (e) {
 						window.alert('error getting geolocation: ' + e.message);
 					}
@@ -64,5 +64,4 @@ angular.module('svyphonegapLocation', ['servoy']).factory("svyphonegapLocation",
 			}
 
 		}
-	}).run(function($rootScope, $services) {
-})
+	}).run(function($rootScope, $services) { })
