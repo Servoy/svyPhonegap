@@ -15,7 +15,7 @@
 	    	"parameters":
 	    	[
 		    	{
-					"name":"link",
+					"name":"url",
 					"type":"string"
 				}
 			]

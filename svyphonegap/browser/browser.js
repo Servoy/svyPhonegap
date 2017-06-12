@@ -1,25 +1,26 @@
-angular.module('svyphonegapBrowser',['servoy'])
-.factory("svyphonegapBrowser",function($services) 
-{
-	var scope = $services.getServiceScope('svyphonegapBrowser');
-	return {
-		/**
-		 * Open a link on device's default browser		  
-		 * @param {String} link Link to open
-		 *
-		 */
-		openExternalLink: function(link) {
-			 
-			 Bridge.executeMethod(openExternalLink, null, [link]);
+angular.module('svyphonegapBrowser', ['servoy']).factory("svyphonegapBrowser", function($services) {
+		var scope = $services.getServiceScope('svyphonegapBrowser');
+		return {
+			/**
+			 * Open a link on device's default browser
+			 * @param {String} url
+			 *
+			 */
+			openExternalLink: function(url) {
 
-				function openExternalLink(link) {
+				Bridge.executeMethod(openExternalLink, null, [url]);
+
+				function openExternalLink(url) {
 					try {
-						return navigator.app.loadUrl(link, { openExternal:true });
+						if (device.platform === 'Android') {
+							return navigator.app.loadUrl(url, { openExternal: true });
+						} else {
+							return window.open(url, '_system','location=no');
+						}
 					} catch (e) {
 						window.alert('error opening link' + e.message);
 					}
 				}
+			}
 		}
-	}
-})
-.run(function($rootScope,$services){})
+	}).run(function($rootScope, $services) { })
