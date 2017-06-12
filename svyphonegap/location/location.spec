@@ -4,11 +4,7 @@
 	"version": 1,
 	"definition": "svyphonegap/location/location.js",
 	"libraries": [],
-	"model": 
-	{
-		"text": "string"
-	},
-
+	"model": {},
 	"api": 
 	{
 		"getCurrentPosition": 
