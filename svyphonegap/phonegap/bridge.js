@@ -91,7 +91,6 @@ var Bridge = new function() {
 				message.params.push(params[i]);
 			}
 		}
-		console.log(message);
 		window.parent.postMessage(message, '*');
 
 	}
