@@ -3,7 +3,7 @@ angular.module('svyphonegapBrowser', ['servoy']).factory("svyphonegapBrowser", f
 		return {
 			/**
 			 * Open a link on device's default browser
-			 * @param {String} url
+			 * @param {String} url address of web page
 			 *
 			 */
 			openExternalLink: function(url) {
