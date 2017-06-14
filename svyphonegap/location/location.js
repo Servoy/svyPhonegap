@@ -25,6 +25,19 @@ angular.module('svyphonegapLocation', ['servoy']).factory("svyphonegapLocation",
 					}
 				}
 			},
+			/**
+			 * Add a watcher to keep track of the GPS position. As the device moves the watcher <br> will send this information back to the successCallback callback with a Position object as the parameter. If there is an error, the errorCallback function is passed a PositionError object. <br>Possible options are<br><ul>
+			 * <li>enableHighAccuracy: Provides a hint that the application needs the best possible results. By default, the device attempts to retrieve a Position using network-based methods. Setting this property to true tells the framework to use more accurate methods, such as satellite positioning.</li>
+			 * <li>timeout: The maximum length of time (milliseconds) that is allowed to pass from the call to getCurrentPosition or watchPosition until the corresponding geolocationSuccess callback executes. If the geolocationSuccess callback is not invoked within this time, the geolocationError callback is passed a PositionError.TIMEOUT error code. (Note that when used in conjunction with watchPosition, the geolocationError callback could be called on an interval every timeout milliseconds!)</li>
+			 * <li>maximumAge: Accept a cached position whose age is no greater than the specified time in milliseconds.</li>
+			 * </ul>
+			 *
+			 * @param {Function} onWatchSetCallback
+			 * @param {Function} successCallback
+			 * @param {Function} errorCallback
+			 * @param {{maximumAge: Number, timeout: Number, enableHighAccuracy: Boolean}} [options]
+			 *
+			 */
 			watchPosition: function(onWatchSetCallback, successCallback, errorCallback, options) {
 				Bridge.executeMethod(watchPosition, onWatchSetCallback, [successCallback, errorCallback, options]);
 
@@ -36,6 +49,11 @@ angular.module('svyphonegapLocation', ['servoy']).factory("svyphonegapLocation",
 					}
 				}
 			},
+			/**
+			 * Remove an existing watcher which will disable tracking of location.	
+			 * @param {Number} watchId
+			 *
+			 */
 			clearWatch: function(watchId) {
 				Bridge.executeMethod(watchPosition, null, [watchId]);
 
