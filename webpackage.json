@@ -1,6 +1,6 @@
 {
     "name": "svyphonegap",
-    "displayName": "Phonegap NG Services",
+    "displayName": "Phonegap",
     "packageType": "Web-Service",
     "icon": "https://raw.githubusercontent.com/Servoy/svyPhonegap/master/icon.png",
     "description": "A web service to connect to Phonegap’s native plugins.",
