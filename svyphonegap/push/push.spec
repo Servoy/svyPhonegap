@@ -10,6 +10,7 @@
 
 	"model": 
 	{
+		
 	},
 
 	"api": 
@@ -100,6 +101,49 @@
 		{
 			"parameters": 
 			[
+				{
+					"name": "onNotificationCallback",
+					"type": "function"
+				},
+
+				{
+					"name": "onSuccessCallbackMethod",
+					"type": "function"
+				},
+
+				{
+					"name": "onErrorCallbackMethod",
+					"type": "function"
+				}
+			],
+
+			"returns": "boolean"
+		},
+
+		"sendNotification": 
+		{
+			"parameters": 
+			[
+				{
+					"name": "authKey",
+					"type": "string"
+				},
+
+				{
+					"name": "title",
+					"type": "string"
+				},
+
+				{
+					"name": "body",
+					"type": "string"
+				},
+
+				{
+					"name": "topic",
+					"type": "string"
+				},
+
 				{
 					"name": "onNotificationCallback",
 					"type": "function"

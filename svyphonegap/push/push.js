@@ -1,4 +1,4 @@
-angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", function($services) {
+angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", function($services, $http) {
 		var scope = $services.getServiceScope('svyphonegapPush');
 		return {
 			/**
@@ -68,7 +68,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 				}
 			},
 			/**
-			 *Define the behavior receiving a notificaiton
+			 *Define the behavior receiving a notification
 			 *All devices are subscribed automatically to 'all' and 'ios' or 'android' topic respectively.
 			 *Must match the following regular expression: "[a-zA-Z0-9-_.~%]{1,900}".
 			 * </ul>
@@ -84,6 +84,39 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 				function unsubscribeFromTopic(onNotificationCallback, successCallback, errorCallback) {
 					FCMPlugin.subscribeToTopic(onNotificationCallback, successCallback, errorCallback);
 				}
+			},
+			/**
+			 * Send a notification
+			 * an Authkey is required from Google Firebase Cloud Messaging Service
+			 * </ul>
+			 * @param {String} authKey example : key=AIzaSy*******************
+			 * @param {String} title
+			 * @param {String} body
+			 * @param {String} topic
+			 * @param {Function} successCallback
+			 * @param {Function} errorCallback
+			 *
+			 */
+			sendNotification: function(authKey, title, body, topic, successCallback, errorCallback) {
+				$http({
+					url: "https://fcm.googleapis.com/fcm/send",
+					method: "POST",
+					headers: {
+						'Content-Type': 'application/json',
+						'Authorization': authKey
+					},
+					data: {
+						priority: 'high',
+						'to': '/topics/' + topic,
+						notification: {
+							'title': title,
+							'body': body,
+							"sound": "default",
+							"click_action": "FCM_PLUGIN_ACTIVITY",
+							"icon": "fcm_push_icon"
+						}
+					}
+				}).then(successCallback, errorCallback);
 			},
 			isSupported: function(callbackMethod) {
 				Bridge.executeMethod(isSupported, callbackMethod);
