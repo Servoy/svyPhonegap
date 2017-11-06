@@ -145,11 +145,6 @@
 				},
 
 				{
-					"name": "onNotificationCallback",
-					"type": "function"
-				},
-
-				{
 					"name": "onSuccessCallbackMethod",
 					"type": "function"
 				},
