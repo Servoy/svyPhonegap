@@ -89,7 +89,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 * Send a notification to devices that are subscribed to a particular topic
 			 * an Authkey is required from Google Firebase Cloud Messaging Service
 			 * </ul>
-			 * @param {String} authKey example : key=AIzaSy*******************
+			 * @param {String} authKey example : AIzaSy*******************
 			 * @param {String} title
 			 * @param {String} body
 			 * @param {String} topic
@@ -103,7 +103,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 					method: "POST",
 					headers: {
 						'Content-Type': 'application/json',
-						'Authorization': authKey
+						'Authorization': 'key=' + authKey
 					},
 					data: {
 						priority: 'high',
