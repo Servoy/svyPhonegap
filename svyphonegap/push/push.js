@@ -86,7 +86,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 				}
 			},
 			/**
-			 * Send a notification
+			 * Send a notification to devices that are subscribed to a particular topic
 			 * an Authkey is required from Google Firebase Cloud Messaging Service
 			 * </ul>
 			 * @param {String} authKey example : key=AIzaSy*******************
