@@ -7,6 +7,7 @@
     "wikiUrl": "https://github.com/Servoy/svyPhonegap/wiki",
     "sourceUrl": "https://github.com/Servoy/svyPhonegap",
     "releases": [
-    	{"version": "1.0.0-b1","url": "https://github.com/Servoy/svyPhonegap/releases/download/1.0.0-b1/svyphonegap.zip","servoy-version":"8.1.3"}
+    	{"version": "1.0.0-b1","url": "https://github.com/Servoy/svyPhonegap/releases/download/1.0.0-b1/svyphonegap.zip","servoy-version":"8.1.3"},
+    	{"version": "1.0.0-b2","url": "https://github.com/Servoy/svyPhonegap/releases/download/1.0.0-b2/svyphonegap.zip","servoy-version":"8.1.3"}
       ]
 }
