@@ -10,7 +10,6 @@
 
 	"model": 
 	{
-		"text": "string"
 	},
 
 	"api": 
