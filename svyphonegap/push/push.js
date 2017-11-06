@@ -69,8 +69,6 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			},
 			/**
 			 *Define the behavior receiving a notification
-			 *All devices are subscribed automatically to 'all' and 'ios' or 'android' topic respectively.
-			 *Must match the following regular expression: "[a-zA-Z0-9-_.~%]{1,900}".
 			 * </ul>
 			 *
 			 * @param {Function} onNotificationCallback
@@ -81,8 +79,8 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			onNotification: function(onNotificationCallback, successCallback, errorCallback) {
 				Bridge.executeMethod(onNotification, null, [onNotificationCallback, successCallback, errorCallback]);
 
-				function unsubscribeFromTopic(onNotificationCallback, successCallback, errorCallback) {
-					FCMPlugin.subscribeToTopic(onNotificationCallback, successCallback, errorCallback);
+				function onNotification(onNotificationCallback, successCallback, errorCallback) {
+					FCMPlugin.onNotification(onNotificationCallback, successCallback, errorCallback);
 				}
 			},
 			/**
