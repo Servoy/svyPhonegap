@@ -5,8 +5,8 @@ angular.module('svyphonegapFingerprint', ['servoy']).factory("svyphonegapFingerp
 			 * Check if fingerprint authentication is available
 			 * </ul>
 			 *
-			 * @param {Function} isAvailableSuccess Result will depends on device and OS. <br> iPhone X will return 'face' other Android or iOS devices will return 'finger'
-			 * @param {Function} isAvailableError
+			 * @param {Function} [isAvailableSuccess] Result will depends on device and OS. <br> iPhone X will return 'face' other Android or iOS devices will return 'finger'
+			 * @param {Function} [isAvailableError]
 			 *
 			 */
 			isAvailable: function(isAvailableSuccess, isAvailableError) {
@@ -21,8 +21,8 @@ angular.module('svyphonegapFingerprint', ['servoy']).factory("svyphonegapFingerp
 			 * Show authentication dialogue
 			 * </ul>
 			 * @param {{clientId: String, clientSecret: String}} config configuration for fingerprint, clientSecret only needed for Android
-			 * @param {Function} successCallback
-			 * @param {Function} errorCallback
+			 * @param {Function} [successCallback]
+			 * @param {Function} [errorCallback]
 			 *
 			 */
 			show: function(config, successCallback, errorCallback) {
