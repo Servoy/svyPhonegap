@@ -37,7 +37,7 @@
 			[
 				{
 					"name": "config",
-					"type": "Object"
+					"type": "object"
 				},
 
 				{
