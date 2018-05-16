@@ -6,7 +6,6 @@
 	"libraries": [],
 	"model":
 	{
-    	"text": "string"
  	},
  	"api":
  	{
