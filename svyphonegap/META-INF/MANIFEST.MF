@@ -22,6 +22,9 @@ Web-Service: True
 Name: universalLink/universalLink.spec
 Web-Service: True
 
+Name: device/device.spec
+Web-Service: True
+
 Name: camera/camera.spec
 Web-Service: True
 
