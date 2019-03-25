@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: svyphonegap
 Bundle-Name: Phonegap
-Bundle-Version: 1.0.0-b4
+Bundle-Version: 1.0.0-b5
 Package-Type: Web-Service
 
 Name: browser/browser.spec
@@ -16,13 +16,13 @@ Web-Service: True
 Name: location/location.spec
 Web-Service: True
 
+Name: networkinterface/networkinterface.spec
+Web-Service: True
+
 Name: file/file.spec
 Web-Service: True
 
 Name: phonegap/phonegap.spec
-Web-Service: True
-
-Name: universalLink/universalLink.spec
 Web-Service: True
 
 Name: device/device.spec
