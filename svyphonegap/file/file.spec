@@ -23,6 +23,11 @@
 					"name": "fileName",
 					"type": "string"
 				},
+				
+				{
+					"name": "dir",
+					"type": "string"
+				},
 
 				{
 					"name": "callbackSuccess",
@@ -42,6 +47,11 @@
 			[
 				{
 					"name": "fileName",
+					"type": "string"
+				},
+				
+				{
+					"name": "dir",
 					"type": "string"
 				},
 
