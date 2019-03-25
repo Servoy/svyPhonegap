@@ -16,6 +16,9 @@ Web-Service: True
 Name: location/location.spec
 Web-Service: True
 
+Name: file/file.spec
+Web-Service: True
+
 Name: phonegap/phonegap.spec
 Web-Service: True
 
