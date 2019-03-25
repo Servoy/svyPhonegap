@@ -29,6 +29,12 @@
 					"type": "string"
 				},
 
+				
+				{
+					"name": "data",
+					"type": "string"
+				},
+
 				{
 					"name": "callbackSuccess",
 					"type": "function"
@@ -52,11 +58,6 @@
 				
 				{
 					"name": "dir",
-					"type": "string"
-				},
-
-				{
-					"name": "data",
 					"type": "string"
 				},
 
