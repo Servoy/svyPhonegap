@@ -13,6 +13,9 @@ Web-Service: True
 Name: push/push.spec
 Web-Service: True
 
+Name: barcode/barcode.spec
+Web-Service: True
+
 Name: location/location.spec
 Web-Service: True
 
