@@ -8,7 +8,7 @@ angular.module('svyphonegapBarcode', ['servoy']).factory("svyphonegapBarcode", f
 					try {
 						cordova.plugins.barcodeScanner.scan(successCallback, errorCallback);
 					} catch (e) {
-						console.log('Error scanning barcode: ' + e.message)
+						console.error('Error scanning barcode: ' + e.message)
 					}
 				}
 			},

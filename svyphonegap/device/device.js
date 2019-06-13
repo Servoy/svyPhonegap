@@ -10,7 +10,7 @@ angular.module('svyphonegapDevice',['servoy'])
 				try {
 					return [propertyName, device[propertyName]];
 				} catch (e) {
-					window.alert('error getting device info: ' + e.message);
+					console.error('error getting device info: ' + e.message);
 				}
 			}
 		},
@@ -27,7 +27,7 @@ angular.module('svyphonegapDevice',['servoy'])
 					}
 					return [result];
 				} catch (e) {
-					window.alert('error getting device info: ' + e.message);
+					console.error('error getting device info: ' + e.message);
 				}
 			}
 		}
