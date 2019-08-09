@@ -32,6 +32,19 @@
 				"optional": true
 			}],
 			"returns": "boolean"
- 		}
+ 		},
+ 		"setOnResumeMethod": 
+	   	{
+	    	"parameters": [{
+				"name": "callbackMethod",
+				"type": "function"
+			}]
+		},"setOnPauseMethod": 
+	   	{
+	    	"parameters": [{
+				"name": "callbackMethod",
+				"type": "function"
+			}]
+		}
  	}
 }
