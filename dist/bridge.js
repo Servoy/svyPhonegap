@@ -41,7 +41,6 @@ var Bridge = new function() {
             }
         }
     }
-
     this.sendMessageToClient = function(msg) {
         function cloneAsObject(obj) {
             if (obj === null || !(obj instanceof Object)) {
@@ -66,3 +65,16 @@ var Bridge = new function() {
     }
 
 }
+
+var Servoy = {
+    onPauseMethod: null,
+    onResumeMethod: null,
+    setPauseMethod: function(cb) {
+        //set call back for servoy client
+        Servoy.onPauseMethod = cb;
+    },
+    setResumeMethod: function(cb) {
+        //set call back for servoy client
+        Servoy.onResumeMethod = cb;
+    },
+} 
