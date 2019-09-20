@@ -1,4 +1,4 @@
-angular.module('svyphonegapLocation', ['servoy']).factory("svyphonegapLocation", function($services) {
+angular.module('svyphonegapLocation', ['servoy']).factory("svyphonegapLocation", function($services,$window) {
 		var scope = $services.getServiceScope('svyphonegapLocation');
 		return {
 
@@ -43,22 +43,25 @@ angular.module('svyphonegapLocation', ['servoy']).factory("svyphonegapLocation",
 
 				function watchPosition(onSuccess, onError, options) {
 					try {
-						return navigator.geolocation.watchPosition(onSuccess, onError, options);
+						Servoy.currentWatchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+						return;
 					} catch (e) {
 						window.alert('error calling watchPosition: ' + e.message);
 					}
-				}
+				}							
+				
 			},
 			/**
 			 * Remove an existing watcher which will disable tracking of location.	
-			 * @param {Number} watchId
+//			 * @param {Number} watchId
 			 *
 			 */
-			clearWatch: function(watchId) {
+			clearWatch: function() {
 				Bridge.executeMethod(watchPosition, null, [watchId]);
 
 				function watchPosition(watchId) {
 					try {
+						if (!watchId) watchId = Servoy.currentWatchID;
 						return navigator.geolocation.clearWatch(watchId);
 					} catch (e) {
 						window.alert('error calling clearWatch: ' + e.message);

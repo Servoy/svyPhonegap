@@ -27,7 +27,7 @@
 					"type": "object",
 					"optional": true
 				}
-			]
+			],"returns":"string"
 		},
 
 		"watchPosition": 
@@ -64,7 +64,8 @@
 			[
 				{
 					"name": "watchId",
-					"type": "string"
+					"type": "string",
+					"optional": true
 				}
 			]
 		},
