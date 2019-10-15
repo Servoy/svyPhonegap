@@ -20,7 +20,7 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 					try {
 						Servoy.setResumeMethod(callback);
 					} catch (e) {
-						console.error('Error scanning barcode: ' + e.message)
+						console.error('Error : ' + e.message)
 					}
 				}
 			},
@@ -31,7 +31,25 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 					try {
 						Servoy.setPauseMethod(callback);
 					} catch (e) {
-						console.error('Error scanning barcode: ' + e.message)
+						console.error('Error :' + e.message)
+					}
+				}
+			},
+			exit: function(callback) {
+				Bridge.executeMethod(exit, null, []);
+
+				function exit() {
+					try {
+						if (navigator.app)
+						{ navigator.app.exitApp(); }
+
+						else if (navigator.device)
+						{ navigator.device.exitApp(); }
+
+						else
+						{ window.close(); } 
+					} catch (e) {
+						console.error('Error : ' + e.message)
 					}
 				}
 			}

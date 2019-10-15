@@ -45,6 +45,9 @@
 				"name": "callbackMethod",
 				"type": "function"
 			}]
+		},"exit": 
+	   	{
+	    	"parameters": []
 		}
  	}
 }
