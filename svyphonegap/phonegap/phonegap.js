@@ -35,6 +35,17 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 					}
 				}
 			},
+			setBackButtonMethod: function(callback) {
+				Bridge.executeMethod(setBackButtonMethod, null, [callback]);
+
+				function setBackButtonMethod(callback) {
+					try {
+						Servoy.setBackMethod(callback);
+					} catch (e) {
+						console.error('Error :' + e.message)
+					}
+				}
+			},
 			exit: function(callback) {
 				Bridge.executeMethod(exit, null, []);
 
@@ -61,26 +72,4 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 
 	Bridge.init();
 
-	//push 'main' state into history.
-	window.history.pushState('main', '');
-
-	scope.$watch('model.onBackCallbackMethod', function(newValue, oldValue) {
-			if (newValue) {
-				window.onpopstate = function(event) {
-					if (!event.state) {
-						history.forward();
-						$window.executeInlineScript(newValue.formname, newValue.script);
-					}
-				}
-
-				//bind back button
-				return Bridge.executeMethod(bindBackEvent, [newValue]);
-
-				function bindBackEvent() {
-					window.onhashchange = function() {
-						alert('back button pushed!');
-					}
-				}
-			}
-		});
 })

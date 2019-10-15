@@ -69,6 +69,7 @@ var Bridge = new function() {
 var Servoy = {
     onPauseMethod: null,
     onResumeMethod: null,
+    onBackMethod: null,
     setPauseMethod: function(cb) {
         //set call back for servoy client
         Servoy.onPauseMethod = cb;
@@ -76,5 +77,9 @@ var Servoy = {
     setResumeMethod: function(cb) {
         //set call back for servoy client
         Servoy.onResumeMethod = cb;
+    },
+    setBackMethod: function(cb) {
+        //set call back for servoy client
+        Servoy.onBackMethod = cb;
     },
 } 

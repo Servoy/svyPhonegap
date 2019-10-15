@@ -9,11 +9,7 @@
 		"url": "svyphonegap/phonegap/bridge.js",
 		"mimetype": "text/javascript"
 	}],
-	"model": {
-		"onBackCallbackMethod": {
-			"type": "string"
-		}
-	},
+	"model": {},
  	"api": {
  		"executeScript": {
 			"parameters": [{
@@ -40,6 +36,12 @@
 				"type": "function"
 			}]
 		},"setOnPauseMethod": 
+	   	{
+	    	"parameters": [{
+				"name": "callbackMethod",
+				"type": "function"
+			}]
+		},"setBackMethod": 
 	   	{
 	    	"parameters": [{
 				"name": "callbackMethod",
