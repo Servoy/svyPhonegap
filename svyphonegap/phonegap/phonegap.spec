@@ -41,7 +41,7 @@
 				"name": "callbackMethod",
 				"type": "function"
 			}]
-		},"setBackMethod": 
+		},"setOnBackMethod": 
 	   	{
 	    	"parameters": [{
 				"name": "callbackMethod",

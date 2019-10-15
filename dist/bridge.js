@@ -81,5 +81,5 @@ var Servoy = {
     setBackMethod: function(cb) {
         //set call back for servoy client
         Servoy.onBackMethod = cb;
-    },
+    }
 } 

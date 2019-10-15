@@ -35,10 +35,10 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 					}
 				}
 			},
-			setBackButtonMethod: function(callback) {
-				Bridge.executeMethod(setBackButtonMethod, null, [callback]);
+			setOnBackMethod: function(callback) {
+				Bridge.executeMethod(setOnBackMethod, null, [callback]);
 
-				function setBackButtonMethod(callback) {
+				function setOnBackMethod(callback) {
 					try {
 						Servoy.setBackMethod(callback);
 					} catch (e) {

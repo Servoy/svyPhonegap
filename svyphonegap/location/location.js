@@ -43,7 +43,8 @@ angular.module('svyphonegapLocation', ['servoy']).factory("svyphonegapLocation",
 
 				function watchPosition(onSuccess, onError, options) {
 					try {
-						Servoy.currentWatchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+						Servoy.currentWatchID = navigator.geolocation.watchPosition(onSuccess, onError, options);	
+						console.log(Servoy.currentWatchID)
 						return;
 					} catch (e) {
 						window.alert('error calling watchPosition: ' + e.message);
@@ -56,12 +57,14 @@ angular.module('svyphonegapLocation', ['servoy']).factory("svyphonegapLocation",
 //			 * @param {Number} watchId
 			 *
 			 */
-			clearWatch: function() {
-				Bridge.executeMethod(watchPosition, null, [watchId]);
+			clearWatch: function(watchId) {
+				Bridge.executeMethod(watchPosition, [watchId]);
 
 				function watchPosition(watchId) {
-					try {
+					try {						
 						if (!watchId) watchId = Servoy.currentWatchID;
+						if (!watchId) return;
+						console.log(watchId);
 						return navigator.geolocation.clearWatch(watchId);
 					} catch (e) {
 						window.alert('error calling clearWatch: ' + e.message);
