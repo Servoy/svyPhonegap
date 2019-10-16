@@ -67,6 +67,70 @@ var Bridge = new function() {
 
 }
 
+var app = {
+
+    initialize: function() {
+        this.bindEvents();
+    },
+
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+        //setup iframe
+        document.getElementById('iframe').addEventListener('load',
+            function() {
+                Bridge.init(this);
+            }
+        )
+    },
+    onDeviceReady: function() {
+        document.addEventListener("pause", onPause, false);
+        document.addEventListener("resume", onResume, false);
+
+        document.addEventListener("backbutton", function(e) {
+            e.preventDefault();
+            onBack();
+        }, false);
+
+        function onBack() {
+            console.log('back');
+            // Handle the hardware back button event            
+            try {
+                if (Servoy.onBackMethod) {
+                    Servoy.onBackMethod();
+                }
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
+        //runs when the app is on background
+        function onPause() {
+            console.log('pause');
+            // Handle the pause event            
+            try {
+                if (Servoy.onPauseMethod) {
+                    Servoy.onPauseMethod();
+                }
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
+        //runs when the app resumes
+        function onResume() {
+            console.log('resume');
+            // Handle the resume event          
+            try {
+                if (Servoy.onResumeMethod) {
+                    Servoy.onResumeMethod();
+                }
+            } catch (e) {
+                console.log(e)
+            }   
+        }
+    }
+};
+
 var Servoy = {
     bridgeInit:null,
     onPauseMethod: null,
