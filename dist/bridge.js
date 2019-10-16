@@ -1,7 +1,8 @@
 var Bridge = new function() {
     this.iFrame = null;
-    this.init = function(iFrame) {
-
+    this.init = function(iFrame) {        
+        if (Servoy.bridgeInit) return;
+        Servoy.bridgeInit = true;
         this.iFrame = iFrame;
 
         if (window.addEventListener) {
@@ -67,6 +68,7 @@ var Bridge = new function() {
 }
 
 var Servoy = {
+    bridgeInit:null,
     onPauseMethod: null,
     onResumeMethod: null,
     onBackMethod: null,
@@ -81,5 +83,5 @@ var Servoy = {
     setBackMethod: function(cb) {
         //set call back for servoy client
         Servoy.onBackMethod = cb;
-    }
+    },
 } 
