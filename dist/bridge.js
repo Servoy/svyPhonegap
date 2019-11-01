@@ -1,6 +1,6 @@
 var Bridge = new function() {
     this.iFrame = null;
-    this.init = function(iFrame) {        
+    this.init = function(iFrame) {
         if (Servoy.bridgeInit) return;
         Servoy.bridgeInit = true;
         this.iFrame = iFrame;
@@ -54,10 +54,10 @@ var Bridge = new function() {
             }
             return temp;
         }
-        
-        var params = JSON.stringify(cloneAsObject(msg.params)); 
-        msg.params = params;   
-        console.log(msg);     
+
+        var params = JSON.stringify(cloneAsObject(msg.params));
+        msg.params = params;
+        console.log(msg);
         try {
             this.iFrame.contentWindow.postMessage(msg, '*');
         } catch (e) {
@@ -71,10 +71,28 @@ var app = {
 
     initialize: function() {
         this.bindEvents();
+
+        //fix for using wkwebview engine with IOS 13 (session cookies)
+        if (window.WkWebView && document.cookie == '' && (navigator.userAgent.indexOf('iPhone') != -1 || navigator.userAgent.indexOf('iPad') != -1)) {
+            app.initView = setInterval(function() {
+                if (WebviewSwitch && document.cookie == '') {
+                    document.cookie = 'init'
+                    WebviewSwitch.load('CDVUIWebViewEngine');
+                }
+
+                if (document.cookie == 'init') {
+                    clearInterval(app.initView);
+                    WebviewSwitch.load('CDVWKWebViewEngine');
+                }
+            }, 2500)
+        } else {
+            document.getElementById('iframe').style.visibility = 'visible';
+        }
     },
 
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+
         //setup iframe
         document.getElementById('iframe').addEventListener('load',
             function() {
@@ -126,13 +144,14 @@ var app = {
                 }
             } catch (e) {
                 console.log(e)
-            }   
+            }
         }
     }
 };
 
 var Servoy = {
-    bridgeInit:null,
+    initwebview: null,
+    bridgeInit: null,
     onPauseMethod: null,
     onResumeMethod: null,
     onBackMethod: null,
@@ -148,4 +167,4 @@ var Servoy = {
         //set call back for servoy client
         Servoy.onBackMethod = cb;
     },
-} 
+}
