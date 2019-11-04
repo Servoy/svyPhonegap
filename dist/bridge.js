@@ -73,18 +73,16 @@ var app = {
         this.bindEvents();
 
         //fix for using wkwebview engine with IOS 13 (session cookies)
-        if (document.cookie == '' && (navigator.userAgent.indexOf('iPhone') != -1 || navigator.userAgent.indexOf('iPad') != -1)) {
+        if ((!window.localStorage.getItem('init') || window.localStorage.getItem('init') == '') && (navigator.userAgent.indexOf('iPhone') != -1 || navigator.userAgent.indexOf('iPad') != -1)) {
             app.initView = setInterval(function() {
-                if (WebviewSwitch && document.cookie == '') {
-                    document.cookie = 'init'
-                    WebviewSwitch.load('CDVUIWebViewEngine');
+                if (WebviewSwitch && (!window.localStorage.getItem('init') || window.localStorage.getItem('init') == '')) {
+                    window.localStorage.setItem('init', 'init');
+                    WebviewSwitch.setHostname(document.getElementById('iframe').src.split('http://')[1].split('/solutions')[0]);
                 }
-
-                if (document.cookie == 'init') {
+                if (window.localStorage.getItem('init') == 'init') {
                     clearInterval(app.initView);
-                    WebviewSwitch.load('CDVWKWebViewEngine');
                 }
-            }, 2500)
+            }, 2500);
         } else {
             document.getElementById('iframe').style.visibility = 'visible';
         }
@@ -150,7 +148,6 @@ var app = {
 };
 
 var Servoy = {
-    initwebview: null,
     bridgeInit: null,
     onPauseMethod: null,
     onResumeMethod: null,
