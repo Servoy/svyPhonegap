@@ -73,7 +73,7 @@ var app = {
         this.bindEvents();
 
         //fix for using wkwebview engine with IOS 13 (session cookies)
-        if (window.WkWebView && document.cookie == '' && (navigator.userAgent.indexOf('iPhone') != -1 || navigator.userAgent.indexOf('iPad') != -1)) {
+        if (document.cookie == '' && (navigator.userAgent.indexOf('iPhone') != -1 || navigator.userAgent.indexOf('iPad') != -1)) {
             app.initView = setInterval(function() {
                 if (WebviewSwitch && document.cookie == '') {
                     document.cookie = 'init'
