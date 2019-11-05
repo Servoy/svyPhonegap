@@ -46,6 +46,17 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 					}
 				}
 			},
+			setHostName: function(hostName) {
+				Bridge.executeMethod(setHostName, null, [hostName]);
+
+				function setHostName(hostName) {
+					try {
+						webviewSwitch.setHostname(hostName);
+					} catch (e) {
+						console.error('Error :' + e.message)
+					}
+				}
+			},
 			exit: function(callback) {
 				Bridge.executeMethod(exit, null, []);
 

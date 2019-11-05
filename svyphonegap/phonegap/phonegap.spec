@@ -47,6 +47,12 @@
 				"name": "callbackMethod",
 				"type": "function"
 			}]
+		},"setHost": 
+	   	{
+	    	"parameters": [{
+				"name": "hostName",
+				"type": "string"
+			}]
 		},"exit": 
 	   	{
 	    	"parameters": []
