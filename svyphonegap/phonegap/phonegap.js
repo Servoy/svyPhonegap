@@ -46,14 +46,19 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 					}
 				}
 			},
-			setHostName: function(hostName) {
-				Bridge.executeMethod(setHostName, null, [hostName]);
+			setRedirection: function(hostName, redirectUrl) {
+				Bridge.executeMethod(setRedirection, null, [hostName, redirectUrl]);
 
-				function setHostName(hostName) {
+				function setRedirection(hostName, redirectUrl) {
 					try {
-						webviewSwitch.setHostname(hostName);
+						var init = window.localStorage.getItem('init');
+						if (init != 'finished') {
+							window.localStorage.setItem('init', 'done');
+							window.localStorage.setItem('redirect', redirectUrl);
+							WebviewSwitch.setHostname(hostName);
+						}
 					} catch (e) {
-						console.error('Error :' + e.message)
+						console.error('Error :' + e.message);
 					}
 				}
 			},
@@ -62,14 +67,13 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 
 				function exit() {
 					try {
-						if (navigator.app)
-						{ navigator.app.exitApp(); }
-
-						else if (navigator.device)
-						{ navigator.device.exitApp(); }
-
-						else
-						{ window.close(); } 
+						if (navigator.app) {
+							navigator.app.exitApp();
+						} else if (navigator.device) {
+							navigator.device.exitApp();
+						} else {
+							window.close();
+						}
 					} catch (e) {
 						console.error('Error : ' + e.message)
 					}

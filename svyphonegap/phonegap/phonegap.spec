@@ -47,10 +47,13 @@
 				"name": "callbackMethod",
 				"type": "function"
 			}]
-		},"setHost": 
+		},"setRedirection": 
 	   	{
 	    	"parameters": [{
 				"name": "hostName",
+				"type": "string"
+			},{
+				"name": "redirectUrl",
 				"type": "string"
 			}]
 		},"exit": 
