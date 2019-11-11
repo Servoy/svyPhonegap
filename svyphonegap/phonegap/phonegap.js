@@ -1,90 +1,122 @@
-angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap", function($services) {
+angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap", function($services, $window) {
 		var scope = $services.getServiceScope('svyphonegapPhonegap');
 		return {
-			executeScript: function(script, scriptArgs, callbackMethod) {
-				Bridge.executeMethod(executeScript, null, [callbackMethod, script, scriptArgs]);
+			init: function() {
 
-				function executeScript(script, scriptArgs) {
-					var mArgs = scriptArgs;
-					if (!Array.isArray(scriptArgs)) {
-						mArgs = [scriptArgs]
+				App = {
+					initialize: function() {
+						this.bindEvents();
+					},
+
+					bindEvents: function() {
+						document.addEventListener('deviceready', this.onDeviceReady, false);
+
+					},
+					onDeviceReady: function() {
+						document.addEventListener("pause", onPause, false);
+						document.addEventListener("resume", onResume, false);
+
+						document.addEventListener("backbutton", function(e) {
+								e.preventDefault();
+								onBack();
+							}, false);
+
+						function onBack() {
+							console.log('back');
+							// Handle the hardware back button event
+
+							try {
+								if (Servoy.onBackMethod) {
+									$window.executeInlineScript(Servoy.onBackMethod.formname, Servoy.onBackMethod.script, []);
+								}
+							} catch (e) {
+								console.log(e)
+							}
+						}
+
+						//runs when the app is on background
+						function onPause() {
+							console.log('pause');
+							// Handle the pause event
+							try {
+								if (Servoy.onPauseMethod) {
+									Servoy.onPauseMethod();
+								}
+							} catch (e) {
+								console.log(e)
+							}
+						}
+
+						//runs when the app resumes
+						function onResume() {
+							console.log('resume');
+							// Handle the resume event
+							try {
+								if (Servoy.onResumeMethod) {
+									Servoy.onResumeMethod();
+								}
+							} catch (e) {
+								console.log(e)
+							}
+						}
 					}
-					var f = eval(script);
-					return f.apply(this, mArgs);
+				};
+
+				Servoy = {
+					initwebview: null,
+					bridgeInit: null,
+					onPauseMethod: null,
+					onResumeMethod: null,
+					onBackMethod: null,
+					setPauseMethod: function(cb) {
+						//set call back for servoy client
+						Servoy.onPauseMethod = cb;
+					},
+					setResumeMethod: function(cb) {
+						//set call back for servoy client
+						Servoy.onResumeMethod = cb;
+					},
+					setBackMethod: function(cb) {
+						//set call back for servoy client
+						Servoy.onBackMethod = cb;
+					}
 				}
+
+				App.initialize();
 			},
 			setOnResumeMethod: function(callback) {
-				Bridge.executeMethod(setOnResumeMethod, null, [callback]);
-
-				function setOnResumeMethod(callback) {
-					try {
-						Servoy.setResumeMethod(callback);
-					} catch (e) {
-						console.error('Error : ' + e.message)
-					}
+				try {
+					Servoy.setResumeMethod(callback);
+				} catch (e) {
+					console.error('Error : ' + e.message)
 				}
 			},
 			setOnPauseMethod: function(callback) {
-				Bridge.executeMethod(setOnPauseMethod, null, [callback]);
-
-				function setOnPauseMethod(callback) {
-					try {
-						Servoy.setPauseMethod(callback);
-					} catch (e) {
-						console.error('Error :' + e.message)
-					}
+				try {
+					Servoy.setPauseMethod(callback);
+				} catch (e) {
+					console.error('Error :' + e.message)
 				}
 			},
 			setOnBackMethod: function(callback) {
-				Bridge.executeMethod(setOnBackMethod, null, [callback]);
-
-				function setOnBackMethod(callback) {
-					try {
-						Servoy.setBackMethod(callback);
-					} catch (e) {
-						console.error('Error :' + e.message)
-					}
-				}
-			},
-			setRedirection: function(hostName, redirectUrl) {
-				Bridge.executeMethod(setRedirection, null, [hostName, redirectUrl]);
-
-				function setRedirection(hostName, redirectUrl) {
-					try {
-						var init = window.localStorage.getItem('init');
-						if (init != 'finished') {
-							window.localStorage.setItem('init', 'done');
-							window.localStorage.setItem('redirect', redirectUrl);
-							WebviewSwitch.setHostname(hostName);
-						}
-					} catch (e) {
-						console.error('Error :' + e.message);
-					}
+				try {
+					Servoy.setBackMethod(callback);
+				} catch (e) {
+					console.error('Error :' + e.message)
 				}
 			},
 			exit: function(callback) {
-				Bridge.executeMethod(exit, null, []);
-
-				function exit() {
-					try {
-						if (navigator.app) {
-							navigator.app.exitApp();
-						} else if (navigator.device) {
-							navigator.device.exitApp();
-						} else {
-							window.close();
-						}
-					} catch (e) {
-						console.error('Error : ' + e.message)
+				try {
+					if (navigator.app) {
+						navigator.app.exitApp();
+					} else if (navigator.device) {
+						navigator.device.exitApp();
+					} else {
+						window.close();
 					}
+				} catch (e) {
+					console.error('Error : ' + e.message)
 				}
 			}
 		}
-	}).run(function($rootScope, $services) {
-	var scope = $services.getServiceScope('svyphonegapPhonegap')
-
-	//initialize phonegap bridge
-
-	Bridge.init();
-
-})
+	}).run(function($rootScope, $services) { })

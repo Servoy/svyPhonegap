@@ -1,4 +1,4 @@
-angular.module('svyphonegapFingerprint', ['servoy']).factory("svyphonegapFingerprint", function($services) {
+angular.module('svyphonegapFingerprint', ['servoy']).factory("svyphonegapFingerprint", function($services, $window) {
 		var scope = $services.getServiceScope('svyphonegapFingerprint');
 		return {
 			/**
@@ -10,11 +10,11 @@ angular.module('svyphonegapFingerprint', ['servoy']).factory("svyphonegapFingerp
 			 *
 			 */
 			isAvailable: function(isAvailableSuccess, isAvailableError) {
-				Bridge.executeMethod(isAvailable, null, [isAvailableSuccess, isAvailableError]);
-
-				function isAvailable(success, fail) {
-					Fingerprint.isAvailable(success, fail);
-				}
+				Fingerprint.isAvailable(function(data) {
+						$window.executeInlineScript(isAvailableSuccess.formname, isAvailableSuccess.script, [data]);
+					}, function(err) {
+						$window.executeInlineScript(isAvailableError.formname, isAvailableError.script, [err]);
+					});
 			},
 
 			/**
@@ -26,11 +26,12 @@ angular.module('svyphonegapFingerprint', ['servoy']).factory("svyphonegapFingerp
 			 *
 			 */
 			show: function(config, successCallback, errorCallback) {
-				Bridge.executeMethod(show, null, [config, successCallback, errorCallback]);
 
-				function show(cfg, success, fail) {
-					Fingerprint.show(cfg, success, fail);
-				}
+				Fingerprint.show(config, function(data) {
+						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
+					}, function(err) {
+						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+					});
 			}
 
 		}

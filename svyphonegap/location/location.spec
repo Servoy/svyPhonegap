@@ -33,11 +33,7 @@
 		"watchPosition": 
 		{
 			"parameters": 
-			[
-				{
-					"name": "onWatchSetCallback",
-					"type": "function"
-				},
+			[				
 
 				{
 					"name": "onSuccessCallbackMethod",

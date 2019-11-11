@@ -3,32 +3,19 @@
 	"displayName": "phonegap",
 	"version": 1,
  	"definition": "svyphonegap/phonegap/phonegap.js",
-	"libraries": [{
-		"name": "bridge.js",
-		"version": "1.0.0",
-		"url": "svyphonegap/phonegap/bridge.js",
-		"mimetype": "text/javascript"
-	}],
+	"libraries": [{"name":"android.js", 
+	"version":"1", 
+	"url":"svyphonegap/phonegap/lib/android/cordova.js", 
+	"mimetype":"text/javascript"},{"name":"ios.js", 
+	"version":"1", 
+	"url":"svyphonegap/phonegap/lib/ios/cordova.js", 
+	"mimetype":"text/javascript"}],
 	"model": {},
  	"api": {
- 		"executeScript": {
-			"parameters": [{
-				"name": "script",
-				"type": "string",
-				"optional": false
-			},
-			{
-				"name": "scriptArguments",
-				"type": "object",
-				"optional": true
-			},
-			{
-				"name": "callbackMethod",
-				"type": "function",
-				"optional": true
-			}],
-			"returns": "boolean"
- 		},
+ 		"init": 
+	   	{
+	    	"parameters": []
+		},
  		"setOnResumeMethod": 
 	   	{
 	    	"parameters": [{
@@ -46,15 +33,6 @@
 	    	"parameters": [{
 				"name": "callbackMethod",
 				"type": "function"
-			}]
-		},"setRedirection": 
-	   	{
-	    	"parameters": [{
-				"name": "hostName",
-				"type": "string"
-			},{
-				"name": "redirectUrl",
-				"type": "string"
 			}]
 		},"exit": 
 	   	{

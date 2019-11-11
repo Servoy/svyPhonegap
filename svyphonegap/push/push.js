@@ -1,4 +1,4 @@
-angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", function($services, $http) {
+angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", function($services, $http, $window) {
 		var scope = $services.getServiceScope('svyphonegapPush');
 		return {
 			/**
@@ -10,11 +10,11 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 *
 			 */
 			onTokenRefresh: function(successCallback, errorCallback) {
-				Bridge.executeMethod(onTokenRefresh, null, [successCallback, errorCallback]);
-
-				function onTokenRefresh(successCallback, errorCallback) {
-					FCMPlugin.onTokenRefresh(successCallback, errorCallback);
-				}
+				FCMPlugin.onTokenRefresh(function(data) {
+						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
+					}, function(err) {
+						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+					});
 			},
 			/**
 			 * Generate a token
@@ -25,11 +25,11 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 *
 			 */
 			getToken: function(successCallback, errorCallback) {
-				Bridge.executeMethod(onTokenRefresh, null, [successCallback, errorCallback]);
-
-				function onTokenRefresh(successCallback, errorCallback) {
-					FCMPlugin.getToken(successCallback, errorCallback);
-				}
+				FCMPlugin.getToken(function(data) {
+						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
+					}, function(err) {
+						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+					});
 			},
 			/**
 			 *Subscribe to a topic
@@ -43,11 +43,12 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 *
 			 */
 			subscribeToTopic: function(successCallback, errorCallback, topic) {
-				Bridge.executeMethod(subscribeToTopic, null, [successCallback, errorCallback, topic]);
+				FCMPlugin.subscribeToTopic(topic, function(data) {
+						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
+					}, function(err) {
+						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+					});
 
-				function subscribeToTopic(successCallback, errorCallback, topic) {
-					FCMPlugin.subscribeToTopic(topic, successCallback, errorCallback);
-				}
 			},
 			/**
 			 *unSubscribe from a topic
@@ -61,11 +62,11 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 *
 			 */
 			unubscribeFromTopic: function(successCallback, errorCallback, topic) {
-				Bridge.executeMethod(unsubscribeFromTopic, null, [successCallback, errorCallback, topic]);
-
-				function unsubscribeFromTopic(successCallback, errorCallback, topic) {
-					FCMPlugin.unsubscribeFromTopic(topic, successCallback, errorCallback);
-				}
+				FCMPlugin.unsubscribeFromTopic(topic, function(data) {
+						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
+					}, function(err) {
+						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+					});
 			},
 			/**
 			 *Define the behavior receiving a notification
@@ -77,11 +78,13 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 *
 			 */
 			onNotification: function(onNotificationCallback, successCallback, errorCallback) {
-				Bridge.executeMethod(onNotification, null, [onNotificationCallback, successCallback, errorCallback]);
-
-				function onNotification(onNotificationCallback, successCallback, errorCallback) {
-					FCMPlugin.onNotification(onNotificationCallback, successCallback, errorCallback);
-				}
+				FCMPlugin.onNotification(function(data) {
+						$window.executeInlineScript(onNotificationCallback.formname, onNotificationCallback.script, [data]);
+					}, function(data) {
+						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
+					}, function(err) {
+						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+					});
 			},
 			/**
 			 * Send a notification to devices that are subscribed to a particular topic
@@ -117,15 +120,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 				}).then(successCallback, errorCallback);
 			},
 			isSupported: function(callbackMethod) {
-				Bridge.executeMethod(isSupported, callbackMethod);
-
-				function isSupported() {
-					return !!window.Notification;
-				}
-
-				function callback(result) {
-					alert('Is supported: ' + result);
-				}
+				return !!window.Notification;
 			}
 
 		}

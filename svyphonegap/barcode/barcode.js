@@ -1,26 +1,23 @@
-angular.module('svyphonegapBarcode', ['servoy']).factory("svyphonegapBarcode", function($services) {
+angular.module('svyphonegapBarcode', ['servoy']).factory("svyphonegapBarcode", function($services, $window) {
 		var scope = $services.getServiceScope('svyphonegapBarCode');
 		return {
 			scan: function(successCallback, errorCallback, options) {
-				Bridge.executeMethod(scanBarcode, null, [successCallback, errorCallback]);
-
-				function scanBarcode(successCallback, errorCallback) {
-					try {
-						cordova.plugins.barcodeScanner.scan(successCallback, errorCallback);
-					} catch (e) {
-						console.error('Error scanning barcode: ' + e.message)
-					}
+				try {
+					cordova.plugins.barcodeScanner.scan(function(data) {
+							$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
+						}, function(err) {
+							$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+						});
+				} catch (e) {
+					console.error('Error scanning barcode: ' + e.message)
 				}
+
 			},
 			isSupported: function(callbackMethod) {
-				Bridge.executeMethod(isSupported, callbackMethod);
-
-				function isSupported() {
-					try {
-						return !!cordova.plugins.barcodeScanner;
-					} catch (e) {
-						return false;
-					}
+				try {
+					return !!cordova.plugins.barcodeScanner;
+				} catch (e) {
+					return false;
 				}
 			}
 		}

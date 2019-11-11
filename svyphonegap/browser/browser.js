@@ -7,19 +7,14 @@ angular.module('svyphonegapBrowser', ['servoy']).factory("svyphonegapBrowser", f
 			 *
 			 */
 			openExternalLink: function(url) {
-
-				Bridge.executeMethod(openExternalLink, null, [url]);
-
-				function openExternalLink(url) {
-					try {
-						if (device.platform === 'Android') {
-							return navigator.app.loadUrl(url, { openExternal: true });
-						} else {
-							return window.open(url, '_system','location=no');
-						}
-					} catch (e) {
-						window.alert('error opening link' + e.message);
+				try {
+					if (device.platform === 'Android') {
+						return navigator.app.loadUrl(url, { openExternal: true });
+					} else {
+						return window.open(url, '_system', 'location=no');
 					}
+				} catch (e) {
+					window.alert('error opening link' + e.message);
 				}
 			}
 		}
