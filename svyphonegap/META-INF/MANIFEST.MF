@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-SymbolicName: svyphonegap
 Bundle-Name: Phonegap
-Bundle-Version: 1.0.0-rc2
+Bundle-Version: 1.0.0-rc3
 Package-Type: Web-Service
 
 Name: browser/browser.spec
