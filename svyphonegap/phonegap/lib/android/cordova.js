@@ -19,6 +19,8 @@
  under the License.
 */
 ;(function() {
+var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+if (iOS) return;
 var PLATFORM_VERSION_BUILD_LABEL = '8.0.0';
 // file: src/scripts/require.js
 
