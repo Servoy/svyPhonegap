@@ -2,7 +2,7 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 		var scope = $services.getServiceScope('svyphonegapPhonegap');
 		return {
 			init: function() {
-
+				
 				App = {
 					initialize: function() {
 						this.bindEvents();
@@ -119,4 +119,5 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 				}
 			}
 		}
-	}).run(function($rootScope, $services) { })
+	}).run(function($rootScope, $services) {								
+	})
