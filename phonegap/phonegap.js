@@ -25,8 +25,10 @@ function onSolutionOpen(arg, queryParams) {
 			value: application.getServerURL() + "resources/fs/" + application.getSolutionName() + "/" + 'lib/ios/cordova.js'
 		}]
 	};
-	var u = plugins.ngclientutils.getUserAgent().toLowerCase()
-	if (u.indexOf('iphone') != -1 || u.indexOf('ipad') != -1) {
+
+	if (!isMobile.Android() && !isMobile.iOS()) return;
+
+	if (isMobile.iOS()) {
 		plugins.ngclientutils.contributedTags.push(ios);
 	} else {
 		plugins.ngclientutils.contributedTags.push(android);
@@ -35,3 +37,33 @@ function onSolutionOpen(arg, queryParams) {
 	//initialize phonegap module
 	plugins.svyphonegapPhonegap.init();
 }
+
+/**
+ * @properties={typeid:35,uuid:"8FDE0AC4-C448-43AB-96E6-1DB080A00316",variableType:-4}
+ */
+var isMobile = {
+	Android: function() {
+		var agent = plugins.ngclientutils.getUserAgent().toLowerCase();
+		return agent.match(/android/i);
+	},
+	BlackBerry: function() {
+		var agent = plugins.ngclientutils.getUserAgent().toLowerCase();
+		return agent.match(/blackBerry/i);
+	},
+	iOS: function() {
+		var agent = plugins.ngclientutils.getUserAgent().toLowerCase();
+		return agent.match(/iphone|ipad|ipod/i);
+	},
+	Opera: function() {
+		var agent = plugins.ngclientutils.getUserAgent().toLowerCase();
+		return agent.match(/opera mini/i);
+	},
+	Windows: function() {
+		var agent = plugins.ngclientutils.getUserAgent().toLowerCase();
+		return agent.match(/ieMobile/i);
+	},
+	any: function() {
+		return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+	}
+};
+
