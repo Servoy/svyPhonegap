@@ -4,26 +4,18 @@ angular.module('svyphonegapPhonegapOrientation',['servoy'])
 	var scope = $services.getServiceScope('svyphonegapPhonegapOrientation');
 	return {
 		lock: function(orientationType) {
-			Bridge.executeMethod(lockOrientation, null, [orientationType]);
-
-			function lockOrientation(type) {
 				try {
-					window.screen.orientation.lock(type);
+					window.screen.orientation.lock(orientationType);
 				} catch (e) {
 					window.alert('error locking orientation: ' + e.message);
-				}
-			}
+				}			
 		},
-		unlock: function() {
-			Bridge.executeMethod(unlockOrientation, null, []);
-
-			function unlockOrientation() {
+		unlock: function() {		
 				try {
 					window.screen.orientation.unlock();
 				} catch (e) {
 					window.alert('error unlocking orientation: ' + e.message);
-				}
-			}
+				}			
 		},
 		getOrientationTypes: function() {
 			return {
@@ -42,12 +34,12 @@ angular.module('svyphonegapPhonegapOrientation',['servoy'])
 {
 	var scope = $services.getServiceScope('svyphonegapPhonegapOrientation')
 	scope.$watch('model.onOrientationChangeCallbackMethod', function(newValue, oldValue) {
-		if(oldValue){
-			Bridge.executeMethod(removeOrientationEvent, null, []);
+		if(oldValue){			
+			removeOrientationEvent()
 		}
 		
-		if(newValue){
-			Bridge.executeMethod(bindOrientationEvent, null, [newValue]);
+		if(newValue){			
+			bindOrientationEvent(newValue);
 		}
 		
 		function bindOrientationEvent(callback) {
