@@ -28,9 +28,15 @@ Web-Service: True
 Name: phonegap/phonegap.spec
 Web-Service: True
 
+Name: phonegapOrientation/phonegapOrientation.spec
+Web-Service: True
+
 Name: device/device.spec
 Web-Service: True
 
 Name: camera/camera.spec
+Web-Service: True
+
+Name: launchNavigator/launchNavigator.spec
 Web-Service: True
 
