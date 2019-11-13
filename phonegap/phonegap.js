@@ -35,7 +35,7 @@ function onSolutionOpen(arg, queryParams) {
 	}
 
 	//initialize phonegap module
-	plugins.svyphonegapPhonegap.init();
+	plugins.svyphonegapPhonegap.init();	
 }
 
 /**
