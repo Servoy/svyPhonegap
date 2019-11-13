@@ -31,6 +31,20 @@
 		},"exit": 
 	   	{
 	    	"parameters": []
-		}
+		},
+		"executeScript": {
+			"parameters": [{
+				"name": "script",
+				"type": "string",
+				"optional": false
+			},
+			{
+				"name": "scriptArguments",
+				"type": "object",
+				"optional": true
+			}],
+			"returns": "boolean"
+ 		}
+ 	}
  	}
 }
