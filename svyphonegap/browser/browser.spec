@@ -18,6 +18,16 @@
 					"type":"string"
 				}
 			]
+		},
+		"openPhone": 
+	   	{
+	    	"parameters":
+	    	[
+		    	{
+					"name":"phone",
+					"type":"string"
+				}
+			]
 		}
  	}
 }

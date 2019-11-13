@@ -16,6 +16,18 @@ angular.module('svyphonegapBrowser', ['servoy']).factory("svyphonegapBrowser", f
 				} catch (e) {
 					window.alert('error opening link' + e.message);
 				}
-			}
+			},
+			openPhone: function(phone) {
+					try {
+						var newPhone = 'tel:' + phone;
+						if (device.platform === 'Android') {								
+							return cordova.InAppBrowser.open(newPhone, '_system');
+						} else {
+							return window.open(newPhone, '_system');
+						}
+					} catch (e) {
+						window.alert('Error opening Phone Dial' + e.message);
+					}				
+				}
 		}
 	}).run(function($rootScope, $services) { })
