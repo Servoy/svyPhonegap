@@ -1,0 +1,11 @@
+{
+    "name":"phonegap",
+    "displayName":"phonegap",
+    "packageType": "Solution",
+    "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/2017-fr.wp-orange-lock.svg/1024px-2017-fr.wp-orange-lock.svg.png",
+    "description": "Phonegap module to for native integration",
+    "wikiUrl": "https://github.com/Servoy/svyPhonegap/wiki",
+    "sourceUrl" : "https://github.com/Servoy/svyPhonegap",
+    "releases" : [        
+        {"version": "1.0.0-rc3","url": "https://github.com/Servoy/svyPhonegap/releases/download/1.0.0-rc3/phonegap.servoy","servoy-version":"8.1.3"}
+     ]
