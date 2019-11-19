@@ -9,12 +9,13 @@ angular.module('svyphonegapNetworkinterface', ['servoy']).factory("svyphonegapNe
 			 * @param {Function} errorCallback
 			 *
 			 */
-			getWiFiIPAddress: function(successCallback, errorCallback) {
-				Bridge.executeMethod(getWiFiIPAddress, null, [successCallback, errorCallback]);
-
-				function getWiFiIPAddress(successCallback, errorCallback) {
-					networkinterface.getWiFiIPAddress(successCallback, errorCallback);
-				}
+			getWiFiIPAddress: function(successCallback, errorCallback) {				
+				networkinterface.getWiFiIPAddress(function(res) {
+					$window.executeInlineScript(successCallback.formname, successCallback.script, [res, Servoy.watchID]);
+				}, function(err) {
+					$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+				});
+				
 			},
 			/**
 			 * Get Carrier IP Address
@@ -25,11 +26,11 @@ angular.module('svyphonegapNetworkinterface', ['servoy']).factory("svyphonegapNe
 			 *
 			 */
 			getCarrierIPAddress: function(successCallback, errorCallback) {
-				Bridge.executeMethod(getCarrierIPAddress, null, [successCallback, errorCallback]);
-
-				function getCarrierIPAddress(successCallback, errorCallback) {
-					networkinterface.getCarrierIPAddress(successCallback, errorCallback);
-				}
+				networkinterface.getCarrierIPAddress(function(res) {
+					$window.executeInlineScript(successCallback.formname, successCallback.script, [res, Servoy.watchID]);
+				}, function(err) {
+					$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+				});				
 			},
 
 			/**
@@ -42,11 +43,11 @@ angular.module('svyphonegapNetworkinterface', ['servoy']).factory("svyphonegapNe
 			 *
 			 */
 			getHttpProxyInformation: function(url, successCallback, errorCallback) {
-				Bridge.executeMethod(getHttpProxyInformation, null, [url, successCallback, errorCallback]);
-
-				function getHttpProxyInformation(url, successCallback, errorCallback) {
-					networkinterface.getHttpProxyInformation(url, successCallback, errorCallback);
-				}
+				networkinterface.getHttpProxyInformation(url, function(res) {
+					$window.executeInlineScript(successCallback.formname, successCallback.script, [res, Servoy.watchID]);
+				}, function(err) {
+					$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+				});							
 			},
 		}
 	}).run(function($rootScope, $services) { })

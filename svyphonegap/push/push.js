@@ -120,7 +120,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 				}).then(successCallback, errorCallback);
 			},
 			isSupported: function(callbackMethod) {
-				return !!window.Notification;
+				return !!FCMPlugin;
 			}
 
 		}
