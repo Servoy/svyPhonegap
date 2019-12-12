@@ -17,7 +17,7 @@
 				"type": "function"
 			}, {
 				"name": "wait",
-				"type": "number"
+				"type": "double"
 			}]
 		},
 		 "startSoftKeyRead": 
@@ -30,7 +30,7 @@
 				"type": "function"
 			}, {
 				"name": "wait",
-				"type": "number"
+				"type": "double"
 			}]
 		},	
 		"init": 
@@ -51,10 +51,7 @@
 		},
 		
 		"isSupported": {
-			"parameters": [{
-				"name": "callbackMethod",
-				"type": "function"
-			}]
+			"parameters": []
 		}
  	}
 }

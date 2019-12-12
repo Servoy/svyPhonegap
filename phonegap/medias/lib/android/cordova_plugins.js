@@ -370,15 +370,15 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "merges": [
         "launchnavigator"
       ]
-    },
+    }, 
     {
-      "id": "com.jkt.zebra.barcode.plugin.ZebraBarcodePlugin",
-      "file": "plugins/com.jkt.zebra.barcode.plugin/www/ZebraBarcodePlugin.js",
-      "pluginId": "com.jkt.zebra.barcode.plugin",
-      "clobbers": [
-        "zebraBarcodePlugin"
-      ]
-    }
+    "id": "com.jkt.zebra.barcode.plugin.ZebraBarcodePlugin",
+    "file": "plugins/com.jkt.zebra.barcode.plugin/www/ZebraBarcodePlugin.js",
+    "pluginId": "com.jkt.zebra.barcode.plugin",
+    "clobbers": [
+      "zebraBarcodePlugin"
+    ]
+  },
   ];
   module.exports.metadata = {
     "cordova-plugin-statusbar": "2.4.3",
@@ -401,6 +401,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-actionsheet": "2.3.3",
     "cordova-plugin-dialogs": "2.0.2",
     "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.4",
-    "com.jkt.zebra.barcode.plugin": "0.0.1"
+    "com.jkt.zebra.barcode.plugin": "0.0.1",
   };
 });

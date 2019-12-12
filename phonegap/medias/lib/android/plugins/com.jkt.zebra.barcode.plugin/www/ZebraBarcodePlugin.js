@@ -7,7 +7,7 @@ var argscheck = require('cordova/argscheck'),
 
 channel.createSticky('onZebraBarcodePluginReady');
 // Tell cordova channel to wait on the CordovaInfoReady event
-channel.waitForInitialization('onZebraBarcodePluginReady');
+// channel.waitForInitialization('onZebraBarcodePluginReady');
 
 /**
  * This represents the mobile device, and provides properties for inspecting the model, version, UUID of the
@@ -46,12 +46,12 @@ ZebraBarcodePlugin.prototype.enableReading = function () {
 	exec(function () {}, function () {}, "ZebraBarcodePlugin", "enableReading", []);
 };
 
-ZebraBarcodePlugin.prototype.init = function () {
-	exec(function () {}, function () {}, "ZebraBarcodePlugin", "init", []);
-};
-
 ZebraBarcodePlugin.prototype.reinit = function () {
 	exec(function () {}, function () {}, "ZebraBarcodePlugin", "reinit", []);
+};
+
+ZebraBarcodePlugin.prototype.init = function () {
+	exec(function () {}, function () {}, "ZebraBarcodePlugin", "init", []);
 };
 
 ZebraBarcodePlugin.prototype.deinit = function () {

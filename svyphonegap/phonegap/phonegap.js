@@ -26,6 +26,7 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 
                 },
                 onDeviceReady: function() {
+                	console.log('device ready!')
                     document.addEventListener("pause", onPause, false);
                     document.addEventListener("resume", onResume, false);
 
@@ -34,7 +35,7 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                         onBack();
                     }, false);
 
-                    function onBack() {
+                    function onBack() {                      	
                         console.log('back');
                         // Handle the hardware back button event
 
@@ -53,7 +54,7 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                         // Handle the pause event
                         try {
                             if (Servoy.onPauseMethod) {
-                                Servoy.onPauseMethod();
+                            	$window.executeInlineScript(Servoy.onPauseMethod.formname, Servoy.onPauseMethod.script, []);                                
                             }
                         } catch (e) {
                             console.log(e)
@@ -66,7 +67,7 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                         // Handle the resume event
                         try {
                             if (Servoy.onResumeMethod) {
-                                Servoy.onResumeMethod();
+                            	$window.executeInlineScript(Servoy.onResumeMethod.formname, Servoy.onResumeMethod.script, []);                                
                             }
                         } catch (e) {
                             console.log(e)
@@ -83,6 +84,7 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                 onResumeMethod: null,
                 onBackMethod: null,
                 setPauseMethod: function(cb) {
+                	console.log(cb)
                     //set call back for servoy client
                     Servoy.onPauseMethod = cb;
                 },
