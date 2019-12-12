@@ -9,7 +9,10 @@
  *
  * @properties={typeid:24,uuid:"B620101F-7C53-471B-AE3B-CBFD16D05767"}
  */
-function onSolutionOpen(arg, queryParams) {
+function onSolutionOpen(arg, queryParams) {	
+	plugins.ngclientutils.setViewportMetaDefaultForMobileAwareSites();
+
+	/** @type {CustomType<ngclientutils.tag>} */
 	var android = {
 		tagName: "script",
 		attrs: [{
@@ -17,7 +20,8 @@ function onSolutionOpen(arg, queryParams) {
 			value: application.getServerURL() + "resources/fs/" + application.getSolutionName() + "/" + 'lib/android/cordova.js'
 		}]
 	};
-
+	
+	/** @type {CustomType<ngclientutils.tag>} */
 	var ios = {
 		tagName: "script",
 		attrs: [{
@@ -33,9 +37,9 @@ function onSolutionOpen(arg, queryParams) {
 	} else {
 		plugins.ngclientutils.contributedTags.push(android);
 	}
-
+	
 	//initialize phonegap module
-	plugins.svyphonegapPhonegap.init();	
+	plugins.svyphonegapPhonegap.init();
 }
 
 /**
