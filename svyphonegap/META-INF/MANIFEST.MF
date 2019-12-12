@@ -40,3 +40,5 @@ Web-Service: True
 Name: launchNavigator/launchNavigator.spec
 Web-Service: True
 
+Name: zebrascanner/zebrascanner.spec
+Web-Service: True
