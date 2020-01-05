@@ -379,6 +379,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "zebraBarcodePlugin"
     ]
   },
+    {
+      "id": "cordova-plugin-cleartext.CordovaPluginsCleartext",
+      "file": "plugins/cordova-plugin-cleartext/www/CordovaPluginsCleartext.js",
+      "pluginId": "cordova-plugin-cleartext",
+      "clobbers": [
+        "cordova.plugins.CordovaPluginsCleartext"
+      ]
+    }
   ];
   module.exports.metadata = {
     "cordova-plugin-statusbar": "2.4.3",
@@ -402,5 +410,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-dialogs": "2.0.2",
     "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.4",
     "com.jkt.zebra.barcode.plugin": "0.0.1",
+    "cordova-plugin-cleartext": "1.0.0"
   };
 });

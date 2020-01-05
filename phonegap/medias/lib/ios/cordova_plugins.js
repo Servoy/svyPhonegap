@@ -382,6 +382,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "merges": [
         "launchnavigator"
       ]
+    },
+    {
+      "id": "cordova-plugin-cleartext.CordovaPluginsCleartext",
+      "file": "plugins/cordova-plugin-cleartext/www/CordovaPluginsCleartext.js",
+      "pluginId": "cordova-plugin-cleartext",
+      "clobbers": [
+        "cordova.plugins.CordovaPluginsCleartext"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -405,6 +413,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-screen-orientation": "3.0.2",
     "cordova-plugin-actionsheet": "2.3.3",
     "cordova-plugin-dialogs": "2.0.2",
-    "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.4"
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.4",
+    "cordova-plugin-cleartext": "1.0.0"
   };
 });
