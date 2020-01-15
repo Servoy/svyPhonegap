@@ -2,7 +2,7 @@
     "name":"phonegap",
     "displayName":"Phonegap",
     "packageType": "Solution",
-    "icon": "",
+    "icon": "https://raw.githubusercontent.com/Servoy/svyPhonegap/master/icon.png",
     "description": "Phonegap module to for native integration",
     "wikiUrl": "https://github.com/Servoy/svyPhonegap/wiki",
     "sourceUrl" : "https://github.com/Servoy/svyPhonegap",
