@@ -29,6 +29,23 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                 	console.log('device ready!')
                     document.addEventListener("pause", onPause, false);
                     document.addEventListener("resume", onResume, false);
+                    
+                    //get build info
+                    cordova.getAppVersion.getVersionNumber(function (d) {		                		            
+    		            Servoy.buildInfo.versionNumber = d;
+    		        });
+                    
+                    cordova.getAppVersion.getVersionCode(function (d) {		                		            
+    		            Servoy.buildInfo.versionCode = d;
+    		        });
+                    
+                    cordova.getAppVersion.getPackageName(function (d) {		                		            
+    		            Servoy.buildInfo.packageName = d;
+    		        });
+                    
+                    cordova.getAppVersion.getAppName(function (d) {		                		            
+    		            Servoy.buildInfo.appName = d;
+    		        });                    
 
                     document.addEventListener("backbutton", function(e) {
                         e.preventDefault();
@@ -83,6 +100,12 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                 onPauseMethod: null,
                 onResumeMethod: null,
                 onBackMethod: null,
+				buildInfo:{
+					versionCode:null,
+					appName:null,
+					packageName:null,
+					versionNumber:null
+				},
                 setPauseMethod: function(cb) {
                 	console.log(cb)
                     //set call back for servoy client
@@ -141,6 +164,9 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
             }
             var f = eval("(" + script + ")");
             return f.apply(this, mArgs);
-        }
+        },
+		getBuildInfo: function(){
+			return Servoy.buildInfo;						  
+		}
     }
 }).run(function($rootScope, $services) {})

@@ -44,6 +44,11 @@
 				"optional": true
 			}],
 			"returns": "boolean"
- 		}
+ 		},
+ 		"getBuildInfo": 
+	   	{
+	    	"parameters": [],
+	    	"returns":"object"
+		}
  	} 	
 }
