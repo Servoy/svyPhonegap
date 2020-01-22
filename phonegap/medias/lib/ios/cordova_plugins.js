@@ -9,6 +9,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+    "id": "cordova-plugin-app-version.AppVersionPlugin",
+    "file": "plugins/cordova-plugin-app-version/www/AppVersionPlugin.js",
+    "pluginId": "cordova-plugin-app-version",
+    "clobbers": [
+      "cordova.getAppVersion"
+    ]
+    },
+    {
       "id": "cordova-plugin-ionic-webview.IonicWebView",
       "file": "plugins/cordova-plugin-ionic-webview/src/www/util.js",
       "pluginId": "cordova-plugin-ionic-webview",
@@ -395,6 +403,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports.metadata = {
     "cordova-plugin-statusbar": "2.4.3",
     "cordova-plugin-whitelist": "1.3.4",
+    "cordova-plugin-app-version": "0.1.9",
     "cordova-plugin-ionic-webview": "4.1.3",
     "cordova-plugin-ionic-keyboard": "2.2.0",
     "phonegap-plugin-barcodescanner": "8.1.0",
