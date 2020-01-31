@@ -2146,7 +2146,7 @@ utils.extend = (function () {
  */
 utils.alert = function (msg) {
     if (window.alert) {
-        window.alert(msg);
+        console.log(msg);
     } else if (console && console.log) {
         console.log(msg);
     }
