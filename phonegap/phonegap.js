@@ -9,7 +9,7 @@
  *
  * @properties={typeid:24,uuid:"B620101F-7C53-471B-AE3B-CBFD16D05767"}
  */
-function onSolutionOpen(arg, queryParams) {	
+function onSolutionOpen(arg, queryParams) {
 	plugins.ngclientutils.setViewportMetaDefaultForMobileAwareSites();
 
 	/** @type {CustomType<ngclientutils.tag>} */
@@ -20,7 +20,7 @@ function onSolutionOpen(arg, queryParams) {
 			value: application.getServerURL() + "resources/fs/" + application.getSolutionName() + "/" + 'lib/android/cordova.js'
 		}]
 	};
-	
+
 	/** @type {CustomType<ngclientutils.tag>} */
 	var ios = {
 		tagName: "script",
@@ -29,15 +29,17 @@ function onSolutionOpen(arg, queryParams) {
 			value: application.getServerURL() + "resources/fs/" + application.getSolutionName() + "/" + 'lib/ios/cordova.js'
 		}]
 	};
-
+	
+	application.output('Phonegap Deeplink: ' + queryParams.phonegap);
 	if (!isMobile.Android() && !isMobile.iOS()) return;
+	if (!queryParams.phonegap) return;
 
 	if (isMobile.iOS()) {
 		plugins.ngclientutils.contributedTags.push(ios);
 	} else {
 		plugins.ngclientutils.contributedTags.push(android);
 	}
-	
+
 	//initialize phonegap module
 	plugins.svyphonegapPhonegap.init();
 }
