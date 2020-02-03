@@ -30,6 +30,19 @@ function onSolutionOpen(arg, queryParams) {
 		}]
 	};
 	
+	/** @type {CustomType<ngclientutils.tag>} */
+	var sw = {
+		tagName: "script",
+		attrs: [{
+			name: "src",
+			value: application.getServerURL() + "resources/fs/" + application.getSolutionName() + "/" + 'lib/sw.js'
+		}]
+	};
+	
+	//add service worker check
+	plugins.ngclientutils.contributedTags.push(sw);
+	
+	
 	application.output('Phonegap Deeplink: ' + queryParams.phonegap);
 	if (!isMobile.Android() && !isMobile.iOS()) return;
 	if (!queryParams.phonegap) return;
