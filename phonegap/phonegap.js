@@ -41,9 +41,7 @@ function onSolutionOpen(arg, queryParams) {
 	
 	//add service worker check
 	plugins.ngclientutils.contributedTags.push(sw);
-	
-	
-	application.output('Phonegap Deeplink: ' + queryParams.phonegap);
+
 	if (!isMobile.Android() && !isMobile.iOS()) return;
 	if (!queryParams.phonegap) return;
 
