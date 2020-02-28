@@ -32,6 +32,10 @@
 	   	{
 	    	"parameters": []
 		},
+		"quitServoySolution": 
+	   	{
+	    	"parameters": []
+		},
 		"executeScript": {
 			"parameters": [{
 				"name": "script",

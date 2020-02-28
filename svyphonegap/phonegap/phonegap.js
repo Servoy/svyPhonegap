@@ -157,6 +157,10 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                 console.error('Error : ' + e.message)
             }
         },
+        quitServoySolution: function(){
+        	sessionStorage.clear();
+        	location.reload();
+        },
         executeScript: function(script, scriptArgs) {
             var mArgs = scriptArgs;
             if (!Array.isArray(scriptArgs)) {
