@@ -12,6 +12,8 @@
 function onSolutionOpen(arg, queryParams) {
 	plugins.ngclientutils.setViewportMetaDefaultForMobileAwareSites();
 
+	if (!isMobile.Android() && !isMobile.iOS()) return;
+	if (!queryParams || !queryParams.phonegap) return;
 	/** @type {CustomType<ngclientutils.tag>} */
 	var android = {
 		tagName: "script",
@@ -29,7 +31,7 @@ function onSolutionOpen(arg, queryParams) {
 			value: application.getServerURL() + "resources/fs/" + application.getSolutionName() + "/" + 'lib/ios/cordova.js'
 		}]
 	};
-	
+
 	/** @type {CustomType<ngclientutils.tag>} */
 	var sw = {
 		tagName: "script",
@@ -38,12 +40,9 @@ function onSolutionOpen(arg, queryParams) {
 			value: application.getServerURL() + "resources/fs/" + application.getSolutionName() + "/" + 'lib/sw.js'
 		}]
 	};
-	
+
 	//add service worker check
 	plugins.ngclientutils.contributedTags.push(sw);
-
-	if (!isMobile.Android() && !isMobile.iOS()) return;
-	if (!queryParams.phonegap) return;
 
 	if (isMobile.iOS()) {
 		plugins.ngclientutils.contributedTags.push(ios);
@@ -53,6 +52,7 @@ function onSolutionOpen(arg, queryParams) {
 
 	//initialize phonegap module
 	plugins.svyphonegapPhonegap.init();
+
 }
 
 /**
