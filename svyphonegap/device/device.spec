@@ -4,30 +4,17 @@
 	"version": 1,
  	"definition": "svyphonegap/device/device.js",
 	"libraries": [],
-	"model":
-	{
-    	"text": "string"
- 	},
+	"model":{},
  	"api":
  	{
 	   "getDeviceInfo": 
 		{
-			"parameters": 
-			[
-				{
-					"name": "callbackMethod",
-					"type": "function"
-				}
-			]
+			"parameters": []
 		},
 		"getDeviceInfoProperty": 
 		{
 			"parameters": 
 			[
-				{
-					"name": "callbackMethod",
-					"type": "function"
-				},
 				{
 					"name": "propertyName",
 					"type": "string"

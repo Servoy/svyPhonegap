@@ -1,15 +1,15 @@
 angular.module('svyphonegapDevice', ['servoy']).factory("svyphonegapDevice", function($services) {
 		var scope = $services.getServiceScope('svyphonegapDevice');
 		return {
-			getDeviceInfoProperty: function(callbackMethod, propertyName) {
+			getDeviceInfoProperty: function(propertyName) {
 				try {
-					return [propertyName, device[propertyName]];
+					return device[propertyName];
 				} catch (e) {
 					console.error('error getting device info: ' + e.message);
 				}
 			},
 
-			getDeviceInfo: function(callbackMethod) {
+			getDeviceInfo: function() {
 				try {
 					var props = ["cordova", "version", "platform", "model", "uuid"];
 					var result = { };
