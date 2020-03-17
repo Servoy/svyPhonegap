@@ -6,10 +6,10 @@
  *
  * @param {String} arg startup argument part of the deeplink url with which the Client was started
  * @param {Object<Array<String>>} queryParams all query parameters of the deeplink url with which the Client was started
- *
+ * @param {Function} onReadyCallback
  * @properties={typeid:24,uuid:"B620101F-7C53-471B-AE3B-CBFD16D05767"}
  */
-function onSolutionOpen(arg, queryParams) {
+function onSolutionOpen(arg, queryParams, onReadyCallback) {
 	plugins.ngclientutils.setViewportMetaDefaultForMobileAwareSites();
 
 	if (!isMobile.Android() && !isMobile.iOS()) return;
@@ -51,7 +51,7 @@ function onSolutionOpen(arg, queryParams) {
 	}
 
 	//initialize phonegap module
-	plugins.svyphonegapPhonegap.init();
+	plugins.svyphonegapPhonegap.init(onReadyCallback);
 
 }
 
