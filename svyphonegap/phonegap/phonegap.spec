@@ -8,7 +8,10 @@
  	"api": {
  		"init": 
 	   	{
-	    	"parameters": []
+	    	"parameters": [{
+				"name": "onReady",
+				"type": "function"
+			}]
 		},
  		"setOnResumeMethod": 
 	   	{
