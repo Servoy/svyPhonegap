@@ -4,16 +4,10 @@ Bundle-Name: Phonegap
 Bundle-Version: 1.0.4
 Package-Type: Web-Service
 
-Name: browser/browser.spec
-Web-Service: True
-
 Name: fingerprint/fingerprint.spec
 Web-Service: True
 
 Name: push/push.spec
-Web-Service: True
-
-Name: barcode/barcode.spec
 Web-Service: True
 
 Name: location/location.spec
@@ -31,14 +25,27 @@ Web-Service: True
 Name: phonegapOrientation/phonegapOrientation.spec
 Web-Service: True
 
+Name: launchNavigator/launchNavigator.spec
+Web-Service: True
+
+Name: browser/browser.spec
+Web-Service: True
+
+Name: barcode/barcode.spec
+Web-Service: True
+
+Name: zebrascanner/zebrascanner.spec
+Web-Service: True
+
+Name: unimag/unimag.spec
+Web-Service: True
+
 Name: device/device.spec
+Web-Service: True
+
+Name: magcard/magcard.spec
 Web-Service: True
 
 Name: camera/camera.spec
 Web-Service: True
 
-Name: launchNavigator/launchNavigator.spec
-Web-Service: True
-
-Name: zebrascanner/zebrascanner.spec
-Web-Service: True
