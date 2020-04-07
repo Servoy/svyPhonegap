@@ -71,6 +71,13 @@ uuid:"9B38AEF3-4D71-4C55-8B1E-C3D463FADE8D"
 },
 {
 encapsulation:0,
+mimeType:"text/javascript",
+name:"lib/android/plugins/com.wodify.cordova.plugin.unimag-swiper/www/unimag-swiper.js",
+typeid:37,
+uuid:"3D9D3B20-606F-4BEC-BEAB-21EC0F4A6A30"
+},
+{
+encapsulation:0,
 mimeType:"application/javascript",
 name:"lib/android/plugins/cordova-plugin-actionsheet/www/ActionSheet.js",
 typeid:37,
@@ -467,6 +474,13 @@ mimeType:"application/javascript",
 name:"lib/ios/phonegap.js",
 typeid:37,
 uuid:"26AD080B-4F41-4F0D-B232-6858448D3CCF"
+},
+{
+encapsulation:0,
+mimeType:"text/javascript",
+name:"lib/ios/plugins/com.wodify.cordova.plugin.unimag-swiper/www/unimag-swiper.js",
+typeid:37,
+uuid:"72C1B2FF-0A76-4488-B2F3-6E83FE1F417C"
 },
 {
 encapsulation:0,
