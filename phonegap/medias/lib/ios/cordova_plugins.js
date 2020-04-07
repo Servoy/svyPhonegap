@@ -326,6 +326,22 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "device"
       ]
+    },    
+    {
+      "id": "com.wodify.cordova.plugin.unimag-swiper.UniMag-Swiper",
+      "file": "plugins/com.wodify.cordova.plugin.unimag-swiper/www/unimag-swiper.js",
+      "pluginId": "com.wodify.cordova.plugin.unimag-swiper",
+      "clobbers": [
+        "cordova.plugins.unimag.swiper"
+      ]
+    },
+    {
+      "id": "com.alignace.cordova.plugin.card.reader.CardReaderPlugin",
+      "file": "plugins/com.alignace.cordova.plugin.card.reader/www/CardReaderPlugin.js",
+      "pluginId": "com.alignace.cordova.plugin.card.reader",
+      "clobbers": [
+        "CardReaderPlugin"
+      ]
     },
     {
       "id": "cordova-plugin-fingerprint-aio.Fingerprint",
@@ -416,6 +432,8 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "it.innowatio.cordova.ios-fullscreen": "0.3.0",
     "cordova-plugin-inappbrowser": "1.7.2",
     "cordova-plugin-device": "1.1.7",
+    "com.wodify.cordova.plugin.unimag-swiper": "0.0.2",
+    "com.alignace.cordova.plugin.card.reader": "1.0.0",
     "cordova-plugin-add-swift-support": "2.0.2",
     "cordova-plugin-fingerprint-aio": "1.7.0",
     "cordova-plugin-fcm-with-dependecy-updated": "2.4.0",
