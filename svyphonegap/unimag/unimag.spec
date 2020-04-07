@@ -74,17 +74,17 @@
 		"onEvent": 
 	   	{
 	    	"parameters":[	  
-	    	{"name":"connecting", "type":"function"},
-	    	{"name":"connected", "type":"function"},
-	    	{"name":"disconnected", "type":"function"},
-	    	{"name":"timeout", "type":"function"},
-	    	{"name":"swipe_processing", "type":"function"},
-	    	{"name":"swipe_success", "type":"function"},
-	    	{"name":"swipe_error", "type":"function"},
-	    	{"name":"connection_error", "type":"function"},
-	    	{"name":"xml_error", "type":"function"},
-	    	{"name":"autoconfig_completed", "type":"function"},
-	    	{"name":"autoconfig_error", "type":"function"}
+	    	{"name":"connectingCB", "type":"function"},
+	    	{"name":"connectedCB", "type":"function"},
+	    	{"name":"disconnectedCB", "type":"function"},
+	    	{"name":"timeoutCB", "type":"function"},
+	    	{"name":"swipe_processingCB", "type":"function"},
+	    	{"name":"swipe_successCB", "type":"function"},
+	    	{"name":"swipe_errorCB", "type":"function"},
+	    	{"name":"connection_errorCB", "type":"function"},
+	    	{"name":"xml_errorCB", "type":"function"},
+	    	{"name":"autoconfig_completedCB", "type":"function"},
+	    	{"name":"autoconfig_errorCB", "type":"function"}
 	    	]
 		}
  	}
