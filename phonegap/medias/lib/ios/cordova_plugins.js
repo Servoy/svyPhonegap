@@ -41,6 +41,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+        "id": "com.idtechproducts.uniMagPlugin",
+        "file": "plugins/com.idtechproducts.uniMagPlugin/www/uniMagPlugin.js",
+        "pluginId": "com.idtechproducts.uniMagPlugin",
+        "clobbers": [
+          "UniMag"
+        ]
+     },
+    {
       "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
       "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
       "pluginId": "phonegap-plugin-barcodescanner",
@@ -326,15 +334,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "device"
       ]
-    },    
-    {
-      "id": "com.wodify.cordova.plugin.unimag-swiper.UniMag-Swiper",
-      "file": "plugins/com.wodify.cordova.plugin.unimag-swiper/www/unimag-swiper.js",
-      "pluginId": "com.wodify.cordova.plugin.unimag-swiper",
-      "clobbers": [
-        "cordova.plugins.unimag.swiper"
-      ]
-    },
+    },        
     {
       "id": "cordova-plugin-fingerprint-aio.Fingerprint",
       "file": "plugins/cordova-plugin-fingerprint-aio/www/Fingerprint.js",
@@ -424,7 +424,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "it.innowatio.cordova.ios-fullscreen": "0.3.0",
     "cordova-plugin-inappbrowser": "1.7.2",
     "cordova-plugin-device": "1.1.7",
-    "com.wodify.cordova.plugin.unimag-swiper": "0.0.2",
+    "com.idtechproducts.uniMagPlugin": "2.1.0",
     "cordova-plugin-add-swift-support": "2.0.2",
     "cordova-plugin-fingerprint-aio": "1.7.0",
     "cordova-plugin-fcm-with-dependecy-updated": "2.4.0",

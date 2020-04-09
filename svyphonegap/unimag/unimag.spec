@@ -11,40 +11,39 @@
  	{
 	   	"getReaderTypes": 
 	   	{
-	    	"parameters": [],
-			"returns" : "object"				
+	    	"parameters": [
+	    	{"name":"callback", "type":"function"}
+	    	]						
 		},
 		"activate": 
 	   	{
 	    	"parameters":
 	    	[
-	    	{"name":"success", "type":"function"},
-	    	{"name":"error", "type":"function"}
 	    	]
 		},
 		"deactivate": 
 	   	{
 	    	"parameters":
 	    	[
-	    	{"name":"success", "type":"function"},
-	    	{"name":"error", "type":"function"}
 	    	]
 		},
 		"swipe": 
 	   	{
 	    	"parameters":
 	    	[
-	    	{"name":"success", "type":"function"},
-	    	{"name":"error", "type":"function"}
+	    	]
+		},
+		"cancelTask": 
+	   	{
+	    	"parameters":
+	    	[
 	    	]
 		},
 		"enableLogs": 
 	   	{
 	    	"parameters":
 	    	[
-	    	{"name":"enable", "type":"boolean"},
-	    	{"name":"success", "type":"function"},
-	    	{"name":"error", "type":"function"}
+	    	{"name":"enable", "type":"boolean"}
 	    	]
 		},"setReaderType": 
 	   	{
@@ -62,29 +61,24 @@
 	    	{"name":"success", "type":"function"},
 	    	{"name":"error", "type":"function"}
 	    	]
-		},
-		"fireEvent": 
-	   	{
-	    	"parameters":
-	    	[
-	    	{"name":"event", "type":"string"},
-	    	{"name":"data", "type":"object"}
-	    	]
-		},
-		"onEvent": 
+		},	
+		"registerObservers": 
 	   	{
 	    	"parameters":[	  
-	    	{"name":"connectingCB", "type":"function"},
-	    	{"name":"connectedCB", "type":"function"},
-	    	{"name":"disconnectedCB", "type":"function"},
-	    	{"name":"timeoutCB", "type":"function"},
-	    	{"name":"swipe_processingCB", "type":"function"},
-	    	{"name":"swipe_successCB", "type":"function"},
-	    	{"name":"swipe_errorCB", "type":"function"},
-	    	{"name":"connection_errorCB", "type":"function"},
-	    	{"name":"xml_errorCB", "type":"function"},
-	    	{"name":"autoconfig_completedCB", "type":"function"},
-	    	{"name":"autoconfig_errorCB", "type":"function"}
+	    	{"name":"OnAttachment", "type":"function"},
+	    	{"name":"OnDetachment", "type":"function"},
+	    	{"name":"OnConnect", "type":"function"},
+	    	{"name":"OnDisconnect", "type":"function"},
+	    	{"name":"OnPowering", "type":"function"},
+	    	{"name":"OnConnectFailed", "type":"function"},
+	    	{"name":"OnCardSwipe", "type":"function"},
+	    	{"name":"OnCardDataProcessing", "type":"function"},
+	    	{"name":"OnDidReceiveCardData", "type":"function"},
+	    	{"name":"OnCardSwipeFailed", "type":"function"},
+	    	{"name":"OnCmdSending", "type":"function"},
+	    	{"name":"OnDidReceiveCmdResponse", "type":"function"},
+	    	{"name":"OnCMDFailed", "type":"function"},
+	    	{"name":"OnSystemMessage", "type":"function"}
 	    	]
 		}
  	}

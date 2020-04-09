@@ -478,9 +478,9 @@ uuid:"26AD080B-4F41-4F0D-B232-6858448D3CCF"
 {
 encapsulation:0,
 mimeType:"text/javascript",
-name:"lib/ios/plugins/com.wodify.cordova.plugin.unimag-swiper/www/unimag-swiper.js",
+name:"lib/ios/plugins/com.idtechproducts.uniMagPlugin/www/uniMagPlugin.js",
 typeid:37,
-uuid:"72C1B2FF-0A76-4488-B2F3-6E83FE1F417C"
+uuid:"F9C3B9EC-456E-43EB-935B-6EC7476D1EAD"
 },
 {
 encapsulation:0,
