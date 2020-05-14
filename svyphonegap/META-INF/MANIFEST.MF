@@ -4,9 +4,6 @@ Bundle-Name: Phonegap
 Bundle-Version: 1.0.4
 Package-Type: Web-Service
 
-Name: fingerprint/fingerprint.spec
-Web-Service: True
-
 Name: push/push.spec
 Web-Service: True
 
@@ -17,6 +14,9 @@ Name: networkinterface/networkinterface.spec
 Web-Service: True
 
 Name: file/file.spec
+Web-Service: True
+
+Name: fingerprintscan/fingerprintscan.spec
 Web-Service: True
 
 Name: phonegap/phonegap.spec
