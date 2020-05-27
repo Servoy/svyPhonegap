@@ -838,12 +838,5 @@ mimeType:"text/javascript",
 name:"lib/ios/wk-plugin.js",
 typeid:37,
 uuid:"CA1FD889-86DB-4723-BB4B-897442DF7882"
-},
-{
-encapsulation:0,
-mimeType:"text/javascript",
-name:"lib/sw.js",
-typeid:37,
-uuid:"CFEDF58B-DC9D-4D24-A420-3B542A70104E"
 }
 ]

@@ -32,18 +32,6 @@ function onSolutionOpen(arg, queryParams, onReadyCallback) {
 		}]
 	};
 
-	/** @type {CustomType<ngclientutils.tag>} */
-	var sw = {
-		tagName: "script",
-		attrs: [{
-			name: "src",
-			value: application.getServerURL() + "resources/fs/" + application.getSolutionName() + "/" + 'lib/sw.js'
-		}]
-	};
-
-	//add service worker check
-	plugins.ngclientutils.contributedTags.push(sw);
-
 	if (isMobile.iOS()) {
 		plugins.ngclientutils.contributedTags.push(ios);
 	} else {
