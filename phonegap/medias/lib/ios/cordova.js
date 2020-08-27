@@ -20,8 +20,18 @@
  */
 ;
 (function() {
-
+	var isiPadOS = function() {
+		const iPad = (navigator.userAgent.match(/(iPad)/) /* iOS pre 13 */ || 
+		  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) /* iPad OS 13 */);
+		return iPad;
+	}
     var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+    if (!iOS) {
+    	if (isiPadOS()) {
+    		iOS = true;
+    	}
+    }
+    
     if (!iOS) return;
     var PLATFORM_VERSION_BUILD_LABEL = '5.0.1';
     // file: src/scripts/require.js
@@ -1993,7 +2003,18 @@
                 pathPrefix = '';
             }
            
+            var isiPadOS = function() {
+        		const iPad = (navigator.userAgent.match(/(iPad)/) /* iOS pre 13 */ || 
+        		  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) /* iPad OS 13 */);
+        		return iPad;
+        	}
             var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+            if (!iOS) {
+            	if (isiPadOS()) {
+            		iOS = true;
+            	}
+            }
+            
             if (iOS) {
                 pathPrefix = pathPrefix.split('lib')[0] + 'lib/ios/'
             }

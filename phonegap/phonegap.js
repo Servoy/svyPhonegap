@@ -12,7 +12,7 @@
 function onSolutionOpen(arg, queryParams, onReadyCallback) {
 	plugins.ngclientutils.setViewportMetaDefaultForMobileAwareSites();
 
-	if (!isMobile.Android() && !isMobile.iOS()) return;
+	if (!isMobile.Android() && !isMobile.iOS() && !isMobile.iPadOS()) return;
 	if (!queryParams || !queryParams.phonegap) return;
 	/** @type {CustomType<ngclientutils.tag>} */
 	var android = {
@@ -32,7 +32,7 @@ function onSolutionOpen(arg, queryParams, onReadyCallback) {
 		}]
 	};
 
-	if (isMobile.iOS()) {
+	if (isMobile.iOS() || isMobile.iPadOS()) {
 		plugins.ngclientutils.contributedTags.push(ios);
 	} else {
 		plugins.ngclientutils.contributedTags.push(android);
@@ -58,6 +58,9 @@ var isMobile = {
 	iOS: function() {
 		var agent = plugins.ngclientutils.getUserAgent().toLowerCase();
 		return agent.match(/iphone|ipad|ipod/i);
+	},
+	iPadOS: function() {
+		return plugins.pgutilDevicechk.isiPadOS();
 	},
 	Opera: function() {
 		var agent = plugins.ngclientutils.getUserAgent().toLowerCase();

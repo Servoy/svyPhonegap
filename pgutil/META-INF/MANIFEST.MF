@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-Name: pgutil
+Bundle-SymbolicName: pgutil
+Package-Type: Web-Service
+Bundle-Version: 1.0.0
+
+Name: devicechk/devicechk.spec
+Web-Service: True
+
