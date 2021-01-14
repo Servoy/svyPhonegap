@@ -2,7 +2,6 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 		var scope = $services.getServiceScope('svyphonegapPhonegap');
 		return {
 			init: function(onReady) {
-
 				App = {
 
 					cloneAsObject: function(obj) {
@@ -17,7 +16,7 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 						return temp;
 					},
 
-					initialize: function() {
+					initialize: function() {							
 						this.bindEvents();
 					},
 

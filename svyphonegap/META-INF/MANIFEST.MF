@@ -34,6 +34,9 @@ Web-Service: True
 Name: barcode/barcode.spec
 Web-Service: True
 
+Name: printer/printer.spec
+Web-Service: True
+
 Name: zebrascanner/zebrascanner.spec
 Web-Service: True
 
