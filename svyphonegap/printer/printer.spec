@@ -35,6 +35,22 @@
 				}
 			]
 		},
+		
+		"printPDF": 
+		{
+			"parameters": 
+			[
+				{
+					"name": "content",
+					"type": "string"
+				},
+
+				{
+					"name": "callback",
+					"type": "function"
+				}
+			]
+		},
 
 		"pickPrinter": 
 		{

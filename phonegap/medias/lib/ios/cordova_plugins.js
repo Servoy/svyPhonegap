@@ -408,6 +408,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
           "cordova.plugins.printer"
         ]
      },
+      {
+      "id": "cordova-plugin-print-pdf.PrintPDF",
+      "file": "plugins/cordova-plugin-print-pdf/www/PrintPDF.js",
+      "pluginId": "cordova-plugin-print-pdf",
+      "clobbers": [
+        "window.PrintPDF"
+      ]
+    },
     {
       "id": "cordova-plugin-cleartext.CordovaPluginsCleartext",
       "file": "plugins/cordova-plugin-cleartext/www/CordovaPluginsCleartext.js",
@@ -442,6 +450,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-dialogs": "2.0.2",
     "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.4",
     "cordova-plugin-cleartext": "1.0.0",
-	"cordova-plugin-printer": "0.7.3"
+	"cordova-plugin-printer": "0.7.3",
+	"cordova-plugin-print-pdf": "4.0.2"
   };
 });

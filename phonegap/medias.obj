@@ -372,6 +372,13 @@ uuid:"CBA8836E-264D-4396-AD1D-8B8B16D22787"
 },
 {
 encapsulation:0,
+mimeType:"application/javascript",
+name:"lib/android/plugins/cordova-plugin-print-pdf/www/PrintPDF.js",
+typeid:37,
+uuid:"73CB3C10-E5FF-47C9-86AC-0EC4505C523B"
+},
+{
+encapsulation:0,
 mimeType:"text/javascript",
 name:"lib/android/plugins/cordova-plugin-printer/www/printer.js",
 typeid:37,
@@ -796,6 +803,13 @@ mimeType:"text/javascript",
 name:"lib/ios/plugins/cordova-plugin-networkinterface/www/networkinterface.js",
 typeid:37,
 uuid:"2CDF7A88-1B5D-4EF6-97A3-CBF6495EBC49"
+},
+{
+encapsulation:0,
+mimeType:"application/javascript",
+name:"lib/ios/plugins/cordova-plugin-print-pdf/www/PrintPDF.js",
+typeid:37,
+uuid:"1D2DEB18-99E3-4DEB-A242-FDF0DE4F10C1"
 },
 {
 encapsulation:0,
