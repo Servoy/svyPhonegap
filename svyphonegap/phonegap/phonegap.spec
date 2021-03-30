@@ -52,6 +52,20 @@
 			}],
 			"returns": "boolean"
  		},
+ 		"executeBeep": 
+	   	{
+	    	"parameters": [{
+				"name": "times",
+				"type": "integer"
+			}]
+		}, 		
+ 		"executeVibration": 
+	   	{
+	    	"parameters": [{
+				"name": "time",
+				"type": "integer"
+			}]
+		},
  		"getBuildInfo": 
 	   	{
 	    	"parameters": [],

@@ -164,9 +164,15 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 				}
 				var f = eval("(" + script + ")");
 				return f.apply(this, mArgs);
-			},
+			},			
 			getBuildInfo: function() {
 				return [Servoy.buildInfo];
+			},
+			executeBeep: function(n){
+				navigator.notification.beep(n);
+			},
+			executeVibration: function(n){
+				navigator.vibrate(n);
 			}
 		}
 	}).run(function($rootScope, $services) { })
