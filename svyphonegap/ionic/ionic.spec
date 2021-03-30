@@ -12,17 +12,11 @@
  	{
 	   	"hideKeyboard": 
 	   	{
-	    	"parameters": [{
-				"name": "times",
-				"type": "integer"
-			}]
+	    	"parameters": []
 		},
 		"showKeyboard": 
 	   	{
-	    	"parameters": [{
-				"name": "times",
-				"type": "integer"
-			}]
+	    	"parameters": []
 		},
 		"isVisibleKeyboard": 
 	   	{
