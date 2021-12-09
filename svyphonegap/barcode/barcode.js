@@ -7,7 +7,7 @@ angular.module('svyphonegapBarcode', ['servoy']).factory("svyphonegapBarcode", f
 							$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
 						}, function(err) {
 							$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
-						});
+						}, options);
 				} catch (e) {
 					console.error('Error scanning barcode: ' + e.message)
 				}
