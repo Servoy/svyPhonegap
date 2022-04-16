@@ -387,6 +387,13 @@ uuid:"6BE2CFD8-02E6-4546-BADE-3C827B11F3E1"
 {
 encapsulation:0,
 mimeType:"application/javascript",
+name:"lib/android/plugins/cordova-plugin-qrscanner/www/www.min.js",
+typeid:37,
+uuid:"68C315FE-D502-4A1C-BD5B-429475AF1446"
+},
+{
+encapsulation:0,
+mimeType:"application/javascript",
 name:"lib/android/plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
 typeid:37,
 uuid:"F3290942-B666-452F-9D5A-06199BDB4B40"
