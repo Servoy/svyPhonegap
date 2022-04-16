@@ -92,6 +92,13 @@ uuid:"3FF35D1A-9C7A-4791-B818-592E7E9C6E07"
 },
 {
 encapsulation:0,
+mimeType:"application/javascript",
+name:"lib/android/plugins/cordova-plugin-camera-preview/www/CameraPreview.js",
+typeid:37,
+uuid:"F74AF759-B879-4BF3-9ECB-2AAA47EAD721"
+},
+{
+encapsulation:0,
 mimeType:"text/javascript",
 name:"lib/android/plugins/cordova-plugin-camera/www/Camera.js",
 typeid:37,
@@ -530,6 +537,13 @@ mimeType:"application/javascript",
 name:"lib/ios/plugins/cordova-plugin-app-version/www/AppVersionPlugin.js",
 typeid:37,
 uuid:"2920D7AA-FCF0-4D13-AA21-027EFE6FEFEE"
+},
+{
+encapsulation:0,
+mimeType:"application/javascript",
+name:"lib/ios/plugins/cordova-plugin-camera-preview/www/CameraPreview.js",
+typeid:37,
+uuid:"D0BE0973-B463-4F61-A8E4-9C88EF931F59"
 },
 {
 encapsulation:0,

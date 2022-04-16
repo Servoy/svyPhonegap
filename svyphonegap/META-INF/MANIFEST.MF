@@ -49,6 +49,9 @@ Web-Service: True
 Name: unimag/unimag.spec
 Web-Service: True
 
+Name: camerapreview/camerapreview.spec
+Web-Service: True
+
 Name: device/device.spec
 Web-Service: True
 
