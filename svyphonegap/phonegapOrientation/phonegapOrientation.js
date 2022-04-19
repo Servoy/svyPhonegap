@@ -27,6 +27,9 @@ angular.module('svyphonegapPhonegapOrientation',['servoy'])
 				LANDSCAPE: "landscape",
 				ANY: "any"
 			};
+		},
+		setOrientationChangeCallback: function(cb) {
+			return 'For use with Titanium client only'
 		}
 	}
 })

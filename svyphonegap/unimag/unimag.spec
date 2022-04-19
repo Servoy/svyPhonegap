@@ -3,6 +3,11 @@
 	"displayName": "unimag",
 	"version": 1,
  	"definition": "svyphonegap/unimag/unimag.js",
+ 	"ng2Config": {
+       "packageName": "@servoy/svyphonegap",
+       "serviceName": "unimagService",
+       "entryPoint": "dist/servoy/ng2package"
+    },
 	"libraries": [],
 	"model":
 	{

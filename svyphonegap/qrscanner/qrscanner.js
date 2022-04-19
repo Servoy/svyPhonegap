@@ -4,10 +4,10 @@ angular.module('svyphonegapQrscanner', ['servoy']).factory("svyphonegapQrscanner
 			prepare: function(onSuccessCallbackMethod, onErrorCallbackMethod) {
 				var done = function(err, status) {
 					if (err) {
-						if(onSuccessCallbackMethod)
+						if(onErrorCallbackMethod)
 						$window.executeInlineScript(onErrorCallbackMethod.formname, onErrorCallbackMethod.script, [err._message]);
 					} else {
-						if(onErrorCallbackMethod)
+						if(onSuccessCallbackMethod)
 						$window.executeInlineScript(onSuccessCallbackMethod.formname, onSuccessCallbackMethod.script, [status]);
 					}
 				};
@@ -17,10 +17,10 @@ angular.module('svyphonegapQrscanner', ['servoy']).factory("svyphonegapQrscanner
 			useCamera: function(camera, onSuccessCallbackMethod, onErrorCallbackMethod) {
 				var done = function(err, status) {
 					if (err) {
-						if(onSuccessCallbackMethod)
+						if(onErrorCallbackMethod)
 						$window.executeInlineScript(onErrorCallbackMethod.formname, onErrorCallbackMethod.script, [err._message]);
 					} else {
-						if(onErrorCallbackMethod)
+						if(onSuccessCallbackMethod)
 						$window.executeInlineScript(onSuccessCallbackMethod.formname, onSuccessCallbackMethod.script, [status]);
 					}
 				};
@@ -30,10 +30,10 @@ angular.module('svyphonegapQrscanner', ['servoy']).factory("svyphonegapQrscanner
 			enableLight: function(onSuccessCallbackMethod, onErrorCallbackMethod) {
 				var done = function(err, status) {
 					if (err) {
-						if(onSuccessCallbackMethod)
+						if(onErrorCallbackMethod)
 						$window.executeInlineScript(onErrorCallbackMethod.formname, onErrorCallbackMethod.script, [err._message]);
 					} else {
-						if(onErrorCallbackMethod)
+						if(onSuccessCallbackMethod)
 						$window.executeInlineScript(onSuccessCallbackMethod.formname, onSuccessCallbackMethod.script, [status]);
 					}
 				};
@@ -43,10 +43,10 @@ angular.module('svyphonegapQrscanner', ['servoy']).factory("svyphonegapQrscanner
 			disableLight: function(onSuccessCallbackMethod, onErrorCallbackMethod) {
 				var done = function(err, status) {
 					if (err) {
-						if(onSuccessCallbackMethod)
+						if(onErrorCallbackMethod)
 						$window.executeInlineScript(onErrorCallbackMethod.formname, onErrorCallbackMethod.script, [err._message]);
 					} else {
-						if(onErrorCallbackMethod)
+						if(onSuccessCallbackMethod)
 						$window.executeInlineScript(onSuccessCallbackMethod.formname, onSuccessCallbackMethod.script, [status]);
 					}
 				};
@@ -58,10 +58,10 @@ angular.module('svyphonegapQrscanner', ['servoy']).factory("svyphonegapQrscanner
 				
 				var done = function(err, text) {
 					if (err) {
-						if(onSuccessCallbackMethod)
+						if(onErrorCallbackMethod)
 						$window.executeInlineScript(onErrorCallbackMethod.formname, onErrorCallbackMethod.script, [err]);
 					} else {
-						if(onErrorCallbackMethod)
+						if(onSuccessCallbackMethod)
 						$window.executeInlineScript(onSuccessCallbackMethod.formname, onSuccessCallbackMethod.script, [text]);
 					}
 				};
@@ -104,7 +104,7 @@ angular.module('svyphonegapQrscanner', ['servoy']).factory("svyphonegapQrscanner
 				}
 				QRScanner.destroy(done);
 			},
-			isSupported: function(callbackMethod) {
+			isSupported: function() {
 				try {
 					return !!QRScanner;
 				} catch (e) {

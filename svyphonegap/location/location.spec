@@ -2,10 +2,18 @@
 	"name": "svyphonegap-location",
 	"displayName": "location",
 	"version": 1,
-	"definition": "svyphonegap/location/location.js",
+ 	"definition": "svyphonegap/location/location.js",
+ 	"ng2Config": {
+       "packageName": "@servoy/svyphonegap",
+       "serviceName": "locationService",
+       "entryPoint": "dist/servoy/ng2package"
+    },
 	"libraries": [],
-	"model": {},
-	"api": 
+	"model":
+	{
+    	
+ 	},
+ 	"api": 
 	{
 		"getCurrentPosition": 
 		{

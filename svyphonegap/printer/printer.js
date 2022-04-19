@@ -20,10 +20,7 @@ angular.module('svyphonegapPrinter', ['servoy']).factory("svyphonegapPrinter", f
 						$window.executeInlineScript(cb.formname, cb.script, ['failed: ' + data.error]);
 					}
 				});
-
-				cordova.plugins.printer.print(content, options, function(r) {
-						$window.executeInlineScript(cb.formname, cb.script, [r]);
-					});
+			
 			},
 
 			pick: function(options, cb) {

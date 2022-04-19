@@ -2,12 +2,13 @@
 	"name": "svyphonegap-printer",
 	"displayName": "printer",
 	"version": 1,
-	"definition": "svyphonegap/printer/printer.js",
-	"libraries": 
-	[
-		
-	],
-
+ 	"definition": "svyphonegap/printer/printer.js",
+ 	"ng2Config": {
+       "packageName": "@servoy/svyphonegap",
+       "serviceName": "printerService",
+       "entryPoint": "dist/servoy/ng2package"
+    },
+	"libraries": [],
 	"model": 
 	{
 		

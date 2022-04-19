@@ -63,7 +63,7 @@
 				}
 			]
 		},
-		
+
 		"setCameraOption": 
 		{
 			"parameters": 
@@ -71,7 +71,8 @@
 				{
 					"name": "option",
 					"type": "string"
-				},			
+				},
+
 				{
 					"name": "mode",
 					"type": "string"

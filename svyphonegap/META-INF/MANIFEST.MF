@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
-Bundle-SymbolicName: svyphonegap
 Bundle-Name: Phonegap
-Bundle-Version: 1.0.4
+Bundle-SymbolicName: svyphonegap
 Package-Type: Web-Service
+Bundle-Version: 1.0.0
 
 Name: push/push.spec
 Web-Service: True

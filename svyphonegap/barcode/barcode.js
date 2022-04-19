@@ -1,5 +1,5 @@
 angular.module('svyphonegapBarcode', ['servoy']).factory("svyphonegapBarcode", function($services, $window) {
-		var scope = $services.getServiceScope('svyphonegapBarCode');
+		var scope = $services.getServiceScope('svyphonegapBarcode');
 		return {
 			scan: function(successCallback, errorCallback, options) {
 				try {
@@ -13,7 +13,7 @@ angular.module('svyphonegapBarcode', ['servoy']).factory("svyphonegapBarcode", f
 				}
 
 			},
-			isSupported: function(callbackMethod) {
+			isSupported: function() {
 				try {
 					return !!cordova.plugins.barcodeScanner;
 				} catch (e) {

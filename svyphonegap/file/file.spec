@@ -3,6 +3,13 @@
 	"displayName": "file",
 	"version": 1,
 	"definition": "svyphonegap/file/file.js",
+	"ng2Config": 
+	{
+		"packageName": "@servoy/svyphonegap",
+		"serviceName": "fileService",
+		"entryPoint": "dist/servoy/ng2package"
+	},
+
 	"libraries": 
 	[
 		
@@ -23,13 +30,12 @@
 					"name": "fileName",
 					"type": "string"
 				},
-				
+
 				{
 					"name": "dir",
 					"type": "string"
 				},
 
-				
 				{
 					"name": "data",
 					"type": "string"
@@ -55,7 +61,7 @@
 					"name": "fileName",
 					"type": "string"
 				},
-				
+
 				{
 					"name": "dir",
 					"type": "string"

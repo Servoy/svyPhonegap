@@ -3,6 +3,11 @@
 	"displayName": "qrscanner",
 	"version": 1,
  	"definition": "svyphonegap/qrscanner/qrscanner.js",
+ 	"ng2Config": {
+       "packageName": "@servoy/svyphonegap",
+       "serviceName": "qrscannerService",
+       "entryPoint": "dist/servoy/ng2package"
+    },
 	"libraries": [],
 	"model": {},
  	"api":
@@ -98,10 +103,7 @@
 			}]
 		},
 		"isSupported": {
-			"parameters": [{
-				"name": "callbackMethod",
-				"type": "function"
-			}]
+			"parameters": []
 		}
  	}
 }

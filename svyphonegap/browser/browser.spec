@@ -3,13 +3,16 @@
 	"displayName": "browser",
 	"version": 1,
  	"definition": "svyphonegap/browser/browser.js",
+ 	"ng2Config": {
+       "packageName": "@servoy/svyphonegap",
+       "serviceName": "browserService",
+       "entryPoint": "dist/servoy/ng2package"
+    },
 	"libraries": [],
-	"model":
-	{
- 	},
+	"model":{},
  	"api":
  	{
-	   	"openExternalLink": 
+	  	"openExternalLink": 
 	   	{
 	    	"parameters":
 	    	[

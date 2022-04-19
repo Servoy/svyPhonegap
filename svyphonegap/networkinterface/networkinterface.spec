@@ -2,12 +2,13 @@
 	"name": "svyphonegap-networkinterface",
 	"displayName": "networkinterface",
 	"version": 1,
-	"definition": "svyphonegap/networkinterface/networkinterface.js",
-	"libraries": 
-	[
-		
-	],
-
+ 	"definition": "svyphonegap/networkinterface/networkinterface.js",
+ 	"ng2Config": {
+       "packageName": "@servoy/svyphonegap",
+       "serviceName": "networkinterfaceService",
+       "entryPoint": "dist/servoy/ng2package"
+    },
+	"libraries": [],
 	"model": 
 	{
 		

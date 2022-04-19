@@ -3,7 +3,17 @@
 	"displayName": "camera",
 	"version": 1,
 	"definition": "svyphonegap/camera/camera.js",
-	"libraries": [],
+	"ng2Config": 
+	{
+		"packageName": "@servoy/svyphonegap",
+		"serviceName": "cameraService",
+		"entryPoint": "dist/servoy/ng2package"
+	},
+
+	"libraries": 
+	[
+		
+	],
 
 	"model": 
 	{
@@ -40,10 +50,7 @@
 		{
 			"parameters": 
 			[
-				{
-					"name": "callbackMethod",
-					"type": "function"
-				}
+				
 			],
 
 			"returns": "boolean"

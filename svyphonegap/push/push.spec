@@ -3,6 +3,13 @@
 	"displayName": "push",
 	"version": 1,
 	"definition": "svyphonegap/push/push.js",
+	"ng2Config": 
+	{
+		"packageName": "@servoy/svyphonegap",
+		"serviceName": "pushService",
+		"entryPoint": "dist/servoy/ng2package"
+	},
+
 	"libraries": 
 	[
 		
@@ -162,10 +169,7 @@
 		{
 			"parameters": 
 			[
-				{
-					"name": "callbackMethod",
-					"type": "function"
-				}
+				
 			],
 
 			"returns": "boolean"

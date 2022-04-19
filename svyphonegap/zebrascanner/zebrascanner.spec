@@ -3,6 +3,11 @@
 	"displayName": "zebrascanner",
 	"version": 1,
  	"definition": "svyphonegap/zebrascanner/zebrascanner.js",
+ 	"ng2Config": {
+       "packageName": "@servoy/svyphonegap",
+       "serviceName": "zebrascannerService",
+       "entryPoint": "dist/servoy/ng2package"
+    },
 	"libraries": [],
 	"model":{},
  	"api":

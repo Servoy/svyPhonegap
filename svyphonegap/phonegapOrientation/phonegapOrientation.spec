@@ -3,6 +3,11 @@
 	"displayName": "phonegapOrientation",
 	"version": 1,
  	"definition": "svyphonegap/phonegapOrientation/phonegapOrientation.js",
+ 	"ng2Config": {
+       "packageName": "@servoy/svyphonegap",
+       "serviceName": "phonegapOrientationService",
+       "entryPoint": "dist/servoy/ng2package"
+    },
 	"libraries": [],
 	"model": {"onOrientationChangeCallbackMethod": {"type": "function"}},
     "api": {
@@ -15,6 +20,15 @@
 	        }]
         },
         "unlock": {},
-        "getOrientationTypes": {"returns": "object"}
+        "getOrientationTypes": {"returns": "object"},
+        "setOrientationChangeCallback": {
+        "parameters": 
+			[
+				{
+					"name": "callbackMethod",
+					"type": "function"
+				}
+			]
+        }
     }
 }

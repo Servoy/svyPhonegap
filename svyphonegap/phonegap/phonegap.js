@@ -3,7 +3,6 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 		return {
 			init: function(onReady) {
 				App = {
-
 					cloneAsObject: function(obj) {
 						if (obj === null || ! (obj instanceof Object)) {
 							return obj;
