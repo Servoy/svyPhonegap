@@ -856,6 +856,13 @@ uuid:"56E3ADBF-2DB1-4255-A780-EB6E6C41B93F"
 {
 encapsulation:0,
 mimeType:"application/javascript",
+name:"lib/ios/plugins/cordova-plugin-qrscanner/www/www.min.js",
+typeid:37,
+uuid:"BD33ACCA-E541-4A9C-B411-73C314C63479"
+},
+{
+encapsulation:0,
+mimeType:"application/javascript",
 name:"lib/ios/plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
 typeid:37,
 uuid:"E2B4ECEC-7044-4E40-8DC0-20B62EE84912"
