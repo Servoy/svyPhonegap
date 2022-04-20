@@ -10,6 +10,7 @@ export class deviceService {
             return device[propertyName];
         } catch (e) {
             console.error('error getting device info: ' + e.message);
+            return []
         }
     }
 
@@ -23,6 +24,7 @@ export class deviceService {
             return [result];
         } catch (e) {
             console.error('error getting device info: ' + e.message);
+            return [];
         }
     }
 

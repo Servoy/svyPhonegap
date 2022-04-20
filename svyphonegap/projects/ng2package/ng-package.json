@@ -5,8 +5,7 @@
         "styles.css"
     ],
   "lib": {
-    "entryFile": "src/public-api.ts",
-    "umdId": "servoy.svyphonegap"
+    "entryFile": "src/public-api.ts"
   },
   "allowedNonPeerDependencies": []
 }
