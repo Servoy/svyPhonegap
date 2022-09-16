@@ -3,6 +3,7 @@
     "displayName": "Phonegap",
     "packageType": "Web-Service",
     "icon": "https://raw.githubusercontent.com/Servoy/svyPhonegap/master/icon.png",
+    "invertIcon": true,
     "description": "A web service to connect to Phonegap’s native plugins.",
     "wikiUrl": "https://github.com/Servoy/svyPhonegap/wiki",
     "sourceUrl": "https://github.com/Servoy/svyPhonegap",
