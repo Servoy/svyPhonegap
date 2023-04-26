@@ -359,13 +359,13 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
             ]
         },
         {
-            "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
-            "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
-            "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
+            "id": "cordova-plugin-fcm-with-dependecy-updated-12.FCMPlugin",
+            "file": "plugins/cordova-plugin-fcm-with-dependecy-updated-12/www/FCMPlugin.js",
+            "pluginId": "cordova-plugin-fcm-with-dependecy-updated-12",
             "clobbers": [
-                "FCMPlugin"
+              "FCM"
             ]
-        },
+          },
         {
             "id": "cordova-plugin-screen-orientation.screenorientation",
             "file": "plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
@@ -467,7 +467,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
         "cordova-plugin-device": "1.1.7",
         "com.idtechproducts.uniMagPlugin": "2.1.0",
         "cordova-plugin-fingerprint-aio": "1.7.0",
-        "cordova-plugin-fcm-with-dependecy-updated": "2.4.0",
+        "cordova-plugin-fcm-with-dependecy-updated-12": "7.8.4",
         "cordova-plugin-screen-orientation": "3.0.2",
         "cordova-plugin-actionsheet": "2.3.3",
         "cordova-plugin-dialogs": "2.0.2",

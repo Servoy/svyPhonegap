@@ -342,13 +342,13 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
-    "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
-    "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
-    "clobbers": [
-      "FCMPlugin"
-    ]
-  },
+      "id": "cordova-plugin-fcm-with-dependecy-updated-12.FCMPlugin",
+      "file": "plugins/cordova-plugin-fcm-with-dependecy-updated-12/www/FCMPlugin.js",
+      "pluginId": "cordova-plugin-fcm-with-dependecy-updated-12",
+      "clobbers": [
+        "FCM"
+      ]
+    },
   {
     "id": "cordova-plugin-inappbrowser.inappbrowser",
     "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
@@ -445,7 +445,7 @@ module.exports.metadata =
   "it.innowatio.cordova.ios-fullscreen": "0.3.0",
   "com.jkt.zebra.barcode.plugin": "1.0.0",
   "cordova-plugin-fingerprint-aio": "1.7.0",
-  "cordova-plugin-fcm-with-dependecy-updated": "2.4.0",
+  "cordova-plugin-fcm-with-dependecy-updated-12": "7.8.4",
   "cordova-plugin-inappbrowser": "1.7.2",
   "es6-promise-plugin": "4.2.2",
   "cordova-plugin-screen-orientation": "3.0.2",

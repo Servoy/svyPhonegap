@@ -156,9 +156,9 @@ uuid:"B69A2F75-177B-4805-8B5A-D9241F36DA5C"
 {
 encapsulation:0,
 mimeType:"text/javascript",
-name:"lib/android/plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
+name:"lib/android/plugins/cordova-plugin-fcm-with-dependecy-updated-12/www/FCMPlugin.js",
 typeid:37,
-uuid:"02A182BE-056A-4BAB-B369-91B5960FED41"
+uuid:"C8B2B8A5-9CEC-4922-97E8-57FFB7BD3C7C"
 },
 {
 encapsulation:0,
@@ -597,9 +597,9 @@ uuid:"FFB39485-A66C-4090-8F95-828CB86FEA56"
 {
 encapsulation:0,
 mimeType:"text/javascript",
-name:"lib/ios/plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
+name:"lib/ios/plugins/cordova-plugin-fcm-with-dependecy-updated-12/www/FCMPlugin.js",
 typeid:37,
-uuid:"B0448CD0-0EB3-41A3-9035-C967E82440F9"
+uuid:"CD3681FA-97E5-44C9-8510-67A6F553863B"
 },
 {
 encapsulation:0,
