@@ -21,7 +21,7 @@ export class pushService {
      *
      */
     onTokenRefresh(successCallback, errorCallback) {
-        FCM.onTokenRefresh(function(data) {
+        FCM.onTokenRefresh().then(function(data) {
             this.helperCB(successCallback, [data]);
         }.bind(this), function(err) {
             this.helperCB(errorCallback, [err]);
@@ -37,7 +37,7 @@ export class pushService {
      *
      */
     getToken(successCallback, errorCallback) {
-        FCM.getToken(function(data) {
+        FCM.getToken().then(function(data) {
             this.helperCB(successCallback, [data]);
         }.bind(this), function(err) {
             this.helperCB(errorCallback, [err]);
@@ -56,7 +56,7 @@ export class pushService {
      *
      */
     subscribeToTopic(successCallback, errorCallback, topic) {
-        FCM.subscribeToTopic(topic, function(data) {
+        FCM.subscribeToTopic(topic).then(, function(data) {
             this.helperCB(successCallback, [data]);
         }.bind(this), function(err) {
             this.helperCB(errorCallback, [err]);
@@ -76,7 +76,7 @@ export class pushService {
      *
      */
     unubscribeFromTopic(successCallback, errorCallback, topic) {
-        FCM.unsubscribeFromTopic(topic, function(data) {
+        FCM.unsubscribeFromTopic(topic).then(function(data) {
             this.helperCB(successCallback, [data]);
         }.bind(this), function(err) {
             this.helperCB(errorCallback, [err]);
@@ -93,7 +93,7 @@ export class pushService {
      *
      */
     onNotification(onNotificationCallback, successCallback, errorCallback) {
-        FCM.onNotification(function(data) {
+        FCM.onNotification().subscribe(function(data) {
             this.helperCB(onNotificationCallback, [data]);
         }.bind(this), function(data) {
             this.helperCB(successCallback, [data]);
