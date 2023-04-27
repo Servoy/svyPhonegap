@@ -93,7 +93,7 @@ export class pushService {
      *
      */
     onNotification(onNotificationCallback, successCallback, errorCallback) {
-        FCM.onNotification().subscribe(function(data) {
+        FCM.onNotification(function(data) {
             this.helperCB(onNotificationCallback, [data]);
         }.bind(this), function(data) {
             this.helperCB(successCallback, [data]);

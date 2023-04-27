@@ -76,7 +76,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 *
 			 */
 			onNotification: function(onNotificationCallback) {
-				FCM.onNotification().subscribe(function(data){
+				FCM.onNotification(function(data){
 					$window.executeInlineScript(onNotificationCallback.formname, onNotificationCallback.script, [data]);
 				});
 			},
