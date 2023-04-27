@@ -17,10 +17,18 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 
 					initialize: function() {							
 						this.bindEvents();
-					},
+					},   
 
-					bindEvents: function() {
-						document.addEventListener('deviceready', this.onDeviceReady, false);
+					bindEvents: function() { 
+						console.log('bindEvents'); 
+						
+						this.bindEventsInterval = setInterval(function(){							
+							if (cordova && cordova.file) {
+								clearInterval(this.bindEventsInterval);
+								this.onDeviceReady();
+							}
+						}.bind(this),50)
+									
 
 					},
 					onDeviceReady: function() {
@@ -115,8 +123,7 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 						Servoy.onBackMethod = cb;
 					}
 				}
-
-				App.initialize();
+					App.initialize();		
 			},
 			setOnResumeMethod: function(callback) {
 				try {
