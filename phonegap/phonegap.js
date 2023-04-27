@@ -40,6 +40,12 @@ function onSolutionOpen(arg, queryParams, onReadyCallback) {
 
 	//initialize phonegap module
 	plugins.svyphonegapPhonegap.init(onReadyCallback);
+	
+	//add support for iphones that have a notch
+     /** @type {CustomType<ngclientutils.tag>} */
+     var tag = {tagName: "meta", attrs: [{ name: "name", value: "viewport" }, 
+    { name: "content", value: "width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" }]};
+    plugins.ngclientutils.replaceHeaderTag('meta', 'name', 'viewport', tag);
 
 }
 
