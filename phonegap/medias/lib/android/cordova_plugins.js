@@ -419,7 +419,23 @@ module.exports = [
     "merges": [
       "launchnavigator"
     ]
-  }
+  },
+  {
+      "id": "cordova-plugin-local-notification-12.LocalNotification",
+      "file": "plugins/cordova-plugin-local-notification-12/www/local-notification.js",
+      "pluginId": "cordova-plugin-local-notification-12",
+      "clobbers": [
+        "cordova.plugins.notification.local"
+      ]
+    },
+  {
+      "id": "cordova-plugin-badge-fix.Badge",
+      "file": "plugins/cordova-plugin-badge-fix/www/badge.js",
+      "pluginId": "cordova-plugin-badge-fix",
+      "clobbers": [
+        "cordova.plugins.notification.badge"
+      ]
+    },
 ];
 module.exports.metadata = 
 // TOP OF METADATA
@@ -446,6 +462,8 @@ module.exports.metadata =
   "com.jkt.zebra.barcode.plugin": "1.0.0",
   "cordova-plugin-fingerprint-aio": "1.7.0",
   "cordova-plugin-fcm-with-dependecy-updated-12": "7.8.4",
+  "cordova-plugin-local-notification-12": "0.1.3",
+  "cordova-plugin-badge-fix": "0.8.10",
   "cordova-plugin-inappbrowser": "1.7.2",
   "es6-promise-plugin": "4.2.2",
   "cordova-plugin-screen-orientation": "3.0.2",
