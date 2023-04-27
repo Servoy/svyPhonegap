@@ -10,7 +10,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 *
 			 */
 			onTokenRefresh: function(successCallback, errorCallback) {
-				FCMPlugin.onTokenRefresh(function(data) {
+				FCM.onTokenRefresh(function(data) {
 						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
 					}, function(err) {
 						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
@@ -25,7 +25,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 *
 			 */
 			getToken: function(successCallback, errorCallback) {
-				FCMPlugin.getToken(function(data) {
+				FCM.getToken(function(data) {
 						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
 					}, function(err) {
 						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
@@ -43,7 +43,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 *
 			 */
 			subscribeToTopic: function(successCallback, errorCallback, topic) {
-				FCMPlugin.subscribeToTopic(topic, function(data) {
+				FCM.subscribeToTopic(topic, function(data) {
 						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
 					}, function(err) {
 						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
@@ -62,7 +62,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 *
 			 */
 			unubscribeFromTopic: function(successCallback, errorCallback, topic) {
-				FCMPlugin.unsubscribeFromTopic(topic, function(data) {
+				FCM.unsubscribeFromTopic(topic, function(data) {
 						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
 					}, function(err) {
 						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
@@ -78,7 +78,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 *
 			 */
 			onNotification: function(onNotificationCallback, successCallback, errorCallback) {
-				FCMPlugin.onNotification(function(data) {
+				FCM.onNotification(function(data) {
 						$window.executeInlineScript(onNotificationCallback.formname, onNotificationCallback.script, [data]);
 					}, function(data) {
 						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
@@ -120,7 +120,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 				}).then(successCallback, errorCallback);
 			},
 			isSupported: function() {
-				return !!FCMPlugin;
+				return !!FCM;
 			}
 
 		}

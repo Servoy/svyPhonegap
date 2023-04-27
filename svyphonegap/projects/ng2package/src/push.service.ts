@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ServoyPublicService } from '@servoy/public';
-declare let FCMPlugin: any;
+declare let FCM: any;
 
 @Injectable()
 export class pushService {
@@ -21,7 +21,7 @@ export class pushService {
      *
      */
     onTokenRefresh(successCallback, errorCallback) {
-        FCMPlugin.onTokenRefresh(function(data) {
+        FCM.onTokenRefresh(function(data) {
             this.helperCB(successCallback, [data]);
         }.bind(this), function(err) {
             this.helperCB(errorCallback, [err]);
@@ -37,7 +37,7 @@ export class pushService {
      *
      */
     getToken(successCallback, errorCallback) {
-        FCMPlugin.getToken(function(data) {
+        FCM.getToken(function(data) {
             this.helperCB(successCallback, [data]);
         }.bind(this), function(err) {
             this.helperCB(errorCallback, [err]);
@@ -56,7 +56,7 @@ export class pushService {
      *
      */
     subscribeToTopic(successCallback, errorCallback, topic) {
-        FCMPlugin.subscribeToTopic(topic, function(data) {
+        FCM.subscribeToTopic(topic, function(data) {
             this.helperCB(successCallback, [data]);
         }.bind(this), function(err) {
             this.helperCB(errorCallback, [err]);
@@ -76,7 +76,7 @@ export class pushService {
      *
      */
     unubscribeFromTopic(successCallback, errorCallback, topic) {
-        FCMPlugin.unsubscribeFromTopic(topic, function(data) {
+        FCM.unsubscribeFromTopic(topic, function(data) {
             this.helperCB(successCallback, [data]);
         }.bind(this), function(err) {
             this.helperCB(errorCallback, [err]);
@@ -93,7 +93,7 @@ export class pushService {
      *
      */
     onNotification(onNotificationCallback, successCallback, errorCallback) {
-        FCMPlugin.onNotification(function(data) {
+        FCM.onNotification(function(data) {
             this.helperCB(onNotificationCallback, [data]);
         }.bind(this), function(data) {
             this.helperCB(successCallback, [data]);
@@ -142,6 +142,6 @@ export class pushService {
     }
 
     isSupported() {
-        return !!FCMPlugin;
+        return !!FCM;
     }
 }
