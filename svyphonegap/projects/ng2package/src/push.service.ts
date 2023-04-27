@@ -16,15 +16,12 @@ export class pushService {
      * Get a callback every time a token is generated, including the initial generation.
      * </ul>
      *
-     * @param {Function} successCallback
-     * @param {Function} errorCallback
+     * @param {Function} callback
      *
      */
-    onTokenRefresh(successCallback, errorCallback) {
+    onTokenRefresh(callback) {
         FCM.onTokenRefresh().then(function(data) {
-            this.helperCB(successCallback, [data]);
-        }.bind(this), function(err) {
-            this.helperCB(errorCallback, [err]);
+            this.helperCB(callback, [data]);
         }.bind(this));
     }
 
@@ -32,15 +29,12 @@ export class pushService {
      * Generate a token
      * </ul>
      *
-     * @param {Function} successCallback
-     * @param {Function} errorCallback
+     * @param {Function} callback     
      *
      */
-    getToken(successCallback, errorCallback) {
+    getToken(callback) {
         FCM.getToken().then(function(data) {
-            this.helperCB(successCallback, [data]);
-        }.bind(this), function(err) {
-            this.helperCB(errorCallback, [err]);
+            this.helperCB(callback, [data]);
         }.bind(this));
     }
 
@@ -50,12 +44,11 @@ export class pushService {
      *Must match the following regular expression: "[a-zA-Z0-9-_.~%]{1,900}".
      * </ul>
      *
-     * @param {Function} successCallback
-     * @param {Function} errorCallback
      * @param {String} topic
+     * @param {Function} callback     
      *
      */
-    subscribeToTopic(successCallback, errorCallback, topic) {
+    subscribeToTopic(topic,callback) {
         FCM.createNotificationChannel({
                       id: 'urgent_alert', // required
                       name: "Urgent Alert", // required
@@ -74,10 +67,8 @@ export class pushService {
                       }
         });
 
-        FCM.subscribeToTopic(topic).then(, function(data) {
-            this.helperCB(successCallback, [data]);
-        }.bind(this), function(err) {
-            this.helperCB(errorCallback, [err]);
+        FCM.subscribeToTopic(topic).then(function(data) {
+            this.helperCB(callback, [data]);
         }.bind(this));
 
     }
@@ -88,16 +79,13 @@ export class pushService {
      *Must match the following regular expression: "[a-zA-Z0-9-_.~%]{1,900}".
      * </ul>
      *
-     * @param {Function} successCallback
-     * @param {Function} errorCallback
      * @param {String} topic
+     * @param {Function} callback   
      *
      */
-    unubscribeFromTopic(successCallback, errorCallback, topic) {
+    unubscribeFromTopic(topic, callback) {
         FCM.unsubscribeFromTopic(topic).then(function(data) {
-            this.helperCB(successCallback, [data]);
-        }.bind(this), function(err) {
-            this.helperCB(errorCallback, [err]);
+            this.helperCB(callback, [data]);
         }.bind(this));
     }
 
@@ -106,17 +94,11 @@ export class pushService {
      * </ul>
      *
      * @param {Function} onNotificationCallback
-     * @param {Function} successCallback
-     * @param {Function} errorCallback
      *
      */
-    onNotification(onNotificationCallback, successCallback, errorCallback) {
+    onNotification(onNotificationCallback) {
         FCM.onNotification(function(data) {
             this.helperCB(onNotificationCallback, [data]);
-        }.bind(this), function(data) {
-            this.helperCB(successCallback, [data]);
-        }.bind(this), function(err) {
-            this.helperCB(errorCallback, [err]);
         }.bind(this));
     }
 

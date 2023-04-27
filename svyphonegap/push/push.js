@@ -5,30 +5,24 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 * Get a callback every time a token is generated, including the initial generation.
 			 * </ul>
 			 *
-			 * @param {Function} successCallback
-			 * @param {Function} errorCallback
+			 * @param {Function} callback
 			 *
 			 */
-			onTokenRefresh: function(successCallback, errorCallback) {
+			onTokenRefresh: function(callback) {
 				FCM.onTokenRefresh().then(function(data) {
-						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
-					}, function(err) {
-						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+						$window.executeInlineScript(callback.formname, callback.script, [data]);
 					});
 			},
 			/**
 			 * Generate a token
 			 * </ul>
 			 *
-			 * @param {Function} successCallback
-			 * @param {Function} errorCallback
+			 * @param {Function} callback
 			 *
 			 */
-			getToken: function(successCallback, errorCallback) {									
+			getToken: function(callback) {									
 				FCM.getToken().then(function(data) {
-						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
-					}, function(err) {
-						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+						$window.executeInlineScript(callback.formname, callback.script, [data]);
 					});
 			},
 			/**
@@ -36,13 +30,12 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 *All devices are subscribed automatically to 'all' and 'ios' or 'android' topic respectively.
 			 *Must match the following regular expression: "[a-zA-Z0-9-_.~%]{1,900}".
 			 * </ul>
-			 *
-			 * @param {Function} successCallback
-			 * @param {Function} errorCallback
+			 *			 
 			 * @param {String} topic
+			 * @param {Function} callback
 			 *
 			 */
-			subscribeToTopic: function(successCallback, errorCallback, topic) {		
+			subscribeToTopic: function(topic,callback) {		
 				FCM.createNotificationChannel({
 					  id: 'urgent_alert', // required
 					  name: "Urgent Alert", // required
@@ -61,9 +54,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 					  }
 					});
 				FCM.subscribeToTopic(topic).then(function(data) {
-						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
-					}, function(err) {
-						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+						$window.executeInlineScript(callback.formname, callback.script, [data]);
 					});
 
 			},
@@ -73,16 +64,13 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 *Must match the following regular expression: "[a-zA-Z0-9-_.~%]{1,900}".
 			 * </ul>
 			 *
-			 * @param {Function} successCallback
-			 * @param {Function} errorCallback
 			 * @param {String} topic
+			 * @param {Function} callback			 			 
 			 *
 			 */
-			unubscribeFromTopic: function(successCallback, errorCallback, topic) {
+			unubscribeFromTopic: function(topic, callback) {
 				FCM.unsubscribeFromTopic(topic).then(function(data) {
-						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
-					}, function(err) {
-						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+						$window.executeInlineScript(callback.formname, callback.script, [data]);
 					});
 			},
 			/**

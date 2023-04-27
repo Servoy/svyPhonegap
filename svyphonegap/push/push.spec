@@ -27,12 +27,7 @@
 			"parameters": 
 			[
 				{
-					"name": "onSuccessCallbackMethod",
-					"type": "function"
-				},
-
-				{
-					"name": "onErrorCallbackMethod",
+					"name": "callbackMethod",
 					"type": "function"
 				}
 			],
@@ -45,12 +40,7 @@
 			"parameters": 
 			[
 				{
-					"name": "onSuccessCallbackMethod",
-					"type": "function"
-				},
-
-				{
-					"name": "onErrorCallbackMethod",
+					"name": "callbackMethod",
 					"type": "function"
 				}
 			],
@@ -63,19 +53,13 @@
 			"parameters": 
 			[
 				{
-					"name": "onSuccessCallbackMethod",
-					"type": "function"
-				},
-
-				{
-					"name": "onErrorCallbackMethod",
-					"type": "function"
-				},
-
-				{
 					"name": "topic",
 					"type": "string"
-				}
+				},
+				{
+					"name": "callbackMethod",
+					"type": "function"
+				}				
 			],
 
 			"returns": "boolean"
@@ -85,20 +69,18 @@
 		{
 			"parameters": 
 			[
-				{
-					"name": "onSuccessCallbackMethod",
-					"type": "function"
-				},
-
-				{
-					"name": "onErrorCallbackMethod",
-					"type": "function"
-				},
-
+				
 				{
 					"name": "topic",
 					"type": "string"
+				},
+				
+				{
+					"name": "callbackMethod",
+					"type": "function"
 				}
+
+				
 			],
 
 			"returns": "boolean"
@@ -110,16 +92,6 @@
 			[
 				{
 					"name": "onNotificationCallback",
-					"type": "function"
-				},
-
-				{
-					"name": "onSuccessCallbackMethod",
-					"type": "function"
-				},
-
-				{
-					"name": "onErrorCallbackMethod",
 					"type": "function"
 				}
 			],
