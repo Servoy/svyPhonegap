@@ -10,7 +10,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 *
 			 */
 			onTokenRefresh: function(successCallback, errorCallback) {
-				FCM.onTokenRefresh()s.then(function(data) {
+				FCM.onTokenRefresh().then(function(data) {
 						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
 					}, function(err) {
 						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
@@ -78,7 +78,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			onNotification: function(onNotificationCallback) {
 				FCM.onNotification().subscribe(function(data){
 					$window.executeInlineScript(onNotificationCallback.formname, onNotificationCallback.script, [data]);
-				})
+				});
 			},
 			/**
 			 * Send a notification to devices that are subscribed to a particular topic
