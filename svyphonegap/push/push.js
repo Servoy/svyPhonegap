@@ -24,7 +24,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 * @param {Function} errorCallback
 			 *
 			 */
-			getToken: function(successCallback, errorCallback) {
+			getToken: function(successCallback, errorCallback) {									
 				FCM.getToken().then(function(data) {
 						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
 					}, function(err) {
@@ -42,7 +42,24 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 * @param {String} topic
 			 *
 			 */
-			subscribeToTopic: function(successCallback, errorCallback, topic) {
+			subscribeToTopic: function(successCallback, errorCallback, topic) {		
+				FCM.createNotificationChannel({
+					  id: 'urgent_alert', // required
+					  name: "Urgent Alert", // required
+					  description: "Very urgent message alert",
+					  importance: "high", // https://developer.android.com/guide/topics/ui/notifiers/notifications#importance
+					  visibility: "public", // https://developer.android.com/training/notify-user/build-notification#lockscreenNotification
+					  sound: "default", // In the "alert_sound" example, the file should located as resources/raw/alert_sound.mp3
+					  lights: true, // enable lights for notifications
+					  vibration: true // enable vibration for notifications
+				});
+				
+				FCM.requestPushPermission({
+					  ios9Support: {
+					    timeout: 10,  // How long it will wait for a decision from the user before returning `false`
+					    interval: 0.3 // How long between each permission verification
+					  }
+					});
 				FCM.subscribeToTopic(topic).then(function(data) {
 						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
 					}, function(err) {
@@ -76,9 +93,9 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 *
 			 */
 			onNotification: function(onNotificationCallback) {
-				FCM.onNotification(function(data){
+				FCM.onNotification(function(data){										
 					$window.executeInlineScript(onNotificationCallback.formname, onNotificationCallback.script, [data]);
-				});
+				}.bind(this));
 			},
 			/**
 			 * Send a notification to devices that are subscribed to a particular topic
@@ -88,11 +105,12 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 * @param {String} title
 			 * @param {String} body
 			 * @param {String} topic
+			 * @param {String} channel
 			 * @param {Function} successCallback
 			 * @param {Function} errorCallback
 			 *
 			 */
-			sendNotification: function(authKey, title, body, topic, successCallback, errorCallback) {
+			sendNotification: function(authKey, title, body, topic, channel, successCallback, errorCallback) {				
 				$http({
 					url: "https://fcm.googleapis.com/fcm/send",
 					method: "POST",
@@ -100,10 +118,11 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 						'Content-Type': 'application/json',
 						'Authorization': 'key=' + authKey
 					},
-					data: {
-						priority: 'high',
+					data: {							
+						'priority': 'high',
 						'to': '/topics/' + topic,
-						notification: {
+						notification: {	
+							'android_channel_id':channel,
 							'title': title,
 							'body': body,
 							"sound": "default",

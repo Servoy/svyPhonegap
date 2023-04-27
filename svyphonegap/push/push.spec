@@ -150,6 +150,11 @@
 					"name": "topic",
 					"type": "string"
 				},
+				
+				{
+					"name": "channel",
+					"type": "string"
+				},
 
 				{
 					"name": "onSuccessCallbackMethod",
