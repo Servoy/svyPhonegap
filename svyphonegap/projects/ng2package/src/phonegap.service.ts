@@ -31,8 +31,13 @@ export class phonegapService {
                 this.bindEvents();
             },
 
-            bindEvents: function() {
-                document.addEventListener('deviceready', this.onDeviceReady, false);
+            bindEvents: function() {                        
+                        this.bindEventsInterval = setInterval(function(){                           
+                            if (cordova && cordova.file) {
+                                clearInterval(this.bindEventsInterval);
+                                this.onDeviceReady();
+                            }
+                        }.bind(this),50)
 
             },
             onDeviceReady: function() {
