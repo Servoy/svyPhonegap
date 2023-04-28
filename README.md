@@ -1,5 +1,5 @@
 # svyPhonegap
-A web service to connect Servoy to Phonegap’s native plugins.
+A web service to connect Servoy to Cordova / Phonegap’s native plugins.
 
 Documentation
 -------------
