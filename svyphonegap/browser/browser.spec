@@ -22,12 +22,12 @@
 				}
 			]
 		},
-		"openPhone": 
+		"openHrefTag": 
 	   	{
 	    	"parameters":
 	    	[
 		    	{
-					"name":"phone",
+					"name":"url",
 					"type":"string"
 				}
 			]

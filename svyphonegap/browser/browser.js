@@ -17,16 +17,15 @@ angular.module('svyphonegapBrowser', ['servoy']).factory("svyphonegapBrowser", f
 					window.alert('error opening link' + e.message);
 				}
 			},
-			openPhone: function(phone) {
+			openHrefTag: function(url) {
 					try {
-						var newPhone = 'tel:' + phone;
 						if (device.platform === 'Android') {								
-							return cordova.InAppBrowser.open(newPhone, '_system');
+							return cordova.InAppBrowser.open(url, '_system');
 						} else {
-							return window.open(newPhone, '_system');
+							return window.open(url, '_system');
 						}
 					} catch (e) {
-						window.alert('Error opening Phone Dial' + e.message);
+						window.alert('Error opening HrefTag' + e.message);
 					}				
 				}
 		}
