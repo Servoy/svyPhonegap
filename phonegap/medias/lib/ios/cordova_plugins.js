@@ -463,6 +463,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
 		        "cordova.plugins.notification.badge"
 		      ]
 		    },
+		    {
+		        "id": "phonegap-plugin-mobile-accessibility.mobile-accessibility",
+		        "file": "plugins/phonegap-plugin-mobile-accessibility/www/mobile-accessibility.js",
+		        "pluginId": "phonegap-plugin-mobile-accessibility",
+		        "clobbers": [
+		          "window.MobileAccessibility"
+		        ]
+		      }
     ];
     module.exports.metadata = {
         "cordova-plugin-statusbar": "2.4.3",
@@ -492,6 +500,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
         "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.4",
         "cordova-plugin-cleartext": "1.0.0",
         "cordova-plugin-printer": "0.7.3",
-        "cordova-plugin-print-pdf": "4.0.2"
+        "cordova-plugin-print-pdf": "4.0.2",
+		"phonegap-plugin-mobile-accessibility": "1.0.9"
     };
 });

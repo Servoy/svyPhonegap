@@ -436,6 +436,15 @@ module.exports = [
         "cordova.plugins.notification.badge"
       ]
     },
+    {
+        "id": "phonegap-plugin-mobile-accessibility.mobile-accessibility",
+        "file": "plugins/phonegap-plugin-mobile-accessibility/www/mobile-accessibility.js",
+        "pluginId": "phonegap-plugin-mobile-accessibility",
+        "clobbers": [
+          "window.MobileAccessibility"
+        ]
+      }
+	
 ];
 module.exports.metadata = 
 // TOP OF METADATA
@@ -469,7 +478,8 @@ module.exports.metadata =
   "cordova-plugin-screen-orientation": "3.0.2",
   "cordova-plugin-actionsheet": "2.3.3",
   "cordova-plugin-dialogs": "2.0.2",
-  "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.5"
+  "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.5",
+  "phonegap-plugin-mobile-accessibility": "1.0.9"
 };
 // BOTTOM OF METADATA
 });

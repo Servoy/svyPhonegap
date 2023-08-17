@@ -442,6 +442,13 @@ uuid:"6D2F63B3-12F7-4EA2-9FBC-F83FA068BD89"
 },
 {
 encapsulation:0,
+mimeType:"text/javascript",
+name:"lib/android/plugins/phonegap-plugin-mobile-accessibility/www/mobile-accessibility.js",
+typeid:37,
+uuid:"F8A08DA3-143D-4F85-9EF3-92D6678229D2"
+},
+{
+encapsulation:0,
 mimeType:"application/javascript",
 name:"lib/android/plugins/uk.co.workingedge.phonegap.plugin.launchnavigator/www/android/launchnavigator.js",
 typeid:37,
@@ -915,6 +922,13 @@ mimeType:"text/javascript",
 name:"lib/ios/plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
 typeid:37,
 uuid:"668BE720-2ACB-4440-AA8B-FCFBF666AA7F"
+},
+{
+encapsulation:0,
+mimeType:"text/javascript",
+name:"lib/ios/plugins/phonegap-plugin-mobile-accessibility/www/mobile-accessibility.js",
+typeid:37,
+uuid:"1EE0B329-BD48-4D30-9DC9-D7B2A01AAEA8"
 },
 {
 encapsulation:0,
