@@ -190,5 +190,8 @@ export class phonegapService {
     executeVibration(n) {
         navigator.vibrate(n);
     }
+    setTextZoom(n) {
+        MobileAccessibility.setTextZoom(n);
+    }
 
 }

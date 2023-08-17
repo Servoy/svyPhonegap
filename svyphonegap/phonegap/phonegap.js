@@ -179,6 +179,9 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 			},
 			executeVibration: function(n){
 				navigator.vibrate(n);
+			}, 
+			setTextZoom: function(n){
+				MobileAccessibility.setTextZoom(n);
 			}
 		}
 	}).run(function($rootScope, $services) { })

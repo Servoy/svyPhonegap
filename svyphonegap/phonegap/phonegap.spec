@@ -123,6 +123,17 @@
 				}
 			]
 		},
+		
+		"setTextZoom": 
+		{
+			"parameters": 
+			[
+				{
+					"name": "textZoom",
+					"type": "integer"
+				}
+			]
+		},
 
 		"getBuildInfo": 
 		{
