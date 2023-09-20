@@ -5,14 +5,23 @@ angular.module('svyphonegapPhonegapOrientation',['servoy'])
 	return {
 		lock: function(orientationType) {
 				try {
-					window.screen.orientation.lock(orientationType);
+					if (window.cordova.plugins.screenorientation) {
+						window.cordova.plugins.screenorientation.setOrientation(orientationType);
+					} else {
+						window.screen.orientation.lock(orientationType);
+					}
+					
 				} catch (e) {
 					window.alert('error locking orientation: ' + e.message);
 				}			
 		},
 		unlock: function() {		
 				try {
-					window.screen.orientation.unlock();
+					if (window.cordova.plugins.screenorientation) {
+						window.cordova.plugins.screenorientation.setOrientation('any');
+					} else {
+						window.screen.orientation.unlock();
+					}
 				} catch (e) {
 					window.alert('error unlocking orientation: ' + e.message);
 				}			
