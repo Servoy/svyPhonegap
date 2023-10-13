@@ -4,7 +4,7 @@
     "packageType": "Solution",
     "icon": "https://raw.githubusercontent.com/Servoy/svyPhonegap/master/icon.png",
     "invertIcon": true,
-    "description": "Phonegap module to for native integration",
+    "description": "Phonegap module for native mobile integration",
     "wikiUrl": "https://github.com/Servoy/svyPhonegap/wiki",
     "sourceUrl" : "https://github.com/Servoy/svyPhonegap",
     "releases" : [        
