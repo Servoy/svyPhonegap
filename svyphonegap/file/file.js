@@ -24,7 +24,8 @@ angular.module('svyphonegapFile', ['servoy']).factory("svyphonegapFile", functio
 									$window.executeInlineScript(err.formname, err.script, [e]);
 							});
 					}, function(e) {
-						err(e);
+						if (err)
+							$window.executeInlineScript(err.formname, err.script, [e]);
 					});
 			},
 			/**
@@ -42,7 +43,7 @@ angular.module('svyphonegapFile', ['servoy']).factory("svyphonegapFile", functio
 					return;
 				}
 				data = JSON.stringify(data, null, '\t');
-
+				
 				window.resolveLocalFileSystemURL(cordova.file[dir], function(directoryEntry) {
 						directoryEntry.getFile(fileName, { create: true }, function(fileEntry) {
 								fileEntry.createWriter(function(fileWriter) {
@@ -62,10 +63,12 @@ angular.module('svyphonegapFile', ['servoy']).factory("svyphonegapFile", functio
 											$window.executeInlineScript(err.formname, err.script, [e]);
 									});
 							}, function(e) {
-								err(e);
+								if (err)
+									$window.executeInlineScript(err.formname, err.script, [e,cordova.file[dir]]);
 							});
 					}, function(e) {
-						err(e);
+						if (err)
+							$window.executeInlineScript(err.formname, err.script, [e]);
 					});
 
 			}
