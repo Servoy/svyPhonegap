@@ -22,7 +22,7 @@ export class locationService {
      * <li>maximumAge: Accept a cached position whose age is no greater than the specified time in milliseconds.</li>
      * </ul>
      *
-     * @param {Function} successCallback
+     * @param {Function} successCallback 
      * @param {Function} errorCallback
      * @param {{maximumAge: Number, timeout: Number, enableHighAccuracy: Boolean}} [options]
      *
@@ -31,9 +31,9 @@ export class locationService {
 
         try {
             navigator.geolocation.getCurrentPosition(function(data) {
-                this.helperCB(successCallback, [App.cloneAsObject(data)]);
+                this.helperCB(successCallback, App.cloneAsObject(data));
             }.bind(this), function(err) {
-                this.helperCB(errorCallback, [App.cloneAsObject(err)]);
+                this.helperCB(errorCallback, App.cloneAsObject(err));
             }.bind(this), options);
         } catch (e) {
             window.alert('error getting geolocation: ' + e.message);
@@ -56,9 +56,9 @@ export class locationService {
     watchPosition(successCallback, errorCallback, options) {
         try {
             watchID = navigator.geolocation.watchPosition(function(res) {
-                this.helperCB(successCallback, [App.cloneAsObject(res), watchID]);
+                this.helperCB(successCallback, App.cloneAsObject(res), watchID);
             }.bind(this), function(err) {
-                this.helperCB(errorCallback, [App.cloneAsObject(err)]);
+                this.helperCB(errorCallback, App.cloneAsObject(err));
             }.bind(this), options);
         } catch (e) {
             window.alert('error watching position: ' + e.message);

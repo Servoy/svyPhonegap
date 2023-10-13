@@ -1,6 +1,3 @@
-import { zebrascannerService } from './zebrascanner.service';
-import { unimagService } from './unimag.service';
-import { qrscannerService } from './qrscanner.service';
 import { pushService } from './push.service';
 import { printerService } from './printer.service';
 import { phonegapOrientationService } from './phonegapOrientation.service';
@@ -16,16 +13,13 @@ import { camerapreviewService } from './camerapreview.service';
 import { cameraService } from './camera.service';
 import { browserService } from './browser.service';
 import { barcodeService } from './barcode.service';
-
+ 
 import { NgModule } from '@angular/core';
  
 @NgModule({
     declarations: [
     ],
-    providers: [
-		zebrascannerService,
-		unimagService,
-		qrscannerService,
+    providers: [		
 		pushService,
 		printerService,
 		phonegapOrientationService,

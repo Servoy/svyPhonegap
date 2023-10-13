@@ -3,7 +3,6 @@
  */
 export * from './ng2package.module';
 //export all components here
-//export * from './svygmaps/svygmaps';
 export * from './barcode.service';
 export * from './browser.service';
 export * from './camera.service';
@@ -19,6 +18,3 @@ export * from './phonegap.service';
 export * from './phonegapOrientation.service';
 export * from './printer.service';
 export * from './push.service';
-export * from './qrscanner.service';
-export * from './unimag.service';
-export * from './zebrascanner.service';

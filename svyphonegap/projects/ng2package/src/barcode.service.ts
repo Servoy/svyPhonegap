@@ -16,9 +16,9 @@ export class barcodeService {
     public scan(successCallback, errorCallback, options) {
         try {
             cordova.plugins.barcodeScanner.scan(function(data) {
-                this.helperCB(successCallback, [data]);
+                this.helperCB(successCallback, data);
             }.bind(this), function(err) {
-                this.helperCB(errorCallback, [err]);                
+                this.helperCB(errorCallback, err);                
             }.bind(this));
         } catch (e) {
             console.error('Error scanning barcode: ' + e.message)

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-Name: Phonegap
 Bundle-SymbolicName: svyphonegap
 Package-Type: Web-Service
-Bundle-Version: 1.0.5
+Bundle-Version: 1.2.2
 
 Name: push/push.spec
 Web-Service: True
@@ -34,19 +34,10 @@ Web-Service: True
 Name: browser/browser.spec
 Web-Service: True
 
-Name: qrscanner/qrscanner.spec
-Web-Service: True
-
 Name: barcode/barcode.spec
 Web-Service: True
 
 Name: printer/printer.spec
-Web-Service: True
-
-Name: zebrascanner/zebrascanner.spec
-Web-Service: True
-
-Name: unimag/unimag.spec
 Web-Service: True
 
 Name: camerapreview/camerapreview.spec

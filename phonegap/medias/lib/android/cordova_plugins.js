@@ -206,14 +206,6 @@ module.exports = [
     ]
   },
   {
-    "id": "com.idtechproducts.uniMagPlugin.uniMagPlugin",
-    "file": "plugins/com.idtechproducts.uniMagPlugin/www/uniMagPlugin.js",
-    "pluginId": "com.idtechproducts.uniMagPlugin",
-    "clobbers": [
-      "UniMag"
-    ]
-  },
-  {
     "id": "cordova-plugin-printer.Printer",
     "file": "plugins/cordova-plugin-printer/www/printer.js",
     "pluginId": "cordova-plugin-printer",
@@ -228,14 +220,6 @@ module.exports = [
     "pluginId": "cordova-plugin-print-pdf",
     "clobbers": [
       "window.PrintPDF"
-    ]
-  },
-  {
-    "id": "cordova-plugin-qrscanner.QRScanner",
-    "file": "plugins/cordova-plugin-qrscanner/www/www.min.js",
-    "pluginId": "cordova-plugin-qrscanner",
-    "clobbers": [
-      "QRScanner"
     ]
   },
   {
@@ -324,14 +308,6 @@ module.exports = [
     "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
     "pluginId": "cordova-plugin-geolocation",
     "runs": true
-  },
-  {
-    "id": "com.jkt.zebra.barcode.plugin.ZebraBarcodePlugin",
-    "file": "plugins/com.jkt.zebra.barcode.plugin/www/ZebraBarcodePlugin.js",
-    "pluginId": "com.jkt.zebra.barcode.plugin",
-    "clobbers": [
-      "zebraBarcodePlugin"
-    ]
   },
   {
     "id": "cordova-plugin-fingerprint-aio.Fingerprint",
@@ -458,7 +434,6 @@ module.exports.metadata =
   "cordova-plugin-file": "4.3.3",
   "cordova-plugin-ionic-webview": "1.2.1",
   "cordova-plugin-ionic-keyboard": "2.2.0",
-  "com.idtechproducts.uniMagPlugin": "2.1.0",
   "cordova-plugin-printer": "0.7.3",
   "cordova-plugin-ios-base64": "1.0.0",
   "cordova-plugin-print-pdf": "4.0.2",
@@ -468,7 +443,6 @@ module.exports.metadata =
   "cordova-plugin-networkinterface": "2.0.0",
   "cordova-plugin-geolocation": "2.4.3",
   "it.innowatio.cordova.ios-fullscreen": "0.3.0",
-  "com.jkt.zebra.barcode.plugin": "1.0.0",
   "cordova-plugin-fingerprint-aio": "1.7.0",
   "cordova-plugin-fcm-with-dependecy-updated-12": "7.8.4",
   "cordova-plugin-local-notification-12": "0.1.3",

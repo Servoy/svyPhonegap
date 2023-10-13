@@ -12,7 +12,7 @@ export class phonegapOrientationService {
             this.helperCB(this.onOrientationChangeCallbackMethod);
         }.bind(this));
     }
-
+ 
     private helperCB(cb, d) {
         if (cb) {
             this.servoyService.executeInlineScript(cb.formname, cb.script, [d]);

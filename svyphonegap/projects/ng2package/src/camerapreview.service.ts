@@ -8,13 +8,13 @@ export class camerapreviewService {
 
     private helperCB(cb, d) {
         if (cb) {
-            this.servoyService.executeInlineScript(cb.formname, cb.script, [d]);
+            this.servoyService.executeInlineScript(cb.formname, cb.script, d);
         }
     }
 
     startCamera(options, onSuccessCallbackMethod, onErrorCallbackMethod) {
         CameraPreview.startCamera(options, function(d) { this.helperCB(onSuccessCallbackMethod, d); }.bind(this), function(d) { this.helperCB(onErrorCallbackMethod, d); }.bind(this));
-    }
+    } 
 
     setCameraOption(option, modeValue, onSuccessCallbackMethod, onErrorCallbackMethod) {
         CameraPreview[option](modeValue, function(d) { this.helperCB(onSuccessCallbackMethod, d); }.bind(this), function(d) { this.helperCB(onErrorCallbackMethod, d); }.bind(this));

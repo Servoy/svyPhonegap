@@ -5,6 +5,7 @@ declare let window: any;
 declare let Servoy: any;
 declare let cordova: any;
 declare let navigator: any;
+declare let MobileAccessibility: any;
 
 @Injectable()
 export class phonegapService {
@@ -33,7 +34,7 @@ export class phonegapService {
 
             bindEvents: function() {                        
                         this.bindEventsInterval = setInterval(function(){                           
-                            if (cordova && cordova.file) {
+                            if (typeof cordova !== 'undefined' && cordova.file) {
                                 clearInterval(this.bindEventsInterval);
                                 this.onDeviceReady();
                             }
@@ -190,7 +191,7 @@ export class phonegapService {
     executeVibration(n) {
         navigator.vibrate(n);
     }
-    setTextZoom(n) {
+    setTextZoom(n) { 
         MobileAccessibility.setTextZoom(n);
     }
 

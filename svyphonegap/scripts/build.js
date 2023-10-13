@@ -3,9 +3,6 @@ var AdmZip = require('adm-zip');
 // creating archives
 var zip = new AdmZip();
 
-zip.addLocalFolder("./zebrascanner/","/zebrascanner/");
-zip.addLocalFolder("./unimag/","/unimag/");
-zip.addLocalFolder("./qrscanner/","/qrscanner/");
 zip.addLocalFolder("./push/","/push/");
 zip.addLocalFolder("./printer/","/printer/");
 zip.addLocalFolder("./phonegapOrientation/","/phonegapOrientation/");
@@ -26,4 +23,4 @@ zip.addLocalFolder("./dist/servoy/ng2package/", "/dist/servoy/ng2package/");
 // add here all ng1 components/services 
 //zip.addLocalFolder("./mycomponent/", "/mycomponent/");
 
-zip.writeZip("svyphonegap.zip");
+zip.writeZip("svyphonegap.zip"); 

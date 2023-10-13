@@ -15,7 +15,7 @@ export class printerService {
 
     print(content, options, cb) {
         cordova.plugins.printer.print(content, options, function(r) {
-            this.helperCB(cb, [r])
+            this.helperCB(cb, r)
         }.bind(this));
     }
 
@@ -25,18 +25,18 @@ export class printerService {
             type: 'Data',
             title: 'PDF Print',
             success: function() {
-                this.helperCB(cb, ['success'])
+                this.helperCB(cb, 'success')
             }.bind(this),
             error: function(data) {
                 data = JSON.parse(data);
-                this.helperCB(cb, ['failed: ' + data.error])
+                this.helperCB(cb, 'failed: ' + data.error)
             }.bind(this)
         });
     }
 
     pick(options, cb) {
         cordova.plugins.printer.pick(options, function(r) {
-            this.helperCB(cb, [r]);
+            this.helperCB(cb, r);
         }.bind(this));
     }
 

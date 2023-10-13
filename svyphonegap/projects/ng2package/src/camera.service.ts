@@ -25,9 +25,9 @@ export class cameraService {
             }
         }
         navigator.camera.getPicture(function(res) {
-            this.helperCB(cb, [res]);
+            this.helperCB(cb, res);
         }.bind(this), function(err) {
-            this.helperCB(errcb, [err]);
+            this.helperCB(errcb, err);
         }.bind(this), options);
 
     }
