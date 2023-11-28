@@ -4,6 +4,7 @@ declare let App: any;
 declare let window: any;
 declare let Servoy: any;
 declare let cordova: any;
+declare let AndroidFullScreen: any;
 declare let navigator: any;
 declare let MobileAccessibility: any;
 
@@ -45,6 +46,9 @@ export class phonegapService {
                 console.log('device ready!')
                 document.addEventListener("pause", onPause, false);
                 document.addEventListener("resume", onResume, false);
+                
+                //Initialize fullscreen if plugin is available
+				if (AndroidFullScreen) AndroidFullScreen.immersiveMode(null, null);
 
                 //get build info
                 cordova.getAppVersion.getVersionNumber(function(d) {
