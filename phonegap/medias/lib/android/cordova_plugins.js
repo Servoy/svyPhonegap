@@ -419,7 +419,15 @@ module.exports = [
         "clobbers": [
           "window.MobileAccessibility"
         ]
-      }
+     },
+     {
+         "id": "cordova-plugin-fullscreen.AndroidFullScreen",
+         "file": "plugins/cordova-plugin-fullscreen/www/AndroidFullScreen.js",
+         "pluginId": "cordova-plugin-fullscreen",
+         "clobbers": [
+           "AndroidFullScreen"
+         ]
+       }
 	
 ];
 module.exports.metadata = 
@@ -443,6 +451,7 @@ module.exports.metadata =
   "cordova-plugin-networkinterface": "2.0.0",
   "cordova-plugin-geolocation": "2.4.3",
   "it.innowatio.cordova.ios-fullscreen": "0.3.0",
+  "cordova-plugin-fullscreen": "1.3.0",
   "cordova-plugin-fingerprint-aio": "1.7.0",
   "cordova-plugin-fcm-with-dependecy-updated-12": "7.8.4",
   "cordova-plugin-local-notification-12": "0.1.3",
