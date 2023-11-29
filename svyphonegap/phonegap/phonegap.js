@@ -36,8 +36,19 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 						document.addEventListener("pause", onPause, false);
 						document.addEventListener("resume", onResume, false);
 						
+						//fix for status bar plugin
+						if (cordova.platformId == 'android') {
+							StatusBar.hide();
+							setTimeout(function(){
+								StatusBar.show();	
+							},0)
+							
+						}
+
 						//Initialize fullscreen if plugin is available
-						if (AndroidFullScreen) AndroidFullScreen.immersiveMode(null, null);
+						if (AndroidFullScreen) {							
+							AndroidFullScreen.immersiveMode(null, null);
+						}
 						
 						//get build info
 						cordova.getAppVersion.getVersionNumber(function(d) {
