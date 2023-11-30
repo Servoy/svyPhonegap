@@ -16,7 +16,7 @@ export class phonegapService {
     }
 
     init(onReady) {
-        App = {           
+        App = {
             cloneAsObject: function(obj) {
                 if (obj === null || !(obj instanceof Object)) {
                     return obj;
@@ -33,33 +33,31 @@ export class phonegapService {
                 this.bindEvents();
             },
 
-            bindEvents: function() {                        
-                        this.bindEventsInterval = setInterval(function(){                           
-                            if (typeof cordova !== 'undefined' && cordova.file) {
-                                clearInterval(this.bindEventsInterval);
-                                this.onDeviceReady();
-                            }
-                        }.bind(this),50)
+            bindEvents: function() {
+                this.bindEventsInterval = setInterval(function() {
+                    if (typeof cordova !== 'undefined' && cordova.file) {
+                        clearInterval(this.bindEventsInterval);
+                        this.onDeviceReady();
+                    }
+                }.bind(this), 50)
 
             },
             onDeviceReady: function() {
                 console.log('device ready!')
                 document.addEventListener("pause", onPause, false);
                 document.addEventListener("resume", onResume, false);
-                
-                //fix for status bar plugin
-				if (cordova.platformId == 'android') {
-					StatusBar.hide();
-					setTimeout(function(){
-						StatusBar.show();	
-					},0)
-					
-				}
 
-				//Initialize fullscreen if plugin is available
-				if (AndroidFullScreen) {							
-					AndroidFullScreen.immersiveMode(null, null);
-				}
+                //fix for status bar plugin
+                if (cordova.platformId == 'android') {
+                    setTimeout(function() {
+                        StatusBar.overlaysWebView(false);
+                    }, 0)
+                }
+
+                //Initialize fullscreen if plugin is available
+                if (typeof AndroidFullScreen !== 'undefined') {
+                    AndroidFullScreen.immersiveMode(null, null);
+                }
 
                 //get build info
                 cordova.getAppVersion.getVersionNumber(function(d) {
@@ -206,7 +204,7 @@ export class phonegapService {
     executeVibration(n) {
         navigator.vibrate(n);
     }
-    setTextZoom(n) { 
+    setTextZoom(n) {
         MobileAccessibility.setTextZoom(n);
     }
 
