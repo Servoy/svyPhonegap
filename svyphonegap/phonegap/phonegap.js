@@ -36,13 +36,6 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                     document.addEventListener("pause", onPause, false);
                     document.addEventListener("resume", onResume, false);
 
-                    //fix for status bar plugin
-                    if (cordova.platformId == 'android') {
-                        setTimeout(function() {
-                            StatusBar.overlaysWebView(false);
-                        }, 0)
-                    }
-
                     //Initialize fullscreen if plugin is available
                     if (typeof AndroidFullScreen !== 'undefined') {
                         AndroidFullScreen.immersiveMode(null, null);
@@ -176,12 +169,16 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
             location.reload();
         },
         executeScript: function(script, scriptArgs) {
-            var mArgs = scriptArgs;
-            if (!Array.isArray(scriptArgs)) {
-                mArgs = [scriptArgs]
-            }
-            var f = eval("(" + script + ")");
-            return f.apply(this, mArgs);
+        	try {
+        		var mArgs = scriptArgs;
+                if (!Array.isArray(scriptArgs)) {
+                    mArgs = [scriptArgs]
+                }
+                var f = eval("(" + script + ")");
+                return f.apply(this, mArgs);
+        	} catch (e) {
+        		console.log(e);
+        	}
         },
         getBuildInfo: function() {
             return [Servoy.buildInfo];
