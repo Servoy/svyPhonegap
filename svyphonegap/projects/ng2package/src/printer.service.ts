@@ -9,7 +9,7 @@ export class printerService {
 
     private helperCB(cb, d) {
         if (cb) {
-            this.servoyService.executeInlineScript(cb.formname, cb.script, [d]);
+            cb(d);
         }
     }
 

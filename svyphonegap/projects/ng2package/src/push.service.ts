@@ -8,7 +8,7 @@ export class pushService {
 
      private helperCB(cb, d) {
         if (cb) {
-            this.servoyService.executeInlineScript(cb.formname, cb.script, d);
+            cb(d);
         }
     }
 
