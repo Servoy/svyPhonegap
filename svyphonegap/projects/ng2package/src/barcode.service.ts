@@ -19,7 +19,7 @@ export class barcodeService {
                 this.helperCB(successCallback, data);
             }.bind(this), function(err) {
                 this.helperCB(errorCallback, err);                
-            }.bind(this));
+            }.bind(this), options);
         } catch (e) {
             console.error('Error scanning barcode: ' + e.message)
         }

@@ -34,6 +34,11 @@
 				{
 					"name": "onErrorCallbackMethod",
 					"type": "function"
+				},
+				{
+					"name": "options",
+					"type": "object",
+					"optional": true
 				}
 			]
 		},
