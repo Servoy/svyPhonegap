@@ -65,6 +65,13 @@ uuid:"3EE500D4-D213-4AD0-B534-0846FAB891E3"
 {
 encapsulation:0,
 mimeType:"application/javascript",
+name:"lib/android/plugins/community-cordova-plugin-file-opener/www/plugins.FileOpener2.js",
+typeid:37,
+uuid:"AA30F930-9DAD-44AC-A300-603983E89612"
+},
+{
+encapsulation:0,
+mimeType:"application/javascript",
 name:"lib/android/plugins/cordova-plugin-actionsheet/www/ActionSheet.js",
 typeid:37,
 uuid:"D0D7E0CA-B634-4D05-9C0B-03BE518D25CD"
@@ -523,6 +530,13 @@ mimeType:"application/javascript",
 name:"lib/ios/phonegap.js",
 typeid:37,
 uuid:"26AD080B-4F41-4F0D-B232-6858448D3CCF"
+},
+{
+encapsulation:0,
+mimeType:"application/javascript",
+name:"lib/ios/plugins/community-cordova-plugin-file-opener/www/plugins.FileOpener2.js",
+typeid:37,
+uuid:"1ED17341-2348-4BA8-8B08-BE3182505AE3"
 },
 {
 encapsulation:0,

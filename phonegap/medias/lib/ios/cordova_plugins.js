@@ -439,7 +439,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
               "cordova.plugins.notification.local"
             ]
           },
-		 {
+		  {
 		      "id": "cordova-plugin-badge-fix.Badge",
 		      "file": "plugins/cordova-plugin-badge-fix/www/badge.js",
 		      "pluginId": "cordova-plugin-badge-fix",
@@ -454,7 +454,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
 		        "clobbers": [
 		          "window.MobileAccessibility"
 		        ]
-		      }
+		  },{
+      "id": "community-cordova-plugin-file-opener.FileOpener2",
+      "file": "plugins/community-cordova-plugin-file-opener/www/plugins.FileOpener2.js",
+      "pluginId": "community-cordova-plugin-file-opener",
+      "clobbers": [
+        "cordova.plugins.fileOpener2"
+      ]
+    }
     ];
     module.exports.metadata = {
         "cordova-plugin-statusbar": "2.4.3",
@@ -466,6 +473,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
         "phonegap-plugin-barcodescanner": "8.1.0",
         "cordova-plugin-compat": "1.2.0",
         "cordova-plugin-camera": "2.4.1",
+        "community-cordova-plugin-file-opener": "3.1.1",
         "cordova-plugin-network-information": "1.3.4",
         "cordova-plugin-networkinterface": "2.0.0",
         "cordova-plugin-geolocation": "2.4.3",

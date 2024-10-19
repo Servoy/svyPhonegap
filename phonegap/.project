@@ -3,6 +3,8 @@
 	<name>phonegap</name>
 	<comment></comment>
 	<projects>
+		<project>pgutil</project>
+		<project>svyphonegap</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

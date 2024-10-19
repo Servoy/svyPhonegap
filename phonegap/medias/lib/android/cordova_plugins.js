@@ -421,6 +421,14 @@ module.exports = [
         ]
      },
      {
+      "id": "community-cordova-plugin-file-opener.FileOpener2",
+      "file": "plugins/community-cordova-plugin-file-opener/www/plugins.FileOpener2.js",
+      "pluginId": "community-cordova-plugin-file-opener",
+      "clobbers": [
+        "cordova.plugins.fileOpener2"
+      ]
+     },
+     {
          "id": "cordova-plugin-fullscreen.AndroidFullScreen",
          "file": "plugins/cordova-plugin-fullscreen/www/AndroidFullScreen.js",
          "pluginId": "cordova-plugin-fullscreen",
@@ -434,6 +442,7 @@ module.exports.metadata =
 // TOP OF METADATA
 {
   "cordova-plugin-statusbar": "2.4.3",
+  "community-cordova-plugin-file-opener": "3.1.1",
   "cordova-plugin-vibration": "3.1.1",  
   "cordova-plugin-whitelist": "1.3.4",
   "cordova-plugin-app-version": "0.1.9",
