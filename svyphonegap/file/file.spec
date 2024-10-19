@@ -77,6 +77,37 @@
 					"type": "function"
 				}
 			]
+		},
+		
+		"openfile": 
+		{
+			"parameters": 
+			[
+				{
+					"name": "fileName",
+					"type": "string"
+				},
+				
+				{
+					"name": "fileType",
+					"type": "string"
+				},
+
+				{
+					"name": "dir",
+					"type": "string"
+				},
+
+				{
+					"name": "callbackSuccess",
+					"type": "function"
+				},
+
+				{
+					"name": "callbackError",
+					"type": "function"
+				}
+			]
 		}
 	}
 }

@@ -187,6 +187,7 @@ export class phonegapService {
                 mArgs = [scriptArgs]
             }
             var f = eval("(" + script + ")");
+            if(f)
             return f.apply(this, mArgs);
     	} catch (e) {
     		console.log(e);

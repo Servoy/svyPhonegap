@@ -7,8 +7,8 @@ export class camerapreviewService {
     constructor(private servoyService: ServoyPublicService) {}
 
     private helperCB(cb, d) {
-        if (cb) {
-            cb(d);
+        if (cb) {            
+            cb('data:image/png;base64,'+d[0]);
         }
     }
 
@@ -32,7 +32,7 @@ export class camerapreviewService {
         CameraPreview.stopCamera(function(d) { this.helperCB(onSuccessCallbackMethod, d); }.bind(this), function(d) { this.helperCB(onErrorCallbackMethod, d); }.bind(this));
     }
 
-    takePicture(options, onSuccessCallbackMethod, onErrorCallbackMethod) {
+    takePicture(options, onSuccessCallbackMethod, onErrorCallbackMethod) {        
         CameraPreview.takePicture(options, function(d) { this.helperCB(onSuccessCallbackMethod, d); }.bind(this), function(d) { this.helperCB(onErrorCallbackMethod, d); }.bind(this));
     }
 

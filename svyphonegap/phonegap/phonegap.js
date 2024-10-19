@@ -173,8 +173,9 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
         		var mArgs = scriptArgs;
                 if (!Array.isArray(scriptArgs)) {
                     mArgs = [scriptArgs]
-                }
+                }                
                 var f = eval("(" + script + ")");
+                if(f)
                 return f.apply(this, mArgs);
         	} catch (e) {
         		console.log(e);

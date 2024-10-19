@@ -15,6 +15,29 @@ export class fileService {
         }
     }
 
+    private err(e) {
+        console.log(e);
+    }
+
+    /**
+     * @param {String} fileName
+     * @param {String} dir
+     * @param {Function} [cb]
+     * @param {Function} [err]
+     * @properties={typeid:24,uuid:"5E1834FA-B7B5-4566-B9DC-12CB5F3D73CF"}
+     */
+    openfile(fileName, fileType, dir, cb, err) { 
+        var pathToFile = cordova.file[dir] + fileName;        
+        cordova.plugins.fileOpener2.open(pathToFile, fileType, {
+            error: function(e){
+                this.helperCB(cb, e);
+            }.bind(this),
+            success: function(e){
+                this.helperCB(err, e);
+            }.bind(this),                  
+        });
+    }
+
     /**
      * @param {String} fileName
      * @param {String} dir
@@ -28,15 +51,15 @@ export class fileService {
             fileEntry.file(function(file) {
                 var reader = new FileReader();
                 reader.onloadend = function(e) {
-                    this.helperCB(cb, JSON.parse(this.result));
+                    this.helperCB(cb, JSON.parse(e.target._result));
                 }.bind(this);
                 reader.readAsText(file);
             }.bind(this), function(e) {
                 this.helperCB(err, e);
             }.bind(this));
-        }, function(e) {
-            err(e);
-        });
+        }.bind(this), function(e) {
+            this.err(e);
+        }.bind(this));
     }
 
     /**
@@ -53,7 +76,6 @@ export class fileService {
             console.log('File plugin not loaded..');
             return;
         }
-        data = JSON.stringify(data, null, '\t');
 
         window.resolveLocalFileSystemURL(cordova.file[dir], function(directoryEntry) {
             directoryEntry.getFile(fileName, { create: true }, function(fileEntry) {
@@ -64,17 +86,35 @@ export class fileService {
                     fileWriter.onerror = function(e) {
                         this.helperCB(err, e);
                     }.bind(this);
-                    var blob = new Blob([data], { type: 'text/plain' });
+                    var binaryString;
+                    try {
+                    binaryString = window.atob(data.replace(/\r\n/g, '').replace(/\r\n/g, '').replace(/\r\n/g, ''));
+
+                    // Process the decoded string
+                    } catch (error) {
+                    if (error.name === 'InvalidCharacterError') {
+                      console.error('Invalid Base64 encoding:', data);
+                    } else {
+                      console.error('Unknown error:', error);
+                    }
+                    }
+
+                    // Create an array of bytes from the binary string
+                    var bytes = new Uint8Array(binaryString.length);
+                    for (let i = 0; i < binaryString.length; i++) {
+                    bytes[i] = binaryString.charCodeAt(i);
+                    }
+                    var blob = new Blob([bytes]); 
                     fileWriter.write(blob);
-                }, function(e) {
+                }.bind(this), function(e) {
                     this.helperCB(err, e);
                 }.bind(this));
-            }, function(e) {
-                err(e);
-            });
-        }, function(e) {
+            }.bind(this), function(e) {
+                this.err(e);
+            }.bind(this));
+        }.bind(this), function(e) {
             err(e);
-        });
+        }.bind(this));
 
     }
 

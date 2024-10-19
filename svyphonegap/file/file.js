@@ -4,6 +4,28 @@ angular.module('svyphonegapFile', ['servoy']).factory("svyphonegapFile", functio
 
 			/**
 			 * @param {String} fileName
+			 * @param {String} fileType
+			 * @param {String} dir
+			 * @param {Function} [cb]
+			 * @param {Function} [err]
+			 * @properties={typeid:24,uuid:"5E1834FA-B7B5-4566-B9DC-12CB5F3D73CF"}
+			 */
+			openfile: function(fileName, fileType, dir, cb, err) {
+				var pathToFile = cordova.file[dir] + fileName;
+
+				cordova.plugins.fileOpener2.open(pathToFile, fileType, {
+						error: function(e) {
+							if (cb) $window.executeInlineScript(cb.formname, cb.script, [e]);
+						},
+						success: function(e) {
+							if (err)
+								$window.executeInlineScript(err.formname, err.script, [e]);
+						},
+					});
+			},
+
+			/**
+			 * @param {String} fileName
 			 * @param {String} dir
 			 * @param {Function} [cb]
 			 * @param {Function} [err]
@@ -42,8 +64,7 @@ angular.module('svyphonegapFile', ['servoy']).factory("svyphonegapFile", functio
 					console.log('File plugin not loaded..');
 					return;
 				}
-				data = JSON.stringify(data, null, '\t');
-				
+
 				window.resolveLocalFileSystemURL(cordova.file[dir], function(directoryEntry) {
 						directoryEntry.getFile(fileName, { create: true }, function(fileEntry) {
 								fileEntry.createWriter(function(fileWriter) {
@@ -56,7 +77,26 @@ angular.module('svyphonegapFile', ['servoy']).factory("svyphonegapFile", functio
 											if (err)
 												$window.executeInlineScript(err.formname, err.script, [e]);
 										};
-										var blob = new Blob([data], { type: 'text/plain' });
+
+										var binaryString;
+										try {
+											binaryString = window.atob(data.replace(/\r\n/g, '').replace(/\r\n/g, '').replace(/\r\n/g, ''));
+
+											// Process the decoded string
+										} catch (error) {
+											if (error.name === 'InvalidCharacterError') {
+												console.error('Invalid Base64 encoding:', data);
+											} else {
+												console.error('Unknown error:', error);
+											}
+										}
+
+										// Create an array of bytes from the binary string
+										var bytes = new Uint8Array(binaryString.length);
+										for (var i = 0; i < binaryString.length; i++) {
+											bytes[i] = binaryString.charCodeAt(i);
+										}
+										var blob = new Blob([bytes]);
 										fileWriter.write(blob);
 									}, function(e) {
 										if (err)
@@ -64,7 +104,7 @@ angular.module('svyphonegapFile', ['servoy']).factory("svyphonegapFile", functio
 									});
 							}, function(e) {
 								if (err)
-									$window.executeInlineScript(err.formname, err.script, [e,cordova.file[dir]]);
+									$window.executeInlineScript(err.formname, err.script, [e, cordova.file[dir]]);
 							});
 					}, function(e) {
 						if (err)
