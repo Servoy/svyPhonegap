@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ServoyPublicService } from '@servoy/public';
+import { ServoyPublicService, Deferred } from '@servoy/public';
 declare let App: any;
 declare let window: any;
 declare let Servoy: any;
@@ -48,9 +48,7 @@ export class phonegapService {
                 document.addEventListener("resume", onResume, false);
 
                 //Initialize fullscreen if plugin is available
-                if (typeof AndroidFullScreen !== 'undefined') {
-                    AndroidFullScreen.immersiveMode(null, null);
-                }
+                try {AndroidFullScreen.immersiveMode(null, null);} catch (e) {};
 
                 //get build info
                 cordova.getAppVersion.getVersionNumber(function(d) {
@@ -180,18 +178,22 @@ export class phonegapService {
         sessionStorage.clear();
         location.reload();
     }
-    executeScript(script, scriptArgs) {
+    executeScript(script, scriptArgs) {       
+        const defer = new Deferred<any>();
         try {
-    		var mArgs = scriptArgs;
+            var mArgs = scriptArgs;
             if (!Array.isArray(scriptArgs)) {
                 mArgs = [scriptArgs]
             }
-            var f = eval("(" + script + ")");
-            if(f)
-            return f.apply(this, mArgs);
-    	} catch (e) {
-    		console.log(e);
-    	}
+            setTimeout(()=>{
+                var f = script;
+                if(f) defer.resolve(f.apply(this, mArgs));
+            },500)            
+        } catch (e) {
+            console.log(e);
+            defer.reject(e);
+        }
+        return defer.promise;
     }
     getBuildInfo() {
         return [Servoy.buildInfo];
