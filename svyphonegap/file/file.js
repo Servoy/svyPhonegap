@@ -38,7 +38,7 @@ angular.module('svyphonegapFile', ['servoy']).factory("svyphonegapFile", functio
 								var reader = new FileReader();
 								reader.onloadend = function(e) {
 									if (cb)
-										$window.executeInlineScript(cb.formname, cb.script, [JSON.parse(this.result)]);
+										$window.executeInlineScript(cb.formname, cb.script, [this.result]);
 								};
 								reader.readAsText(file);
 							}, function(e) {
