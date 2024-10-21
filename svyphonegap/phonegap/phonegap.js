@@ -37,10 +37,14 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                     document.addEventListener("resume", onResume, false);
 
                     //Initialize fullscreen if plugin is available
-                    if (typeof AndroidFullScreen !== 'undefined') {
-                        AndroidFullScreen.immersiveMode(null, null);
+                    try {
+                    	if (typeof AndroidFullScreen !== 'undefined') {
+                            AndroidFullScreen.immersiveMode(null, null);
+                        }
+                    } catch (e) {
+                    	
                     }
-
+                   
                     //get build info
                     cordova.getAppVersion.getVersionNumber(function(d) {
                         Servoy.buildInfo.versionNumber = d;
