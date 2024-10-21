@@ -88,7 +88,7 @@
 			[
 				{
 					"name": "script",
-					"type": "string",
+					"type": "clientfunction",
 					"optional": false
 				},
 
