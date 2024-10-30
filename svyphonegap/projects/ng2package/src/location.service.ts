@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { ServoyPublicService } from '@servoy/public';
 declare let navigator: any;
 declare let App: any;
-declare let watchID: any;
+declare let window: any;
 
 
 @Injectable()
 export class locationService {
-    constructor(private servoyService: ServoyPublicService) {}
+    constructor(private servoyService: ServoyPublicService) {
+        window.watchID = null;
+    }
 
     private helperCB(cb, d) {
         if (cb) {          
@@ -55,14 +57,17 @@ export class locationService {
      */
     watchPosition(successCallback, errorCallback, options) {
         try {
-            watchID = navigator.geolocation.watchPosition(function(res) {
-                this.helperCB(successCallback, App.cloneAsObject(res), watchID);
+            window.watchID = navigator.geolocation.watchPosition(function(res) {
+                // console.log(res);
+                // console.log(window.watchID);
+                this.helperCB(successCallback, App.cloneAsObject(res), window.watchID);
             }.bind(this), function(err) {
+                console.log(err)
                 this.helperCB(errorCallback, App.cloneAsObject(err));
             }.bind(this), options);
         } catch (e) {
-            window.alert('error watching position: ' + e.message);
-        }
+            alert('error watching position: ' + e.message);
+        } 
     }
 
     /**
