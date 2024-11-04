@@ -34,5 +34,39 @@ angular.module('svyphonegapFingerprintscan', ['servoy']).factory("svyphonegapFin
 					});
 			}
 
+			/**
+			 * Register a biometric secret in vault
+			 * </ul>
+			 * @param {{description: String, secret: String, invalidateOnEnrollment: boolean, disableBackup: boolean}} config for storing secret, disableBackup always disabled on Android
+			 * @param {Function} [successCallback]
+			 * @param {Function} [errorCallback]
+			 *
+			 */
+			registerSecret: function(config, successCallback, errorCallback) {
+
+				Fingerprint.registerBiometricSecret(config, function(data) {
+						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
+					}, function(err) {
+						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+					});
+			}
+
+			/**
+			 * Load a biometric secret from the vault
+			 * </ul>
+			 * @param {{description: String, disableBackup: boolean}} config for loading secret, disableBackup always disabled on Android
+			 * @param {Function} [successCallback]
+			 * @param {Function} [errorCallback]
+			 *
+			 */
+			loadSecret: function(config, successCallback, errorCallback) {
+
+				Fingerprint.loadBiometricSecret(config, function(data) {
+						$window.executeInlineScript(successCallback.formname, successCallback.script, [data]);
+					}, function(err) {
+						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
+					});
+			}
+
 		}
 	}).run(function($rootScope, $services) { })

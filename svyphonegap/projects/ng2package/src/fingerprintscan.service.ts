@@ -45,4 +45,40 @@ export class fingerprintscanService {
         }.bind(this));
     }
 
+    /**
+     * Register a biometric secret in vault
+     * </ul>
+     * @param {{description: String, secret: String, invalidateOnEnrollment: boolean, disableBackup: boolean}} config for storing secret, disableBackup always disabled on Android
+     * @param {Function} [successCallback]
+     * @param {Function} [errorCallback]
+     *
+     */
+    registerSecret(config, successCallback, errorCallback) {
+
+        Fingerprint.registerBiometricSecret(config, function(data) {
+            this.helperCB(successCallback, data);
+        }.bind(this), function(err) {
+            this.helperCB(errorCallback, err);
+        }.bind(this));
+
+    }
+
+    /**
+     * Load a biometric secret from the vault
+     * </ul>
+     * @param {{description: String, disableBackup: boolean}} config for loading secret, disableBackup always disabled on Android
+     * @param {Function} [successCallback]
+     * @param {Function} [errorCallback]
+     *
+     */
+    loadSecret(config, successCallback, errorCallback) {
+
+        Fingerprint.loadBiometricSecret(config, function(data) {
+            this.helperCB(successCallback, data);
+        }.bind(this), function(err) {
+            this.helperCB(errorCallback, err);
+        }.bind(this));
+
+}
+
 }

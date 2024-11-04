@@ -57,6 +57,48 @@
 					"type": "function"
 				}
 			]
+		},
+
+		"registerSecret": 
+		{
+			"parameters": 
+			[
+				{
+					"name": "config",
+					"type": "object"
+				},
+
+				{
+					"name": "successCallback",
+					"type": "function"
+				},
+
+				{
+					"name": "errorCallback",
+					"type": "function"
+				}
+			]
+		},
+
+		"loadSecret": 
+		{
+			"parameters": 
+			[
+				{
+					"name": "config",
+					"type": "object"
+				},
+
+				{
+					"name": "successCallback",
+					"type": "function"
+				},
+
+				{
+					"name": "errorCallback",
+					"type": "function"
+				}
+			]
 		}
 	}
 }
