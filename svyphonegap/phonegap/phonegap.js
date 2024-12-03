@@ -33,9 +33,7 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                 },
                 onDeviceReady: function() {
                     console.log('device ready!')
-                    document.addEventListener("pause", onPause, false);
-                    document.addEventListener("resume", onResume, false);
-
+                    
                     //Initialize fullscreen if plugin is available
                     try {
                     	if (typeof AndroidFullScreen !== 'undefined') {
@@ -52,57 +50,14 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                             Servoy.buildInfo.versionCode = d;
                             cordova.getAppVersion.getPackageName(function(d) {
                                 Servoy.buildInfo.packageName = d;
+                                if (onReady)
                                 cordova.getAppVersion.getAppName(function(d) {
                                     Servoy.buildInfo.appName = d;
                                     $window.executeInlineScript(onReady.formname, onReady.script, []);
                                 });
                             });
                         });
-                    });
-
-                    document.addEventListener("backbutton", function(e) {
-                        e.preventDefault();
-                        onBack();
-                    }, false);
-
-                    function onBack() {
-                        console.log('back');
-                        // Handle the hardware back button event
-
-                        try {
-                            if (Servoy.onBackMethod) {
-                                $window.executeInlineScript(Servoy.onBackMethod.formname, Servoy.onBackMethod.script, []);
-                            }
-                        } catch (e) {
-                            console.log(e)
-                        }
-                    }
-
-                    //runs when the app is on background
-                    function onPause() {
-                        console.log('pause');
-                        // Handle the pause event
-                        try {
-                            if (Servoy.onPauseMethod) {
-                                $window.executeInlineScript(Servoy.onPauseMethod.formname, Servoy.onPauseMethod.script, []);
-                            }
-                        } catch (e) {
-                            console.log(e)
-                        }
-                    }
-
-                    //runs when the app resumes
-                    function onResume() {
-                        console.log('resume');
-                        // Handle the resume event
-                        try {
-                            if (Servoy.onResumeMethod) {
-                                $window.executeInlineScript(Servoy.onResumeMethod.formname, Servoy.onResumeMethod.script, []);
-                            }
-                        } catch (e) {
-                            console.log(e)
-                        }
-                    }
+                    });  
                 }
             };
 
@@ -122,14 +77,58 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                 setPauseMethod: function(cb) {
                     //set call back for servoy client
                     Servoy.onPauseMethod = cb;
+                    document.addEventListener("pause", onPause, false);
+                    //runs when the app is on background
+                    function onPause() {
+                        console.log('pause');
+                        // Handle the pause event
+                        try {
+                            if (Servoy.onPauseMethod) {
+                                $window.executeInlineScript(Servoy.onPauseMethod.formname, Servoy.onPauseMethod.script, []);
+                            }
+                        } catch (e) {
+                            console.log(e)
+                        }
+                    }
                 },
                 setResumeMethod: function(cb) {
                     //set call back for servoy client
                     Servoy.onResumeMethod = cb;
+                    
+                    document.addEventListener("resume", onResume, false);
+                    //runs when the app resumes
+                    function onResume() {
+                        console.log('resume');
+                        // Handle the resume event
+                        try {
+                            if (Servoy.onResumeMethod) {
+                                $window.executeInlineScript(Servoy.onResumeMethod.formname, Servoy.onResumeMethod.script, []);
+                            }
+                        } catch (e) {
+                            console.log(e)
+                        }
+                    }
                 },
                 setBackMethod: function(cb) {
                     //set call back for servoy client
                     Servoy.onBackMethod = cb;
+                    document.addEventListener("backbutton", function(e) {
+                        e.preventDefault();
+                        onBack();
+                    }, false);
+
+                    function onBack() {
+                        console.log('back');
+                        // Handle the hardware back button event
+
+                        try {
+                            if (Servoy.onBackMethod) {
+                                $window.executeInlineScript(Servoy.onBackMethod.formname, Servoy.onBackMethod.script, []);
+                            }
+                        } catch (e) {
+                            console.log(e)
+                        }
+                    }
                 }
             }
             App.initialize();

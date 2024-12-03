@@ -35,6 +35,7 @@ export class phonegapService {
 
             bindEvents: function() {
                 this.bindEventsInterval = setInterval(function() {
+                    console.log('bind events interval')
                     if (typeof cordova !== 'undefined' && cordova.file) {
                         clearInterval(this.bindEventsInterval);
                         this.onDeviceReady();
@@ -43,9 +44,7 @@ export class phonegapService {
 
             },
             onDeviceReady: function() {
-                console.log('device ready!')
-                document.addEventListener("pause", onPause, false);
-                document.addEventListener("resume", onResume, false);
+                console.log('device ready!');                
 
                 //Initialize fullscreen if plugin is available
                 try {AndroidFullScreen.immersiveMode(null, null);} catch (e) {};
@@ -57,6 +56,7 @@ export class phonegapService {
                         Servoy.buildInfo.versionCode = d;
                         cordova.getAppVersion.getPackageName(function(d) {
                             Servoy.buildInfo.packageName = d;
+                            if(onReady)
                             cordova.getAppVersion.getAppName(function(d) {
                                 Servoy.buildInfo.appName = d;
                                 Servoy.helperCB(onReady);
@@ -64,44 +64,7 @@ export class phonegapService {
                         });
                     });
                 });
-
-                document.addEventListener("backbutton", function(e) {
-                    e.preventDefault();
-                    onBack();
-                }, false);
-
-                function onBack() {
-                    console.log('back');
-                    // Handle the hardware back button event
-
-                    try {
-                        Servoy.helperCB(Servoy.onBackMethod);
-                    } catch (e) {
-                        console.log(e)
-                    }
-                }
-
-                //runs when the app is on background
-                function onPause() {
-                    console.log('pause');
-                    // Handle the pause event
-                    try {
-                        Servoy.helperCB(Servoy.onPauseMethod);
-                    } catch (e) {
-                        console.log(e)
-                    }
-                }
-
-                //runs when the app resumes
-                function onResume() {
-                    console.log('resume');
-                    // Handle the resume event
-                    try {
-                        Servoy.helperCB(Servoy.onResumeMethod);
-                    } catch (e) {
-                        console.log(e)
-                    }
-                }
+                
             }.bind(this)
         };
 
@@ -127,14 +90,51 @@ export class phonegapService {
             setPauseMethod: function(cb) {
                 //set call back for servoy client
                 Servoy.onPauseMethod = cb;
+                document.addEventListener("pause", onPause, false);
+                //runs when the app is on background
+                function onPause() {
+                    console.log('pause');
+                    // Handle the pause event
+                    try {
+                        Servoy.helperCB(Servoy.onPauseMethod);
+                    } catch (e) {
+                        console.log(e)
+                    }
+                }
             },
             setResumeMethod: function(cb) {
                 //set call back for servoy client
                 Servoy.onResumeMethod = cb;
+                document.addEventListener("resume", onResume, false);
+                //runs when the app resumes
+                function onResume() {
+                    console.log('resume');
+                    // Handle the resume event
+                    try {
+                        Servoy.helperCB(Servoy.onResumeMethod);
+                    } catch (e) {
+                        console.log(e)
+                    }
+                }
             },
             setBackMethod: function(cb) {
                 //set call back for servoy client
                 Servoy.onBackMethod = cb;
+                document.addEventListener("backbutton", function(e) {
+                    e.preventDefault();
+                    onBack();
+                }, false);
+
+                function onBack() {
+                    console.log('back');
+                    // Handle the hardware back button event
+
+                    try {
+                        Servoy.helperCB(Servoy.onBackMethod);
+                    } catch (e) {
+                        console.log(e)
+                    }
+                }
             }
         }
 
