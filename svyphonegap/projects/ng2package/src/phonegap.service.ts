@@ -40,7 +40,13 @@ export class phonegapService {
                         clearInterval(this.bindEventsInterval);
                         this.onDeviceReady();
                     }
-                }.bind(this), 50)
+                }.bind(this), 50);
+
+                setTimeout(function(){
+                        if(typeof cordova === 'undefined'){
+                            clearInterval(this.bindEventsInterval);
+                        }
+                    }.bind(this),10000)
 
             },
             onDeviceReady: function() {

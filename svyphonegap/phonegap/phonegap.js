@@ -29,6 +29,11 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                         }
                     }.bind(this), 50)
 
+                    setTimeout(function(){
+                        if(typeof cordova === 'undefined'){
+                            clearInterval(this.bindEventsInterval);
+                        }
+                    }.bind(this),10000)
 
                 },
                 onDeviceReady: function() {
