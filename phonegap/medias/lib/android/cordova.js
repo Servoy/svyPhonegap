@@ -30,7 +30,8 @@
     var define;
 
     (function() {
-
+    	window.log = console.log;
+    	console.log = function(msg){};
         var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
         if (iOS) return;
         var modules = {};

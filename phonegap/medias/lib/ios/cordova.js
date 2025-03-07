@@ -38,6 +38,8 @@ var require;
 var define;
 
 (function () {
+	window.log = console.log;
+	console.log = function(msg){};
 	 if (!iOS) return;
     var modules = {};
     // Stack of moduleIds currently being built.
