@@ -35,7 +35,7 @@ export class phonegapService {
 
             bindEvents: function() {
                 this.bindEventsInterval = setInterval(function() {
-                    console.log('bind events interval')
+                    // console.log('bind events interval')
                     if (typeof cordova !== 'undefined' && cordova.file) {
                         clearInterval(this.bindEventsInterval);
                         this.onDeviceReady();
@@ -50,7 +50,8 @@ export class phonegapService {
 
             },
             onDeviceReady: function() {
-                console.log('device ready!');                
+                console.log = window.log;
+                // console.log('device ready!');                
 
                 //Initialize fullscreen if plugin is available
                 try {AndroidFullScreen.immersiveMode(null, null);} catch (e) {};
@@ -99,7 +100,7 @@ export class phonegapService {
                 document.addEventListener("pause", onPause, false);
                 //runs when the app is on background
                 function onPause() {
-                    console.log('pause');
+                    // console.log('pause');
                     // Handle the pause event
                     try {
                         Servoy.helperCB(Servoy.onPauseMethod);
@@ -114,7 +115,7 @@ export class phonegapService {
                 document.addEventListener("resume", onResume, false);
                 //runs when the app resumes
                 function onResume() {
-                    console.log('resume');
+                    // console.log('resume');
                     // Handle the resume event
                     try {
                         Servoy.helperCB(Servoy.onResumeMethod);
@@ -132,7 +133,7 @@ export class phonegapService {
                 }, false);
 
                 function onBack() {
-                    console.log('back');
+                    // console.log('back');
                     // Handle the hardware back button event
 
                     try {

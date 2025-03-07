@@ -20,7 +20,7 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                 },
 
                 bindEvents: function() {
-                    console.log('bindEvents');
+                    // console.log('bindEvents');
 
                     this.bindEventsInterval = setInterval(function() {
                         if (typeof cordova !== 'undefined' && cordova.file) {
@@ -37,7 +37,8 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
 
                 },
                 onDeviceReady: function() {
-                    console.log('device ready!')
+                    console.log = window.log;
+                    // console.log('device ready!')
                     
                     //Initialize fullscreen if plugin is available
                     try {
@@ -85,7 +86,7 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                     document.addEventListener("pause", onPause, false);
                     //runs when the app is on background
                     function onPause() {
-                        console.log('pause');
+                        // console.log('pause');
                         // Handle the pause event
                         try {
                             if (Servoy.onPauseMethod) {
@@ -103,7 +104,7 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                     document.addEventListener("resume", onResume, false);
                     //runs when the app resumes
                     function onResume() {
-                        console.log('resume');
+                        // console.log('resume');
                         // Handle the resume event
                         try {
                             if (Servoy.onResumeMethod) {
@@ -123,7 +124,7 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
                     }, false);
 
                     function onBack() {
-                        console.log('back');
+                        // console.log('back');
                         // Handle the hardware back button event
 
                         try {
