@@ -85,41 +85,6 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 					$window.executeInlineScript(onNotificationCallback.formname, onNotificationCallback.script, [data]);
 				}.bind(this));
 			},
-			/**
-			 * Send a notification to devices that are subscribed to a particular topic
-			 * an Authkey is required from Google Firebase Cloud Messaging Service
-			 * </ul>
-			 * @param {String} authKey example : AIzaSy*******************
-			 * @param {String} title
-			 * @param {String} body
-			 * @param {String} topic
-			 * @param {String} channel
-			 * @param {Function} successCallback
-			 * @param {Function} errorCallback
-			 *
-			 */
-			sendNotification: function(authKey, title, body, topic, channel, successCallback, errorCallback) {				
-				$http({
-					url: "https://fcm.googleapis.com/fcm/send",
-					method: "POST",
-					headers: {
-						'Content-Type': 'application/json',
-						'Authorization': 'key=' + authKey
-					},
-					data: {							
-						'priority': 'high',
-						'to': '/topics/' + topic,
-						notification: {	
-							'android_channel_id':channel,
-							'title': title,
-							'body': body,
-							"sound": "default",
-							"click_action": "FCM_PLUGIN_ACTIVITY",
-							"icon": "fcm_push_icon"
-						}
-					}
-				}).then(successCallback, errorCallback);
-			},
 			isSupported: function() {
 				return !!FCM;
 			}

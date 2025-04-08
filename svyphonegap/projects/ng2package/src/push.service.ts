@@ -102,47 +102,6 @@ export class pushService {
         }.bind(this));
     }
 
-    /**
-     * Send a notification to devices that are subscribed to a particular topic
-     * an Authkey is required from Google Firebase Cloud Messaging Service
-     * </ul>
-     * @param {String} authKey example : AIzaSy*******************
-     * @param {String} title
-     * @param {String} body
-     * @param {String} topic
-     * @param {String} channel
-     * @param {Function} successCallback
-     * @param {Function} errorCallback
-     *
-     */
-    sendNotification(authKey, title, body, topic, channel, successCallback, errorCallback) {
-        var data = {
-            priority: 'high',
-            'to': '/topics/' + topic,
-            notification: {
-                'android_channel_id':channel,
-                'title': title,
-                'body': body,
-                "sound": "default",
-                "click_action": "FCM_PLUGIN_ACTIVITY",
-                "icon": "fcm_push_icon"
-            }
-        }
-
-        let xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://fcm.googleapis.com/fcm/send");
-        xhr.setRequestHeader("Authorization", 'key=' + authKey);
-        xhr.setRequestHeader("Content-Type", "application/json");
-
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4) {
-                this.helperCB(successCallback, [xhr.status, xhr.responseText]);
-            }
-        }.bind(this);
-
-        xhr.send(JSON.stringify(data));
-    }
-
     isSupported() {
         return !!FCM;
     }

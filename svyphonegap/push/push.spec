@@ -99,49 +99,6 @@
 			"returns": "boolean"
 		},
 
-		"sendNotification": 
-		{
-			"parameters": 
-			[
-				{
-					"name": "authKey",
-					"type": "string"
-				},
-
-				{
-					"name": "title",
-					"type": "string"
-				},
-
-				{
-					"name": "body",
-					"type": "string"
-				},
-
-				{
-					"name": "topic",
-					"type": "string"
-				},
-				
-				{
-					"name": "channel",
-					"type": "string"
-				},
-
-				{
-					"name": "onSuccessCallbackMethod",
-					"type": "function"
-				},
-
-				{
-					"name": "onErrorCallbackMethod",
-					"type": "function"
-				}
-			],
-
-			"returns": "boolean"
-		},
-
 		"isSupported": 
 		{
 			"parameters": 
