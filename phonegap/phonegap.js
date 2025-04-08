@@ -106,6 +106,8 @@ var isMobile = {
 var tex = '';
 
 /**
+ * Helper method to load the fcm binary for sending notifications
+ * Must have the fcm binary installed under /media/lib/ for this method to work
  * @properties={typeid:24,uuid:"5B0ED24A-5F66-487B-9CE4-4E4342428116"}
  */
 function initFCMLib() {
@@ -142,13 +144,15 @@ function initFCMLib() {
 }
 
 /**
- * @param {String} key
+ * @param {String} key path to the firebase service account json file
  * @param {String} project_id
  * @param {String} topic
  * @param {String} title
  * @param {String} body
  * @param {String} channel
  * @return {Object}
+ * Updated method for sending push notification messages via firebase API
+ * Must have the fcm binary installed under /media/lib/ for this method to work
  * @properties={typeid:24,uuid:"9A92ACFD-5FBF-4AB9-88F7-B9D1704F7148"}
  */
 function sendFCMPushMessage(key,project_id,topic,title,body,channel) {
