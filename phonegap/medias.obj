@@ -463,6 +463,13 @@ uuid:"F562C452-A674-4092-8847-FF619C63FF1F"
 },
 {
 encapsulation:0,
+mimeType:"text/plain",
+name:"lib/fcm/readme.txt",
+typeid:37,
+uuid:"92284E57-17F7-4DBB-9776-7BC79D225D3A"
+},
+{
+encapsulation:0,
 mimeType:"text/javascript",
 name:"lib/ios/cordova-js-src/exec.js",
 typeid:37,
