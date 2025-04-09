@@ -68,7 +68,7 @@ export class pushService {
         });
 
         FCM.subscribeToTopic(topic).then(function(data) {
-            this.helperCB(callback, [data]);
+            this.helperCB(callback, data);
         }.bind(this));
 
     }
@@ -85,7 +85,7 @@ export class pushService {
      */
     unubscribeFromTopic(topic, callback) {
         FCM.unsubscribeFromTopic(topic).then(function(data) {
-            this.helperCB(callback, [data]);
+            this.helperCB(callback, data);
         }.bind(this));
     }
 
