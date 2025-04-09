@@ -1,1 +1,1 @@
-Place fcm and fcm.exe files here for firebase messaging API.
+Place related firebase messaging files in this directory. (fcm,fcm.exe,service.json)

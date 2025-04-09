@@ -141,11 +141,12 @@ function initFCMLib() {
 		application.executeProgram('chmod', ['777', tex]);
 //		application.output('Changing file permissions to 777',LOGGINGLEVEL.DEBUG);	
 	}
+	if (tex == '') {
+		application.output('No FCM binaries found. Cannot send notifications. Please add those to /media/lib/fcm directory first.')
+	}
 }
 
 /**
- * @param {String} key path to the firebase service account json file
- * @param {String} project_id
  * @param {String} topic
  * @param {String} title
  * @param {String} body
@@ -155,12 +156,32 @@ function initFCMLib() {
  * Must have the fcm binary installed under /media/lib/ for this method to work
  * @properties={typeid:24,uuid:"9A92ACFD-5FBF-4AB9-88F7-B9D1704F7148"}
  */
-function sendFCMPushMessage(key,project_id,topic,title,body,channel) {
+function sendFCMPushMessage(topic,title,body,channel) {
 	if (tex == '' || tex.length < 5 || plugins.file.getFileSize(tex) < 40000) {
 		initFCMLib();
 	}	
+	
+	//load services.json key if we have one stored under /media
+	var key_media = solutionModel.getMedia('lib/fcm/services.json')
+	if (key_media) {
+		var key_file = plugins.file.createTempFile('services', '.json')
+		key_file.setBytes(key_media.bytes);
+		var key = key_file.getAbsolutePath();
+		/** @type {{project_id:String}} */		
+		var key_obj = JSON.parse(plugins.file.readTXTFile(key_file));
+		var project_id = key_obj.project_id;		
+	} else {
+		application.output('No services.json found. Cannot send notifications')
+		return null;
+	}
 	
 	var obj = application.executeProgram(tex, [key,project_id,topic,title,body,channel]);	
 	return obj;
 }
 
+/**
+ * @properties={typeid:24,uuid:"0260CAF8-76E7-442A-BC3C-62A402FEE74E"}
+ */
+function testSend(){
+	scopes.phonegap.sendFCMPushMessage('Topic','INFO','This is a test','urgent_alert');
+}
