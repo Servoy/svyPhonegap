@@ -26,15 +26,15 @@ export class fileService {
      * @param {Function} [err]
      * @properties={typeid:24,uuid:"5E1834FA-B7B5-4566-B9DC-12CB5F3D73CF"}
      */
-    openfile(fileName, fileType, dir, cb, err) { 
-        var pathToFile = cordova.file[dir] + fileName;        
+    openfile(fileName, fileType, dir, cb, err) {
+        var pathToFile = cordova.file[dir] + fileName;
         cordova.plugins.fileOpener2.open(pathToFile, fileType, {
-            error: function(e){
+            error: function(e) {
                 this.helperCB(cb, e);
             }.bind(this),
-            success: function(e){
+            success: function(e) {
                 this.helperCB(err, e);
-            }.bind(this),                  
+            }.bind(this),
         });
     }
 
@@ -88,23 +88,23 @@ export class fileService {
                     }.bind(this);
                     var binaryString;
                     try {
-                    binaryString = window.atob(data.replace(/\r\n/g, '').replace(/\r\n/g, '').replace(/\r\n/g, ''));
+                        binaryString = window.atob(data.replace(/\r\n/g, '').replace(/\r\n/g, '').replace(/\r\n/g, ''));
 
-                    // Process the decoded string
+                        // Process the decoded string
                     } catch (error) {
-                    if (error.name === 'InvalidCharacterError') {
-                      console.error('Invalid Base64 encoding:', data);
-                    } else {
-                      console.error('Unknown error:', error);
-                    }
+                        if (error.name === 'InvalidCharacterError') {
+                            console.error('Invalid Base64 encoding:', data);
+                        } else {
+                            console.error('Unknown error:', error);
+                        }
                     }
 
                     // Create an array of bytes from the binary string
                     var bytes = new Uint8Array(binaryString.length);
                     for (let i = 0; i < binaryString.length; i++) {
-                    bytes[i] = binaryString.charCodeAt(i);
+                        bytes[i] = binaryString.charCodeAt(i);
                     }
-                    var blob = new Blob([bytes]); 
+                    var blob = new Blob([bytes]);
                     fileWriter.write(blob);
                 }.bind(this), function(e) {
                     this.helperCB(err, e);
@@ -116,6 +116,39 @@ export class fileService {
             err(e);
         }.bind(this));
 
+    }
+
+    /**
+     * @param data
+     * @param {String} galleryFolder Use a specific folder for gallery on Android 13+
+     * @param {Function} [cb]
+     * @param {Function} [err]
+     * @properties={typeid:24,uuid:"A3078652-DF4B-4591-B4BD-54F85C573A19"}
+     */
+    saveToGallery(data, galleryFolder, cb, err) {
+        if (!data || data == '') {
+            this.helperCB(err, 'Image data is invalid');
+            return;
+        }
+        var dir = '';
+        var fileName = 'temp_img.jpeg'
+        var isIpad = (navigator.userAgent.match(/(iPad)/) /* iOS pre 13 */ || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) /* iPad OS 13+ */ );
+        var isIphone = navigator.userAgent.toLowerCase().match(/iphone|ipad|ipod/i);
+        var isAndroid = navigator.userAgent.toLowerCase().match(/android/i);
+
+        if (isIpad || isIphone) {
+            dir = 'documentsDirectory'
+        }
+
+        if (isAndroid) {
+            dir = 'externalApplicationStorageDirectory'
+        }
+
+        this.writeToFile(fileName, dir, data, function(d) {
+            cordova.plugins.imagesaver.saveImageToGallery(cordova.file[dir] + '/' + fileName, galleryFolder, function(dd) { this.helperCB(cb,dd); }.bind(this), function(ee) { this.helperCB(err, ee); }.bind(this))
+        }.bind(this), function(e) {
+            this.helperCB(err, e);
+        }.bind(this))
     }
 
 }

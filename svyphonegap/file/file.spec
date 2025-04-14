@@ -108,6 +108,31 @@
 					"type": "function"
 				}
 			]
+		},
+		"saveToGallery": 
+		{
+			"parameters": 
+			[				
+				{
+					"name": "imgData",
+					"type": "string"
+				},
+
+				{
+					"name": "galleryFolder",
+					"type": "string"
+				},
+
+				{
+					"name": "callbackSuccess",
+					"type": "function"
+				},
+
+				{
+					"name": "callbackError",
+					"type": "function"
+				}
+			]
 		}
 	}
 }
