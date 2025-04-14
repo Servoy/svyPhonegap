@@ -407,6 +407,13 @@ uuid:"6BE2CFD8-02E6-4546-BADE-3C827B11F3E1"
 },
 {
 encapsulation:0,
+mimeType:"text/javascript",
+name:"lib/android/plugins/cordova-plugin-save-image/www/SaveImage.js",
+typeid:37,
+uuid:"5B5B9186-2289-4FFB-BD34-2531F4748201"
+},
+{
+encapsulation:0,
 mimeType:"application/javascript",
 name:"lib/android/plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
 typeid:37,
@@ -887,6 +894,13 @@ mimeType:"text/javascript",
 name:"lib/ios/plugins/cordova-plugin-printer/www/printer.js",
 typeid:37,
 uuid:"56E3ADBF-2DB1-4255-A780-EB6E6C41B93F"
+},
+{
+encapsulation:0,
+mimeType:"text/javascript",
+name:"lib/ios/plugins/cordova-plugin-save-image/www/SaveImage.js",
+typeid:37,
+uuid:"DC37B37E-48F9-4BBB-8AC6-976029802AC1"
 },
 {
 encapsulation:0,

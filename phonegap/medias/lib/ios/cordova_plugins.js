@@ -355,9 +355,9 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
             "file": "plugins/cordova-plugin-fcm-with-dependecy-updated-12/www/FCMPlugin.js",
             "pluginId": "cordova-plugin-fcm-with-dependecy-updated-12",
             "clobbers": [
-              "FCM"
+                "FCM"
             ]
-          },
+        },
         {
             "id": "cordova-plugin-screen-orientation.screenorientation",
             "file": "plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
@@ -380,6 +380,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
             "pluginId": "cordova-plugin-dialogs",
             "merges": [
                 "navigator.notification"
+            ]
+        },
+        {
+            "id": "cordova-plugin-save-image.SaveImage",
+            "file": "plugins/cordova-plugin-save-image/www/SaveImage.js",
+            "pluginId": "cordova-plugin-save-image",
+            "clobbers": [
+                "cordova.plugins.imagesaver"
             ]
         },
         {
@@ -414,7 +422,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
                 "plugin.printer",
                 "cordova.plugins.printer"
             ]
-        },     
+        },
         {
             "id": "cordova-plugin-print-pdf.PrintPDF",
             "file": "plugins/cordova-plugin-print-pdf/www/PrintPDF.js",
@@ -436,35 +444,36 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
             "file": "plugins/cordova-plugin-local-notification-12/www/local-notification.js",
             "pluginId": "cordova-plugin-local-notification-12",
             "clobbers": [
-              "cordova.plugins.notification.local"
+                "cordova.plugins.notification.local"
             ]
-          },
-		  {
-		      "id": "cordova-plugin-badge-fix.Badge",
-		      "file": "plugins/cordova-plugin-badge-fix/www/badge.js",
-		      "pluginId": "cordova-plugin-badge-fix",
-		      "clobbers": [
-		        "cordova.plugins.notification.badge"
-		      ]
-		    },
-		    {
-		        "id": "phonegap-plugin-mobile-accessibility.mobile-accessibility",
-		        "file": "plugins/phonegap-plugin-mobile-accessibility/www/mobile-accessibility.js",
-		        "pluginId": "phonegap-plugin-mobile-accessibility",
-		        "clobbers": [
-		          "window.MobileAccessibility"
-		        ]
-		  },{
-      "id": "community-cordova-plugin-file-opener.FileOpener2",
-      "file": "plugins/community-cordova-plugin-file-opener/www/plugins.FileOpener2.js",
-      "pluginId": "community-cordova-plugin-file-opener",
-      "clobbers": [
-        "cordova.plugins.fileOpener2"
-      ]
-    }
+        },
+        {
+            "id": "cordova-plugin-badge-fix.Badge",
+            "file": "plugins/cordova-plugin-badge-fix/www/badge.js",
+            "pluginId": "cordova-plugin-badge-fix",
+            "clobbers": [
+                "cordova.plugins.notification.badge"
+            ]
+        },
+        {
+            "id": "phonegap-plugin-mobile-accessibility.mobile-accessibility",
+            "file": "plugins/phonegap-plugin-mobile-accessibility/www/mobile-accessibility.js",
+            "pluginId": "phonegap-plugin-mobile-accessibility",
+            "clobbers": [
+                "window.MobileAccessibility"
+            ]
+        }, {
+            "id": "community-cordova-plugin-file-opener.FileOpener2",
+            "file": "plugins/community-cordova-plugin-file-opener/www/plugins.FileOpener2.js",
+            "pluginId": "community-cordova-plugin-file-opener",
+            "clobbers": [
+                "cordova.plugins.fileOpener2"
+            ]
+        }
     ];
     module.exports.metadata = {
         "cordova-plugin-statusbar": "2.4.3",
+        "cordova-plugin-save-image": "0.4.0",
         "cordova-plugin-vibration": "3.1.1",
         "cordova-plugin-whitelist": "1.3.4",
         "cordova-plugin-app-version": "0.1.9",
@@ -480,7 +489,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
         "cordova-plugin-file": "4.3.3",
         "it.innowatio.cordova.ios-fullscreen": "0.3.0",
         "cordova-plugin-inappbrowser": "1.7.2",
-        "cordova-plugin-device": "1.1.7",        
+        "cordova-plugin-device": "1.1.7",
         "cordova-plugin-fingerprint-aio": "1.7.0",
         "cordova-plugin-fcm-with-dependecy-updated-12": "7.8.4",
         "cordova-plugin-local-notification-12": "0.1.3",
@@ -492,6 +501,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
         "cordova-plugin-cleartext": "1.0.0",
         "cordova-plugin-printer": "0.7.3",
         "cordova-plugin-print-pdf": "4.0.2",
-		"phonegap-plugin-mobile-accessibility": "1.0.9"
+        "phonegap-plugin-mobile-accessibility": "1.0.9"
     };
 });

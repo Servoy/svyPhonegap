@@ -435,13 +435,22 @@ module.exports = [
          "clobbers": [
            "AndroidFullScreen"
          ]
-       }
+       },
+    {
+      "id": "cordova-plugin-save-image.SaveImage",
+      "file": "plugins/cordova-plugin-save-image/www/SaveImage.js",
+      "pluginId": "cordova-plugin-save-image",
+      "clobbers": [
+        "cordova.plugins.imagesaver"
+      ]
+    }
 	
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
   "cordova-plugin-statusbar": "2.4.3",
+  "cordova-plugin-save-image": "0.4.0",
   "community-cordova-plugin-file-opener": "3.1.1",
   "cordova-plugin-vibration": "3.1.1",  
   "cordova-plugin-whitelist": "1.3.4",
