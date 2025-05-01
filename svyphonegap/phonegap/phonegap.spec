@@ -108,7 +108,7 @@
 			[
 				{
 					"name": "times",
-					"type": "integer"
+					"type": "int"
 				}
 			]
 		},
@@ -119,7 +119,7 @@
 			[
 				{
 					"name": "time",
-					"type": "integer"
+					"type": "int"
 				}
 			]
 		},
@@ -130,7 +130,7 @@
 			[
 				{
 					"name": "textZoom",
-					"type": "integer"
+					"type": "int"
 				}
 			]
 		},
