@@ -32,7 +32,7 @@ angular.module('svyphonegapFingerprintscan', ['servoy']).factory("svyphonegapFin
 					}, function(err) {
 						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
 					});
-			}
+			},
 
 			/**
 			 * Register a biometric secret in vault
@@ -49,7 +49,7 @@ angular.module('svyphonegapFingerprintscan', ['servoy']).factory("svyphonegapFin
 					}, function(err) {
 						$window.executeInlineScript(errorCallback.formname, errorCallback.script, [err]);
 					});
-			}
+			},
 
 			/**
 			 * Load a biometric secret from the vault
