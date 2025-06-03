@@ -1,1 +1,1 @@
-Place related firebase messaging files in this directory. (fcm,fcm.exe,service.json)
+Place related firebase messaging files in this directory. (fcm,fcm.exe,services.json)
