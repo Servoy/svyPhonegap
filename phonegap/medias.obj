@@ -78,6 +78,13 @@ uuid:"D0D7E0CA-B634-4D05-9C0B-03BE518D25CD"
 },
 {
 encapsulation:0,
+mimeType:"text/javascript",
+name:"lib/android/plugins/cordova-plugin-android-permissions/www/permissions.js",
+typeid:37,
+uuid:"14F46534-928E-447D-83EC-1B65131E7504"
+},
+{
+encapsulation:0,
 mimeType:"application/javascript",
 name:"lib/android/plugins/cordova-plugin-app-version/www/AppVersionPlugin.js",
 typeid:37,
@@ -558,6 +565,13 @@ mimeType:"application/javascript",
 name:"lib/ios/plugins/cordova-plugin-actionsheet/www/ActionSheet.js",
 typeid:37,
 uuid:"F59882AD-0CCD-495E-B2EA-D78C25A99FC4"
+},
+{
+encapsulation:0,
+mimeType:"text/javascript",
+name:"lib/ios/plugins/cordova-plugin-android-permissions/www/permissions-dummy.js",
+typeid:37,
+uuid:"12BF3B52-3BCF-4FA7-A2D3-C8B24932D17E"
 },
 {
 encapsulation:0,

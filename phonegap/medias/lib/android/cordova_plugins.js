@@ -443,7 +443,15 @@ module.exports = [
       "clobbers": [
         "cordova.plugins.imagesaver"
       ]
-    }
+    },
+    {
+        "id": "cordova-plugin-android-permissions.Permissions",
+        "file": "plugins/cordova-plugin-android-permissions/www/permissions.js",
+        "pluginId": "cordova-plugin-android-permissions",
+        "clobbers": [
+          "cordova.plugins.permissions"
+        ]
+      }
 	
 ];
 module.exports.metadata = 
@@ -480,7 +488,8 @@ module.exports.metadata =
   "cordova-plugin-actionsheet": "2.3.3",
   "cordova-plugin-dialogs": "2.0.2",
   "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.5",
-  "phonegap-plugin-mobile-accessibility": "1.0.9"
+  "phonegap-plugin-mobile-accessibility": "1.0.9",
+  "cordova-plugin-android-permissions": "1.1.5"
 };
 // BOTTOM OF METADATA
 });

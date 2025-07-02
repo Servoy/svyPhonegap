@@ -469,7 +469,15 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
             "clobbers": [
                 "cordova.plugins.fileOpener2"
             ]
-        }
+        },
+		{
+		      "id": "cordova-plugin-android-permissions.Permissions",
+		      "file": "plugins/cordova-plugin-android-permissions/www/permissions-dummy.js",
+		      "pluginId": "cordova-plugin-android-permissions",
+		      "clobbers": [
+		        "cordova.plugins.permissions"
+		      ]
+		    }
     ];
     module.exports.metadata = {
         "cordova-plugin-statusbar": "2.4.3",
@@ -501,6 +509,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
         "cordova-plugin-cleartext": "1.0.0",
         "cordova-plugin-printer": "0.7.3",
         "cordova-plugin-print-pdf": "4.0.2",
-        "phonegap-plugin-mobile-accessibility": "1.0.9"
+        "phonegap-plugin-mobile-accessibility": "1.0.9",
+		"cordova-plugin-android-permissions": "1.1.5"
     };
 });
