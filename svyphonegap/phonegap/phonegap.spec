@@ -143,6 +143,44 @@
 			],
 
 			"returns": "object"
+		},
+		
+		"checkPermission": 
+		{
+			"parameters": 
+			[
+				{
+					"name": "permission",
+					"type": "string"
+				},
+				{
+					"name": "successCallbackMethod",
+					"type": "function"
+				},
+				{
+					"name": "errorCallbackMethod",
+					"type": "function"
+				}
+			]
+		},
+		
+		"requestPermissions": 
+		{
+			"parameters": 
+			[
+				{
+					"name": "permissions",
+					"type": "object"
+				},
+				{
+					"name": "successCallbackMethod",
+					"type": "function"
+				},
+				{
+					"name": "errorCallbackMethod",
+					"type": "function"
+				}
+			]
 		}
 	}
 }

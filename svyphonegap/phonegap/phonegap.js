@@ -201,6 +201,23 @@ angular.module('svyphonegapPhonegap', ['servoy']).factory("svyphonegapPhonegap",
         },
         setTextZoom: function(n) {
             MobileAccessibility.setTextZoom(n);
-        }
+        },
+		checkPermission: function(n,s,f) {
+			var permissions = cordova.plugins.permissions;
+			permissions.checkPermission(n, function(d){
+				$window.executeInlineScript(s.formname, s.script, [d]);
+			}, function(d){
+				$window.executeInlineScript(f.formname, f.script, [d]);
+			});
+			
+		},
+		requestPermissions: function(n,s,f) {
+			var permissions = cordova.plugins.permissions;
+			permissions.requestPermissions(n, function(d){
+				$window.executeInlineScript(s.formname, s.script, [d]);
+			}, function(d){
+				$window.executeInlineScript(f.formname, f.script, [d]);
+			});
+		}
     }
 }).run(function($rootScope, $services) {})
