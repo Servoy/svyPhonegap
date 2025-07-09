@@ -38,7 +38,6 @@
         {"version": "1.2.6","url": "https://github.com/Servoy/svyPhonegap/releases/download/1.2.6/phonegap.servoy","servoy-version":"8.1.3"},
         {"version": "1.2.7","url": "https://github.com/Servoy/svyPhonegap/releases/download/1.2.7/phonegap.servoy","servoy-version":"8.1.3"},
         {"version": "1.2.8","url": "https://github.com/Servoy/svyPhonegap/releases/download/1.2.8/phonegap.servoy","servoy-version":"8.1.3"},
-        {"version": "1.2.9","url": "https://github.com/Servoy/svyPhonegap/releases/download/1.2.9/phonegap.servoy","servoy-version":"8.1.3"},
-        {"version": "1.3.0","url": "https://github.com/Servoy/svyPhonegap/releases/download/1.3.0/phonegap.servoy","servoy-version":"8.1.3"}
+        {"version": "1.2.9","url": "https://github.com/Servoy/svyPhonegap/releases/download/1.2.9/phonegap.servoy","servoy-version":"8.1.3"}        
      ]
 }
