@@ -214,5 +214,22 @@ export class phonegapService {
     setTextZoom(n) {
         MobileAccessibility.setTextZoom(n);
     }
-
+     
+	checkPermission(n,s,f){
+		var permissions = cordova.plugins.permissions;
+			permissions.checkPermission(n, function(d){
+				Servoy.helperCB(s,d);
+			}, function(d){
+				Servoy.helperCB(f,d);
+			});		
+	}
+	
+	requestPermissions(n,s,f){
+		var permissions = cordova.plugins.permissions;
+			permissions.requestPermissions(n, function(d){
+				Servoy.helperCB(s,d);
+			}, function(d){
+				Servoy.helperCB(f,d);
+			});		
+	}
 }
