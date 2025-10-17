@@ -3,6 +3,7 @@
 	"displayName": "location",
 	"version": 1,
  	"definition": "svyphonegap/location/location.js",
+    "doc": "svyphonegap/location/location_doc.js",
  	"ng2Config": {
        "packageName": "@servoy/svyphonegap",
        "serviceName": "locationService",
@@ -20,12 +21,12 @@
 			"parameters": 
 			[
 				{
-					"name": "onSuccessCallbackMethod",
+					"name": "successCallback",
 					"type": "function"
 				},
 
 				{
-					"name": "onErrorCallbackMethod",
+					"name": "errorCallback",
 					"type": "function",
 					"optional": true
 				},
@@ -44,12 +45,12 @@
 			[				
 
 				{
-					"name": "onSuccessCallbackMethod",
+					"name": "successCallback",
 					"type": "function"
 				},
 
 				{
-					"name": "onErrorCallbackMethod",
+					"name": "errorCallback",
 					"type": "function",
 					"optional": true
 				},

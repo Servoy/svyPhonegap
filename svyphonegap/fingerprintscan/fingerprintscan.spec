@@ -3,6 +3,7 @@
 	"displayName": "fingerprintscan",
 	"version": 1,
 	"definition": "svyphonegap/fingerprintscan/fingerprintscan.js",
+    "doc": "svyphonegap/fingerprintscan/fingerprintscan_doc.js",
 	"ng2Config": 
 	{
 		"packageName": "@servoy/svyphonegap",

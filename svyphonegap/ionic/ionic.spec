@@ -3,6 +3,7 @@
 	"displayName": "ionic",
 	"version": 1,
  	"definition": "svyphonegap/ionic/ionic.js",
+    "doc": "svyphonegap/ionic/ionic_doc.js",
  	"ng2Config": {
        "packageName": "@servoy/svyphonegap",
        "serviceName": "ionicService",

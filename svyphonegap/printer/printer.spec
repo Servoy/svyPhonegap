@@ -3,6 +3,7 @@
 	"displayName": "printer",
 	"version": 1,
  	"definition": "svyphonegap/printer/printer.js",
+    "doc": "svyphonegap/printer/printer_doc.js",
  	"ng2Config": {
        "packageName": "@servoy/svyphonegap",
        "serviceName": "printerService",

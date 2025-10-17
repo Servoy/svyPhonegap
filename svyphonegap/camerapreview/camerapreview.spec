@@ -3,6 +3,7 @@
 	"displayName": "camerapreview",
 	"version": 1,
 	"definition": "svyphonegap/camerapreview/camerapreview.js",
+    "doc": "svyphonegap/camerapreview/camerapreview_doc.js",
 	"ng2Config": 
 	{
 		"packageName": "@servoy/svyphonegap",

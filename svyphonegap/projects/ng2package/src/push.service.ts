@@ -6,7 +6,7 @@ declare let FCM: any;
 export class pushService {
     constructor(private servoyService: ServoyPublicService) {}
 
-     private helperCB(cb, d) {
+    private helperCB(cb, d) {
         if (cb) {
             cb(d);
         }
@@ -14,10 +14,8 @@ export class pushService {
 
     /**
      * Get a callback every time a token is generated, including the initial generation.
-     * </ul>
      *
      * @param {Function} callback
-     *
      */
     onTokenRefresh(callback) {
         FCM.onTokenRefresh().then(function(data) {
@@ -27,10 +25,8 @@ export class pushService {
 
     /**
      * Generate a token
-     * </ul>
      *
      * @param {Function} callback     
-     *
      */
     getToken(callback) {
         FCM.getToken().then(function(data) {
@@ -39,14 +35,12 @@ export class pushService {
     }
 
     /**
-     *Subscribe to a topic
-     *All devices are subscribed automatically to 'all' and 'ios' or 'android' topic respectively.
-     *Must match the following regular expression: "[a-zA-Z0-9-_.~%]{1,900}".
-     * </ul>
+     * Subscribe to a topic.<br/><br/>
+     * All devices are subscribed automatically to 'all' and 'ios' or 'android' topic respectively.
+     * Must match the following regular expression: "[a-zA-Z0-9-_.~%]{1,900}".
      *
      * @param {String} topic
      * @param {Function} callback     
-     *
      */
     subscribeToTopic(topic,callback) {
         FCM.createNotificationChannel({
@@ -74,14 +68,12 @@ export class pushService {
     }
 
     /**
-     *unSubscribe from a topic
-     *All devices are subscribed automatically to 'all' and 'ios' or 'android' topic respectively.
-     *Must match the following regular expression: "[a-zA-Z0-9-_.~%]{1,900}".
-     * </ul>
+     * Unsubscribe from a topic.<br/><br/>
+     * All devices are subscribed automatically to 'all' and 'ios' or 'android' topic respectively.
+     * Must match the following regular expression: "[a-zA-Z0-9-_.~%]{1,900}".
      *
      * @param {String} topic
      * @param {Function} callback   
-     *
      */
     unubscribeFromTopic(topic, callback) {
         FCM.unsubscribeFromTopic(topic).then(function(data) {
@@ -90,11 +82,9 @@ export class pushService {
     }
 
     /**
-     *Define the behavior receiving a notification
-     * </ul>
+     * Define the behavior receiving a notification
      *
      * @param {Function} onNotificationCallback
-     *
      */
     onNotification(onNotificationCallback) {
         FCM.onNotification(function(data) {

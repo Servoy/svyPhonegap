@@ -9,9 +9,8 @@ export class launchNavigatorService {
     launchNavigator(address) {
         try {
             launchnavigator.navigate(address);
-
         } catch (e) {
-            window.alert('error opening link' + e.message);
+            window.alert('error launching (map) navigator:' + e.message);
         }
     }
 

@@ -3,6 +3,7 @@
 	"displayName": "phonegapOrientation",
 	"version": 1,
  	"definition": "svyphonegap/phonegapOrientation/phonegapOrientation.js",
+    "doc": "svyphonegap/phonegapOrientation/phonegapOrientation_doc.js",
  	"ng2Config": {
        "packageName": "@servoy/svyphonegap",
        "serviceName": "phonegapOrientationService",

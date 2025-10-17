@@ -14,7 +14,6 @@ export class fingerprintscanService {
 
     /**
      * Check if fingerprint authentication is available
-     * </ul>
      *
      * @param {Function} [isAvailableSuccess] Result will depends on device and OS. <br> iPhone X will return 'face' other Android or iOS devices will return 'finger'
      * @param {Function} [isAvailableError]
@@ -30,7 +29,7 @@ export class fingerprintscanService {
 
     /**
      * Show authentication dialogue
-     * </ul>
+     * 
      * @param {{clientId: String, clientSecret: String}} config configuration for fingerprint, clientSecret only needed for Android
      * @param {Function} [successCallback]
      * @param {Function} [errorCallback]
@@ -47,7 +46,7 @@ export class fingerprintscanService {
 
     /**
      * Register a biometric secret in vault
-     * </ul>
+     * 
      * @param {{description: String, secret: String, invalidateOnEnrollment: boolean, disableBackup: boolean}} config for storing secret, disableBackup always disabled on Android
      * @param {Function} [successCallback]
      * @param {Function} [errorCallback]
@@ -65,7 +64,7 @@ export class fingerprintscanService {
 
     /**
      * Load a biometric secret from the vault
-     * </ul>
+     * 
      * @param {{description: String, disableBackup: boolean}} config for loading secret, disableBackup always disabled on Android
      * @param {Function} [successCallback]
      * @param {Function} [errorCallback]
@@ -78,7 +77,6 @@ export class fingerprintscanService {
         }.bind(this), function(err) {
             this.helperCB(errorCallback, err);
         }.bind(this));
-
-}
+    }
 
 }

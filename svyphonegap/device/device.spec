@@ -3,6 +3,7 @@
 	"displayName": "device",
 	"version": 1,
 	"definition": "svyphonegap/device/device.js",
+    "doc": "svyphonegap/device/device_doc.js",
 	"ng2Config": 
 	{
 		"packageName": "@servoy/svyphonegap",

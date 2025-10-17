@@ -3,6 +3,7 @@
 	"displayName": "networkinterface",
 	"version": 1,
  	"definition": "svyphonegap/networkinterface/networkinterface.js",
+    "doc": "svyphonegap/networkinterface/networkinterface_doc.js",
  	"ng2Config": {
        "packageName": "@servoy/svyphonegap",
        "serviceName": "networkinterfaceService",
@@ -21,12 +22,12 @@
 			"parameters": 
 			[
 				{
-					"name": "onSuccess",
+					"name": "successCallback",
 					"type": "function"
 				},
 
 				{
-					"name": "onError",
+					"name": "errorCallback",
 					"type": "function"
 				}
 			]
@@ -37,12 +38,12 @@
 			"parameters": 
 			[
 				{
-					"name": "onSuccess",
+					"name": "successCallback",
 					"type": "function"
 				},
 
 				{
-					"name": "onError",
+					"name": "errorCallback",
 					"type": "function"
 				}
 			]
@@ -58,12 +59,12 @@
 				},
 
 				{
-					"name": "onSuccess",
+					"name": "successCallback",
 					"type": "function"
 				},
 
 				{
-					"name": "onError",
+					"name": "errorCallback",
 					"type": "function"
 				}
 			]

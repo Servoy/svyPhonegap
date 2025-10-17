@@ -3,6 +3,7 @@
 	"displayName": "barcode",
 	"version": 1,
 	"definition": "svyphonegap/barcode/barcode.js",
+    "doc": "svyphonegap/barcode/barcode_doc.js",
 	"ng2Config": 
 	{
 		"packageName": "@servoy/svyphonegap",
@@ -30,7 +31,6 @@
 					"name": "onSuccessCallbackMethod",
 					"type": "function"
 				},
-
 				{
 					"name": "onErrorCallbackMethod",
 					"type": "function"
@@ -45,10 +45,7 @@
 
 		"isSupported": 
 		{
-			"parameters": 
-			[
-				
-			]
+            "returns": "boolean"
 		}
 	}
 }

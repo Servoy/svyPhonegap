@@ -3,6 +3,7 @@
 	"displayName": "browser",
 	"version": 1,
  	"definition": "svyphonegap/browser/browser.js",
+    "doc": "svyphonegap/browser/browser_doc.js",
  	"ng2Config": {
        "packageName": "@servoy/svyphonegap",
        "serviceName": "browserService",

@@ -3,6 +3,7 @@
 	"displayName": "phonegap",
 	"version": 1,
 	"definition": "svyphonegap/phonegap/phonegap.js",
+    "doc": "svyphonegap/phonegap/phonegap_doc.js",
 	"ng2Config": 
 	{
 		"packageName": "@servoy/svyphonegap",
@@ -68,18 +69,10 @@
 
 		"exit": 
 		{
-			"parameters": 
-			[
-				
-			]
 		},
 
 		"quitServoySolution": 
 		{
-			"parameters": 
-			[
-				
-			]
 		},
 
 		"executeScript": 
@@ -137,11 +130,6 @@
 
 		"getBuildInfo": 
 		{
-			"parameters": 
-			[
-				
-			],
-
 			"returns": "object"
 		},
 		

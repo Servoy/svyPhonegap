@@ -3,6 +3,7 @@
 	"displayName": "camera",
 	"version": 1,
 	"definition": "svyphonegap/camera/camera.js",
+    "doc": "svyphonegap/camera/camera_doc.js",
 	"ng2Config": 
 	{
 		"packageName": "@servoy/svyphonegap",
@@ -48,11 +49,6 @@
 
 		"isSupported": 
 		{
-			"parameters": 
-			[
-				
-			],
-
 			"returns": "boolean"
 		}
 	}

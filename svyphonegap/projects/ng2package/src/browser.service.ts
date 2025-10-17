@@ -28,7 +28,7 @@ export class browserService {
                 return window.open(url, '_system');
             }
         } catch (e) {
-            window.alert('Error opening Phone Dial ' + e.message);
+            window.alert('Error opening HrefTag ' + e.message);
         }
     }
 

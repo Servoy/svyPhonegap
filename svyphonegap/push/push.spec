@@ -3,6 +3,7 @@
 	"displayName": "push",
 	"version": 1,
 	"definition": "svyphonegap/push/push.js",
+    "doc": "svyphonegap/push/push_doc.js",
 	"ng2Config": 
 	{
 		"packageName": "@servoy/svyphonegap",
@@ -101,11 +102,6 @@
 
 		"isSupported": 
 		{
-			"parameters": 
-			[
-				
-			],
-
 			"returns": "boolean"
 		}
 	}

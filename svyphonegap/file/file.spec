@@ -3,6 +3,7 @@
 	"displayName": "file",
 	"version": 1,
 	"definition": "svyphonegap/file/file.js",
+    "doc": "svyphonegap/file/file_doc.js",
 	"ng2Config": 
 	{
 		"packageName": "@servoy/svyphonegap",
