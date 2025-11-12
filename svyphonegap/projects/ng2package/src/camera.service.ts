@@ -24,7 +24,10 @@ export class cameraService {
                 correctOrientation: true
             }
         }
-        navigator.camera.getPicture(function(res) {
+        navigator.camera.getPicture(function(res) {            
+            if (res.indexOf('base64,')!=-1) {
+                res = res.split('base64,')[1]
+            }
             this.helperCB(cb, res);
         }.bind(this), function(err) {
             this.helperCB(errcb, err);

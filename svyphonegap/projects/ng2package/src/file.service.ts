@@ -126,6 +126,8 @@ export class fileService {
      * @properties={typeid:24,uuid:"A3078652-DF4B-4591-B4BD-54F85C573A19"}
      */
     saveToGallery(data, galleryFolder, cb, err) {
+        var permissions = cordova.plugins.permissions; 
+            permissions.requestPermissions(['android.permission.READ_MEDIA_IMAGES'], function(d){}, function(d){});        
         if (!data || data == '') {
             this.helperCB(err, 'Image data is invalid');
             return;

@@ -8,7 +8,7 @@ export class camerapreviewService {
 
     private helperCB(cb, d) {
         if (cb) {            
-            cb('data:image/png;base64,'+d[0]);
+            cb(d[0]);
         }
     }
 
