@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ServoyPublicService } from '@servoy/public';
-declare let CameraPreview: any;
 declare let cordova: any;
 declare let device: any;
 declare let window: any;
@@ -126,8 +125,13 @@ export class fileService {
      * @properties={typeid:24,uuid:"A3078652-DF4B-4591-B4BD-54F85C573A19"}
      */
     saveToGallery(data, galleryFolder, cb, err) {
-        var permissions = cordova.plugins.permissions; 
-            permissions.requestPermissions(['android.permission.READ_MEDIA_IMAGES'], function(d){}, function(d){});        
+		try {
+        var permissions = cordova.plugins.permissions;
+            permissions.requestPermissions(['android.permission.READ_MEDIA_IMAGES'], function(d){}, function(d){});
+		}
+		catch (e) {
+			console.log(e);
+		}
         if (!data || data == '') {
             this.helperCB(err, 'Image data is invalid');
             return;
@@ -145,7 +149,6 @@ export class fileService {
         if (isAndroid) {
             dir = 'externalApplicationStorageDirectory'
         }
-
         this.writeToFile(fileName, dir, data, function(d) {
             cordova.plugins.imagesaver.saveImageToGallery(cordova.file[dir] + '/' + fileName, galleryFolder, function(dd) { this.helperCB(cb,dd); }.bind(this), function(ee) { this.helperCB(err, ee); }.bind(this))
         }.bind(this), function(e) {
