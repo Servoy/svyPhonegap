@@ -24,7 +24,9 @@ angular.module('svyphonegapCamerapreview', ['servoy']).factory("svyphonegapCamer
 						if (d.indexOf('base64,') != -1) {
 							d = d.split('base64,')[1];
 						}
+						var dt = d;
 						d = safeBase64Decode(d);
+						if (!d) d = dt;
 						$window.executeInlineScript(onSuccessCallbackMethod.formname, onSuccessCallbackMethod.script, [d]);
 					}
 				}
