@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ServoyPublicService } from '@servoy/public';
+import { safeBase64Decode } from './base64.utils';
 declare let cordova: any;
 declare let device: any;
 declare let Camera: any;
@@ -128,16 +129,8 @@ export class cameraService {
         if (cleaned.indexOf('base64,') != -1) {
             cleaned = cleaned.split('base64,')[1];
         }
-        cleaned = cleaned.replace(/[\r\n\t ]+/g, "")
-            .replace(/-/g, "+")
-            .replace(/_/g, "/");
 
-        const padNeeded = cleaned.length % 4;
-        if (padNeeded > 0) {
-            cleaned += "===".substring(padNeeded);
-        }
-
-        return cleaned;
+        return safeBase64Decode(cleaned);
     }
 
     public isSupported() {

@@ -34,7 +34,7 @@ function subscribeToTopic(topic, callbackMethod) {}
  * @param {String} topic
  * @param {Function} callback   
  */
-function unubscribeFromTopic(topic, callbackMethod) {}
+function unsubscribeFromTopic(topic, callbackMethod) {}
 
 /**
  * Define the behavior receiving a notification.

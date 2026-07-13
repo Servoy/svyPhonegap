@@ -66,7 +66,7 @@
 			"returns": "boolean"
 		},
 
-		"unubscribeFromTopic": 
+		"unsubscribeFromTopic": 
 		{
 			"parameters": 
 			[

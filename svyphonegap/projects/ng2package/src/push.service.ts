@@ -18,7 +18,7 @@ export class pushService {
      * @param {Function} callback
      */
     onTokenRefresh(callback) {
-        FCM.onTokenRefresh().then(function(data) {
+        FCM.onTokenRefresh(function(data) {
             this.helperCB(callback, [data]);
         }.bind(this));
     }
@@ -75,7 +75,7 @@ export class pushService {
      * @param {String} topic
      * @param {Function} callback   
      */
-    unubscribeFromTopic(topic, callback) {
+    unsubscribeFromTopic(topic, callback) {
         FCM.unsubscribeFromTopic(topic).then(function(data) {
             this.helperCB(callback, data);
         }.bind(this));

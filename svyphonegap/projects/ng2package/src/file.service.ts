@@ -29,10 +29,10 @@ export class fileService {
         var pathToFile = cordova.file[dir] + fileName;
         cordova.plugins.fileOpener2.open(pathToFile, fileType, {
             error: function(e) {
-                this.helperCB(cb, e);
+                this.helperCB(err, e);
             }.bind(this),
             success: function(e) {
-                this.helperCB(err, e);
+                this.helperCB(cb, e);
             }.bind(this),
         });
     }

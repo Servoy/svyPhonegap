@@ -68,7 +68,7 @@ angular.module('svyphonegapPush', ['servoy']).factory("svyphonegapPush", functio
 			 * @param {Function} callback			 			 
 			 *
 			 */
-			unubscribeFromTopic: function(topic, callback) {
+			unsubscribeFromTopic: function(topic, callback) {
 				FCM.unsubscribeFromTopic(topic).then(function(data) {
 						$window.executeInlineScript(callback.formname, callback.script, [data]);
 					});
