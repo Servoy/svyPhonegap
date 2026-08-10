@@ -21,6 +21,8 @@
 	        }]
         },
         "unlock": {},
+        "getScreenOrientation": {"returns": "string"},
+        "getScreenOrientationAngle": {"returns": "number"},
         "getOrientationTypes": {"returns": "object"},
         "setOrientationChangeCallback": {
         "parameters": 

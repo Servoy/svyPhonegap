@@ -42,6 +42,37 @@ export class phonegapOrientationService {
             window.alert('error unlocking orientation: ' + e.message);
         }
     }
+    /**
+     * Returns the current screen orientation as a string.
+     * The value is one of the constants returned by getOrientationTypes()
+     * ('portrait-primary', 'portrait-secondary', 'landscape-primary' or 'landscape-secondary').
+     */
+    getScreenOrientation() {
+        let orientation = 'portrait-primary';
+        try {
+            if (screen.orientation && screen.orientation.type) {
+                orientation = screen.orientation.type;
+            }
+        } catch (e) {
+            window.alert('error getting orientation: ' + e.message);
+        }
+        return orientation;
+    }
+    /**
+     * Returns the current screen orientation angle in degrees, clockwise from the
+     * natural orientation: 0, 90, 180 or -90.
+     */
+    getScreenOrientationAngle() {
+        let angle = 0;
+        try {
+            if (screen.orientation) {
+                angle = Number(screen.orientation.angle) || 0;
+            }
+        } catch (e) {
+            window.alert('error getting orientation: ' + e.message);
+        }
+        return angle;
+    }
     getOrientationTypes() {
         return {
             PORTRAIT_PRIMARY: "portrait-primary",
