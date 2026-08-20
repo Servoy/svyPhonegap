@@ -99,84 +99,173 @@ var isMobile = {
 };
 
 /**
- * @type {String}
- * FCM executable location
- * @properties={typeid:35,uuid:"1CABC21C-ACCA-46B5-9CDA-A3F645AE32C3"}
- */
-var tex = '';
-
-/**
- * Helper method to load the fcm binary for sending notifications
- * Must have the fcm binary installed under /media/lib/ for this method to work
- * @properties={typeid:24,uuid:"5B0ED24A-5F66-487B-9CE4-4E4342428116"}
- */
-function initFCMLib() {
-	var tmpdir = plugins.file.getFolderContents(Packages.java.lang.System.getProperty("java.io.tmpdir"));
-	for (var i = 0; i < tmpdir.length; i++) {
-		if (tmpdir[i].isFile() && tmpdir[i].getName().indexOf('fcm') != -1) {
-			if (plugins.file.getFileSize(tmpdir[i]) > 40000) {
-				tex = tmpdir[i];
-				return;
-			}
-		}
-	}
-	var tmpFile;
-//	application.output('OS: ' + Packages.java.lang.System.getProperty("os.name"));
-	if (Packages.java.lang.System.getProperty("os.name").indexOf('Windows') != -1) {
-		tmpFile = plugins.file.createTempFile('fcm', '.exe')
-		tmpFile.setBytes(solutionModel.getMedia('lib/fcm/fcm.exe').bytes)
-	} else {
-		tmpFile = plugins.file.createTempFile('fcm', '')
-		tmpFile.setBytes(solutionModel.getMedia('lib/fcm/fcm').bytes)
-	}
-	tex = tmpFile.getAbsolutePath();
-	
-
-//	application.output('temp file name: ' + tex, LOGGINGLEVEL.DEBUG);
-//	application.output('OS: ' + Packages.java.lang.System.getProperty("os.name"), LOGGINGLEVEL.DEBUG);
-	
-	if (Packages.java.lang.System.getProperty("os.name").indexOf('Windows') == -1)
-	{
-		//add execute permission for linux 	
-		application.executeProgram('chmod', ['777', tex]);
-//		application.output('Changing file permissions to 777',LOGGINGLEVEL.DEBUG);	
-	}
-	if (tex == '') {
-		application.output('No FCM binaries found. Cannot send notifications. Please add those to /media/lib/fcm directory first.')
-	}
-}
-
-/**
  * @param {String} topic
  * @param {String} title
  * @param {String} body
  * @param {String} channel
  * @return {Object}
- * Updated method for sending push notification messages via firebase API
- * Must have the fcm binary installed under /media/lib/ for this method to work
+ * Sends a push notification to a topic.
  * @properties={typeid:24,uuid:"9A92ACFD-5FBF-4AB9-88F7-B9D1704F7148"}
  */
 function sendFCMPushMessage(topic,title,body,channel) {
-	if (tex == '' || tex.length < 5 || plugins.file.getFileSize(tex) < 40000) {
-		initFCMLib();
-	}	
-	
-	//load services.json key if we have one stored under /media
+
+	if (topic === null || topic === undefined || title === null || title === undefined || body === null || body === undefined) {
+		application.output('FCM: topic, title and body are required')
+		return null;
+	}
+
+	// load services.json key stored under /media
 	var key_media = solutionModel.getMedia('lib/fcm/services.json')
-	if (key_media) {
-		var key_file = plugins.file.createTempFile('services', '.json')
-		key_file.setBytes(key_media.bytes);
-		var key = key_file.getAbsolutePath();
-		/** @type {{project_id:String}} */		
-		var key_obj = JSON.parse(plugins.file.readTXTFile(key_file));
-		var project_id = key_obj.project_id;		
-	} else {
+	if (!key_media) {
 		application.output('No services.json found. Cannot send notifications')
 		return null;
 	}
-	
-	var obj = application.executeProgram(tex, [key,project_id,topic,title,body,channel]);	
-	return obj;
+
+	var services;
+	try {
+		services = JSON.parse(new Packages.java.lang.String(key_media.bytes, 'UTF-8'));
+	} catch (e) {
+		application.output('FCM: invalid services.json : ' + (e.message || e.toString()))
+		return null;
+	}
+	var projectId = services.project_id;
+	if (!projectId || !services.client_email || !services.private_key) {
+		application.output('FCM: services.json needs project_id, client_email and private_key')
+		return null;
+	}
+
+	try {
+		// 1) get OAuth2 access token via signed JWT
+		var tokenResp = _fcmHttpPost(services.token_uri, _fcmTokenBody(services), 'application/x-www-form-urlencoded', null);
+		var tokenJson = tokenResp.body ? JSON.parse(tokenResp.body) : {};
+		if (!tokenJson.access_token) {
+			application.output('Unable to send message to "' + topic + '": token request failed (' + tokenResp.status + ') ' + tokenResp.body)
+			return null;
+		}
+
+		// 2) send message to Firebase v1 API
+		var message = _fcmBuildMessage(topic, title, body, channel);
+		var fcmResp = _fcmHttpPost(
+			'https://fcm.googleapis.com/v1/projects/' + encodeURIComponent(projectId) + '/messages:send',
+			JSON.stringify(message),
+			'application/json',
+			'Bearer ' + tokenJson.access_token
+		);
+
+		if (fcmResp.status >= 400) {
+			application.output('Unable to send message to "' + topic + '": HTTP ' + fcmResp.status + ' - ' + fcmResp.body)
+			return { status: fcmResp.status, body: fcmResp.body };
+		}
+
+		application.output('Message sent to "' + topic + '"');
+		return { status: fcmResp.status, body: fcmResp.body };
+	} catch (e) {
+		var detail = (e && e.message) ? e.message : (e ? e.toString() : 'unknown error');
+		application.output('Unable to send message to "' + topic + '": ' + detail)
+		if (e && e.stack) application.output('Stack: ' + e.stack)
+		return null;
+	}
+}
+
+/**
+ * Builds the OAuth2 JWT assertion for the service account.
+ */
+function _fcmTokenBody(services) {
+	var now = Math.floor(Packages.java.lang.System.currentTimeMillis() / 1000);
+	var claims = {
+		iss: services.client_email,
+		scope: 'https://www.googleapis.com/auth/firebase.messaging',
+		aud: services.token_uri,
+		iat: now
+	};
+
+	// PKCS#8 base64 (PEM body) private key + derived matching public key (SPKI base64)
+	var privateKeyB64 = _fcmPemB64(String(services.private_key));
+	var publicKeyB64 = _fcmDerivePublicKeyB64(privateKeyB64);
+
+	var token = plugins.jwt.builder()
+		.payload(claims)
+		.withExpires(new Packages.java.util.Date((now + 3600) * 1000))
+		.sign(plugins.jwt.RSA256(publicKeyB64, privateKeyB64));
+
+	return 'grant_type=' + encodeURIComponent('urn:ietf:params:oauth:grant-type:jwt-bearer') + '&assertion=' + encodeURIComponent(token);
+}
+
+/**
+ * Derives the matching public key from the private key.
+ */
+function _fcmDerivePublicKeyB64(privateKeyB64) {
+	var der = Packages.java.util.Base64.getDecoder().decode(privateKeyB64);
+	var kf = Packages.java.security.KeyFactory.getInstance('RSA');
+	var priv = kf.generatePrivate(new Packages.java.security.spec.PKCS8EncodedKeySpec(der));
+	if (priv instanceof Packages.java.security.interfaces.RSAPrivateCrtKey) {
+		var pub = kf.generatePublic(new Packages.java.security.spec.RSAPublicKeySpec(priv.getModulus(), priv.getPublicExponent()));
+		return Packages.java.util.Base64.getEncoder().encodeToString(pub.getEncoded());
+	}
+	throw new java.lang.IllegalArgumentException('services.json private_key is not an RSA private key');
+}
+
+/**
+ * Extracts the base64 body from a PEM private key.
+ */
+function _fcmPemB64(pem) {
+	var out = '';
+	var lines = String(pem).split('\n');
+	for (var i = 0; i < lines.length; i++) {
+		var l = lines[i].replace('\r', '').trim();
+		if (l !== '' && l.indexOf('---') !== 0) out += l;
+	}
+	return out;
+}
+
+/**
+ * Builds the push notification message payload.
+ */
+function _fcmBuildMessage(topic, title, body, channel) {
+	var message = {
+		topic: topic,
+		// FCM v1 top-level notification only allows title/body/image
+		notification: {
+			title: title,
+			body: body
+		},
+		android: {
+			notification: {
+				title: title,
+				body: body,
+				icon: 'fcm_push_icon',
+				sound: 'default',
+				click_action: 'FCM_PLUGIN_ACTIVITY'
+			}
+		},
+		apns: {
+			headers: { 'apns-priority': '10' },
+			payload: {
+				aps: {
+					alert: { title: title, body: body },
+					badge: 1,
+					sound: 'default'
+				}
+			}
+		}
+	};
+	if (channel) {
+		message.android.notification.channel_id = channel;
+	}
+	return { message: message };
+}
+
+function _fcmHttpPost(url, body, contentType, authHeader) {
+	var client = plugins.http.createNewHttpClient();
+	client.setTimeout(20000);
+	var request = client.createPostRequest(url);
+	request.setCharset('UTF-8');
+	if (contentType) request.setBodyContent(body, contentType);
+	if (authHeader) request.addHeader('Authorization', authHeader);
+	var response = request.executeRequest();
+	var result = { status: response.getStatusCode(), body: response.getResponseBody() };
+	client.close();
+	return result;
 }
 
 /**
