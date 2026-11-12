@@ -296,6 +296,13 @@
                     if (callback) {
                         if (isSuccess && status === cordova.callbackStatus.OK) {
                             callback.success && callback.success.apply(null, args);
+                        } else if (!isSuccess && status === cordova.callbackStatus.CLASS_NOT_FOUND_EXCEPTION) {
+                            // Native plugin is not built into this APK. Swallow it instead of invoking the
+                            // plugin's error handler: the Servoy NG client records every console.error as a
+                            // client error. Inspect cordova.missingPlugins in devtools to see what is absent.
+                            var missingService = String(callbackId).replace(/\d+$/, '');
+                            cordova.missingPlugins = cordova.missingPlugins || {};
+                            cordova.missingPlugins[missingService] = (cordova.missingPlugins[missingService] || 0) + 1;
                         } else if (!isSuccess) {
                             callback.fail && callback.fail.apply(null, args);
                         }
